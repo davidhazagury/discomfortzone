@@ -1,0 +1,45 @@
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-category {
+  text-decoration: none;
+}
+//.card-container:hover{
+  //color: #B9A44C;
+  // NEED TO FIND A BETTER EFFECT THAN THIS UGLY YELLOW I PUT - LOU
+  // TO DESIDE WITH THE BOYS...
+  // $vegas-gold: #B9A44C;
+  // $neon-orange: #FA7921;
+  // $lighter-orange: #FE9920;
+//}
+
+
+.cards-container {
+display: grid;
+grid-template-columns: 1fr;
+grid-gap: 16px;
+padding: 2px;
+flex-grow: 1;
+border: 1px solid blue;
+}
+
+.cards-container a {
+  margin-bottom:0px;
+  padding-bottom: 0px;
+}
+
+.cards-picture:hover {
+  text-decoration: none;
+}

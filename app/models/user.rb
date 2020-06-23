@@ -1,12 +1,10 @@
 class User < ApplicationRecord
-
+  validates :first_name, presence: :true
+  validates :last_name, presence: :true
   # 1-N Relationship: a user has many bucket list items (called goals for simplicity)
-
+  has_one_attached :photo
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-
-  has_one_attached :photo
-
 
   has_many :goals
 

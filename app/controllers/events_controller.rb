@@ -13,12 +13,38 @@ class EventsController < ApplicationController
       infoWindow: render_to_string(partial: "info_window", locals: { event: @event })
     }]
   end
+
+  def new
+    @event = Event.new
+    authorize @event
+  end
+
+  def create
+
+    @event = Event.new(event_params)
+    authorize @event
+    @event.user_id = current_user.id
+    if @event.save
+      raise
+      redirect_to events_path
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    authorize @event
+    redirect_to events_path
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:title, :description, :start_time, :address, :photo, :end_time, :capacity)
+  end
 end
-
-
-
-
-
 
 # ------IF WE WANT A MAP IN THE INDEX---------
 # @events_geocoded = Event.geocoded

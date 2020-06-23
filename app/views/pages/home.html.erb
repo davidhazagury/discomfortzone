@@ -1,28 +1,30 @@
 <!--<h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>-->
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/random);">
+<div class="banner" style="background-image: url(<%= cl_image_path 'disjq7ci8hjkpc4odri1' %>);">
   <div class="container">
-    <h1> THE DISCOMFORT ZONE </h1>
-    <h3> Where people say YES to adventures </h3>
+    <div class="position">
+      <h1 class="text-center"> THE DISCOMFORT ZONE </h1>
+      <h3> Where people say YES to adventures </h3>
+    </div>
   </div>
 </div>
 
 <br>
 <br>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/random);">
-  <div class="container">
-    <a class="btn btn-gradient" href="#"> FIND YOUR NEXT ADVENTURE </a>
+<div class="banner-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path 'a61syh4mku08aquxrbi9' %>);">
+  <div class="flex-box-card">
+    <a class="btn btn-gradient" href="/events"> FIND YOUR NEXT ADVENTURE </a>
   </div>
 </div>
 
 <br>
 <br>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/random);">
+<div class="banner-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path 'zlgusakfycm1iirsp6ks' %>);">
   <div class="container">
-    <a class="btn btn-gradient" href="#"> CREATE AN EVENT </a>
+    <a class="btn btn-gradient" href="/events/new"> CREATE AN EVENT </a>
   </div>
 </div>
 
@@ -30,7 +32,7 @@
 <br>
 
 <div class="container">
-  <h1> Meet fellow Discomfort-Zoners </h1>
+  <h1> Meet Discomfort-Zoners : </h1>
 </div>
 
 <div class="container">
@@ -45,15 +47,21 @@
 </div>
 
 <br>
-<br>
 
 <div class="container">
-  <h1> GET INSPIRED </h1>
+  <div class="box-flex">
+    <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+  </div>
 </div>
 
 <br>
 <br>
-<div class="box">
-      <p> THE DISCOMFORT ZONE </p>
-    </div>
+
+<div class="container">
+  <h1 class="text-center"> GET INSPIRED : </h1>
+</div>
+
+<br>
+<br>
+
 
