@@ -1,0 +1,31 @@
+<h1>Customize your Adventure</h1>
+
+<h2>Your Results: </h2>
+<div class="cards-container">
+  <div class="cards-picture">
+    <% @events.each do |event| %>
+    <%= link_to event_path(event) do  %>
+        <% if event.photo.attached? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
+            <%= event.start_time %>
+          </div>
+        <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?map)">
+            <%= event.start_time %>
+            <%= event.title %>
+          </div>
+        <% end %>
+    </div>
+        <div class="cards-description">
+          <div class="cards-text">
+            <h3> Event: <%= event.title %> </h3>
+            <h4> Location: <%= event.address %></h4>
+            <h4> Creator: <%= event.user %> (<%= event.capacity - events.booking.users %> spots left)</h4>
+          </div>
+          <div class="favicon">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
