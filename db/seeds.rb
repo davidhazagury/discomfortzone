@@ -17,4 +17,6 @@ user2 = User.create(email: "elon@gmail.com", password: "1234567", first_name: "A
 
 event1 = Event.create(title: "skydiving", description: "fun", address: "hongkong", capacity: 5, user_id: user1.id)
 
+event2 = Event.create(title: "bungee", description: "fun", address: "hongkong", capacity: 5, user_id: user2.id)
+
 event_user1 = EventUser.create(motivation: "fun", status: 1, user_id: user2.id, event_id: event1.id)
