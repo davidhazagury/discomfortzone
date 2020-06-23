@@ -1,0 +1,24 @@
+.mobile-navbar{
+  display: flex;
+  justify-content: space-around;
+  // padding: 25px 0;
+  height: $mobile-navbar-height;
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  background: yellow;
+  .navbar-link {
+
+    i {
+      font-size: 25px;
+    }
+  }
+}
+
+
+@media all and (min-width: 600px) {
+  .mobile-navbar {
+
+    display: none;
+  }
+}
