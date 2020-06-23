@@ -25,6 +25,9 @@ gem 'redis', '~> 4.0'
 # GEM FOR GEOCODING AND MAPSs
 gem 'geocoder'
 
+# PUNDIT GEM
+gem 'pundit'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
