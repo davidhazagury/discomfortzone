@@ -7,7 +7,6 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     authorize @event # FOR PUNDIT
-
     @markers = [{ # Creates an array with one marker, easiest way to do it
       lat: @event.latitude,
       lng: @event.longitude,
