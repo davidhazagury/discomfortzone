@@ -1,16 +1,15 @@
-.cards-description {
+
+
+h1, h2 {
+  margin-left: 15px;
+}
+
+.buttons {
+  margin-left: 15px;
   display: flex;
-
+  .btn {
+   border-radius: 40px;
+   margin: 5px;
+ }
 }
 
-.cards-text {
-  text-decoration: none;
-  position: relative;
-  color: black;
-
-}
-
-.favicon {
-  position: absolute;
-  right: 5px;
-}
