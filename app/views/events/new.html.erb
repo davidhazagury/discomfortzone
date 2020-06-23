@@ -1,0 +1,8 @@
+<%= simple_form_for @event do |f| %>
+  <%= f.input :title, label: 'Add a title', error: 'Title is mandatory, please specify one' %>
+  <%= f.input :description, label: 'Add a description' %>
+  <%= f.input :address, label:'Add the address' %>
+  <%= f.input :capacity, label:'For how many people?'%>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit %>
+<% end %>
