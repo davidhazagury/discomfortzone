@@ -21,4 +21,6 @@ event1.user = user1
 
 event1.save!
 
+event2 = Event.create(title: "bungee", description: "fun", address: "hongkong", capacity: 5, user_id: user2.id)
+
 event_user1 = EventUser.create(motivation: "fun", status: 1, user_id: user2.id, event_id: event1.id)
