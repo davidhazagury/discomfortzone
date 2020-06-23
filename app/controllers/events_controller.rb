@@ -13,6 +13,26 @@ class EventsController < ApplicationController
       infoWindow: render_to_string(partial: "info_window", locals: { event: @event })
     }]
   end
+
+  def new
+    @event = Event.new
+    authorize @event
+  end
+
+  def create
+    @event = Event.new(event_params)
+    authorize @event
+    @event.user_id = current_user.id
+    if @event.save
+      redirect_to events_path
+    else
+      render :new
+    end
+  end
+
+  def event_params
+    params.require(:event).permit(:title, :description, :start_time, :address, :photo, :end_time, :capacity)
+  end
 end
 
 
