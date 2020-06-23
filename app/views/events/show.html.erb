@@ -1,3 +1,7 @@
+<h1>Show page for events</h1>
+<h2>Event title: <%= @event.title %></h2>
+<p><%= @event.description %></p>
+<p>Hosted by: <%=  @event.user.first_name %> </p>
 <div class="container">
   <p>Here's the map below. let's keep it at the bottom until we decide where to put it!</p>
   <div id="map"
