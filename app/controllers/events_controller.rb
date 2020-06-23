@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   def index
-
     # @events = Event.all # ---BEFORE PUNDIT---
     @events = policy_scope(Event) # FOR PUNDIT. Optional: .order(created_at: :desc)
   end
@@ -31,15 +30,19 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    authorize @event
+    redirect_to events_path
+  end
+
+  private
+
   def event_params
     params.require(:event).permit(:title, :description, :start_time, :address, :photo, :end_time, :capacity)
   end
 end
-
-
-
-
-
 
 # ------IF WE WANT A MAP IN THE INDEX---------
 # @events_geocoded = Event.geocoded
