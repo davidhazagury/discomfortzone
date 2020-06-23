@@ -1,5 +1,13 @@
 class User < ApplicationRecord
+
   # 1-N Relationship: a user has many bucket list items (called goals for simplicity)
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  has_one_attached :photo
+
+
   has_many :goals
 
   # 1-N Relationship: a host has many events
@@ -21,8 +29,12 @@ class User < ApplicationRecord
   has_many :event_users
   has_many :events, through: :event_users
 
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
