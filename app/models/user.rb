@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  #validates :first_name, presence: true
-  #validates :last_name, presence: true
+
   # 1-N Relationship: a user has many bucket list items (called goals for simplicity)
 
   # Include default devise modules. Others available are:

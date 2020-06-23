@@ -10,3 +10,4 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
+<%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
