@@ -20,8 +20,7 @@
           <div class="cards-text">
             <h3> Event: <%= event.title %> </h3>
             <h4> Location: <%= event.address %></h4>
-            raise
-            <h4> Creator: <%= event.user %> (<%#= event.capacity - event.booking.users %> spots left)</h4>
+            <h4> Creator: <%= event.user.first_name %> (<%= event.spots_left %> spots left)</h4>
           </div>
           <div class="favicon">
             <i class="fa fa-heart" aria-hidden="true"></i>

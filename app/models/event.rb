@@ -24,4 +24,8 @@ class Event < ApplicationRecord
 
   # Cloudinary image
   has_one_attached :photo
+
+  def spots_left
+    capacity - event_users.accepted.count
+  end
 end

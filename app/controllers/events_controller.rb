@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   def index
-    raise
 
     # @events = Event.all # ---BEFORE PUNDIT---
     @events = policy_scope(Event) # FOR PUNDIT. Optional: .order(created_at: :desc)
