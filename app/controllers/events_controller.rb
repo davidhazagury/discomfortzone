@@ -1,21 +1,12 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
-    # -----------------------------------------------------------
-    # Ignore the code below, this is only in case we need a map on the index page:)
-    @events_geocoded = Event.geocoded # <= returns all the events that have been saved with an address
-    @markers = @flats.map do |event| # <= creates an array of all the markers from ^
-      {
-        lat: event.latitude,
-        lng: event.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { event: event })
-      }
-    end
-    # -----------------------------------------------------------
+    # @events = Event.all # ---BEFORE PUNDIT---
+    @events = policy_scope(Event) # FOR PUNDIT. Optional: .order(created_at: :desc)
   end
 
   def show
     @event = Event.find(params[:id])
+    authorize @event # FOR PUNDIT
 
     @markers = [{ # Creates an array with one marker, easiest way to do it
       lat: @event.latitude,
@@ -24,3 +15,19 @@ class EventsController < ApplicationController
     }]
   end
 end
+
+
+
+
+
+
+# ------IF WE WANT A MAP IN THE INDEX---------
+# @events_geocoded = Event.geocoded
+# @markers = @events_geocoded.map do |event|
+#   {
+#     lat: event.latitude,
+#     lng: event.longitude,
+#     infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+#   }
+# end
+# ---------------------------------------------
