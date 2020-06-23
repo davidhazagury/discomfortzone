@@ -1,8 +1,9 @@
 .banner {
   background-size: cover;
   background-position: center;
+  box-shadow: 2px 5px 12px 3px rgba(254, 181, 102, 0.3);
   width: 100%;
-  height: 40vh;
+  height: 45vh;
   h1 {
   margin: 0;
   color: white;
@@ -13,7 +14,41 @@
   h3 {
   font-size: 26px;
   color: white;
-  opacity: 0.7;
+  opacity: 0.8;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+}
+
+.banner-card {
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px 0 rgba(51, 51, 51, .2);
+  margin: 0 auto;
+  width: 90%;
+  height: 35vh;
+  transition: transform .2s;
+  overflow: hidden;
+  &:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 10px 0 rgba(51, 51, 51, .6);
+  }
+}
+
+.banner-card-sm {
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px 0 rgba(51, 51, 51, .2);
+  margin: 0 auto;
+  width: 80%;
+  height: 30vh;
+  transition: transform .2s;
+  overflow: hidden;
+  &:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 10px 0 rgba(51, 51, 51, .6);
   }
 }
