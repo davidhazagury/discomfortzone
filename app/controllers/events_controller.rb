@@ -20,12 +20,10 @@ class EventsController < ApplicationController
   end
 
   def create
-
     @event = Event.new(event_params)
     authorize @event
     @event.user_id = current_user.id
     if @event.save
-      raise
       redirect_to events_path
     else
       render :new

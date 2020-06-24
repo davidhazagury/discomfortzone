@@ -24,7 +24,9 @@
 <br>
 
 <!--THIS IS AN PERSONALIZE AVATAR-->
+<% if @current_user.photo.attached? %>
 <div style="width: 50px; border-radius: 50%;"><%= cl_image_tag @current_user.photo.key %></div>
+<% end %>
 <h2>Your Results: </h2>
 <div class="cards-container">
     <% @events.each do |event| %>
