@@ -26,12 +26,12 @@
 
 .btn-light-blue {
   color: white;
-  padding: 8px 24px;
+  padding: 8px 20px;
   border-radius: 4px;
   font-weight: bold;
   background-color: #3FC1C9;
   transition: background 0.3s ease;
-  border: 1px solid #0F60C4;
+  border: 0.5px solid $main-blue;
   &:hover {
   background-color: #3FC1C9;
   color: white;

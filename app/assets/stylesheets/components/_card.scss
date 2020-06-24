@@ -7,8 +7,8 @@ flex-grow: 1;
 
 .cards {  // The whole card, picture + description
   margin: 20px;
-  border: 1px solid black;
   border-radius: 5px;
+  position: relative;
 
   .card-category { // Upper part of the card -> Background picture + Event name
     background-size: cover;
@@ -21,8 +21,8 @@ flex-grow: 1;
     font-size: 24px;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 25px;
+    box-shadow: 2 2 12px rgba(0,0,0,1);
   }
 
   .cards-description { // Lower part of the card -> description on the left + favicon on the right
@@ -31,7 +31,7 @@ flex-grow: 1;
     position: relative;
 
     .cards-text { // Description on the left
-      text-decoration: none;
+      text-decoration: none,!important ;
       color: black;
     }
 
