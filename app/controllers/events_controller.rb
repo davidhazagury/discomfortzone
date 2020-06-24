@@ -1,11 +1,13 @@
 class EventsController < ApplicationController
   def index
     # @events = Event.all # ---BEFORE PUNDIT---
-    @events = policy_scope(Event) # FOR PUNDIT. Optional: .order(created_at: :desc)
+    @events = policy_scope(Event)
+     # FOR PUNDIT. Optional: .order(created_at: :desc)
   end
 
   def show
     @event = Event.find(params[:id])
+    @event_user = EventUser.new
     authorize @event # FOR PUNDIT
     @markers = [{ # Creates an array with one marker, easiest way to do it
       lat: @event.latitude,

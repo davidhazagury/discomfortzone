@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   resources :events, only: [:index]
   get "/crashed", to: 'pages#crashed'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :events
+  resources :events do
+    resources :event_users, only: [:create]
+  end
+  resources :event_users, only: [:index, :update]
 end

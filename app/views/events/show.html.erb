@@ -1,6 +1,8 @@
 <div class="container-box">
   <div class="image-box">
+    <% if @event.photo.attached? %>
     <%= cl_image_tag @event.photo.key %>
+    <% end %>
   </div>
   <div class="description-box">
     <div class="avatar">
@@ -26,3 +28,7 @@
 
 <%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
 <%= link_to "Delete the event", event_path(@event),  method: :delete  %>
+
+  <%# if current_user != @event.user %>
+     <%= render "event_users/new" %>
+  <%# end %>
