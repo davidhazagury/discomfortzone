@@ -1,4 +1,4 @@
-.mobile-navbar{
+.mobile-navbar-bottom{
   display: flex;
   justify-content: space-around;
   // padding: 25px 0;
@@ -17,8 +17,8 @@
 }
 
 
-@media all and (min-width: 600px) {
-  .mobile-navbar {
+@media all and (min-width: $navbar-break-point) {
+  .mobile-navbar-bottom {
 
     display: none;
   }

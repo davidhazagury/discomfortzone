@@ -1,30 +1,42 @@
-<div class="container-box">
-  <div class="image-box">
-    <% if @event.photo.attached? %>
-    <%= cl_image_tag @event.photo.key %>
-    <% end %>
-  </div>
+
+<div class="container-event-box">
+    <%= cl_image_tag @event.photo.key, class:"event-banner"%>
+
   <div class="description-box">
-    <div class="avatar">
-    <% if @current_user.photo.attached? %>
-    <%= @event.user.photo.key %>
+    <% if @event.user.photo.attached? %>
+    <img src="@event.user.photo.key" alt="" class="avatar-owner">
     <% else %>
-    <img src="https://image.flaticon.com/icons/png/512/64/64572.png" alt="profile-pic">
+    <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "profile pic", class: "avatar-owner" %>
     <% end %>
-  </div>
     <div class="description">
-      <h2>Event title: <%= @event.title %></h2>
-      <p><%= @event.description %></p>
-      <p>Hosted by: <%=  @event.user.first_name %> </p>
+      <h2><%= @event.title %></h2>
+      <div class="icons-event-box">
+        <i class="fas fa-map-marker-alt">
+          <%= @event.address %>
+        </i>
+        <i class="far fa-calendar-alt">
+          <%= @event.start_time %>
+        </i>
+        <i class="fas fa-users">
+          <%= @event.capacity %>
+        </i>
+      </div>
+      <div class="avatars-event-box">
+        <!-- THIS WILL NEED TO BE FETCH WITH THE PARTICIPANTS PROFILE PICTURES-->
+        <%= image_tag "https://www.biography.com/.image/t_share/MTY2MzU3Nzk2OTM2MjMwNTkx/elon_musk_royal_society.jpg", alt: "alttext", class:"participants-avatar" %>
+        <%= image_tag "https://www.biography.com/.image/t_share/MTY2NzA3ODE3OTgwMzcyMjYw/jeff-bezos-andrew-harrer_bloomberg-via-getty-images.jpg", alt: "alttext", class:"participants-avatar" %>
+        <%= image_tag "https://vignette.wikia.nocookie.net/simpsons/images/b/bd/Homer_Simpson.png/revision/latest/top-crop/width/360/height/360?cb=20140126234206", alt: "alttext", class:"participants-avatar" %>
     </div>
-    <!--<div id="map"
-      style="width: 100%; height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>-->
+    <p><%= @event.description %></p>
+      <!--<div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>-->
   </div>
 </div>
 
+ 
 
 <%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
 <%= link_to "Delete the event", event_path(@event),  method: :delete  %>

@@ -1,7 +1,10 @@
 .navbar-lewagon {
+  width: 100%;
   justify-content: space-between;
   background: white;
   border-bottom: 1px solid rgb(211,211,211);
+  position: fixed;
+  top: 0px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,4 +13,12 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+
+@media all and (max-width: $navbar-break-point) {
+  .navbar-lewagon {
+
+    display: none;
+  }
 }
