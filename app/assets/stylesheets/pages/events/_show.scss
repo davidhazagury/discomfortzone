@@ -1,26 +1,21 @@
-.container-box {
-  width: 100vw;
-}
-.image-box {
-  position: sticky;
-  top:0;
-  z-index: -1;
-}
-  img {
-
+ .container-event-box img {
+    top: $mobile-top-navbar-height;
+    position: fixed;
     width:100%;
-
+    z-index: -1;
   }
   .description-box {
     background-color: white;
-    border: 2px solid green;
     border-radius: 10px 10px 0px 0px;
-    position: relative;
-  }
- .avatar {
-      position:absolute;
-      border:3px solid yellow;
-    }
-  .description {
-    color:red;
+    margin-top: calc(30vh + 67px);
+    position:relative;
+    .avatar {
+      width: 40px;
+      border-radius: 50%;
+      position: absolute;
+      top: -22px;
+      z-index: 0;
+      right: 34px;
+}
+
   }
