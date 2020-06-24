@@ -1,7 +1,6 @@
 // Import your components CSS files here.
 @import "alert";
 @import "avatar";
-@import "navbar";
 @import "map";
 @import "search-box";
 @import "footer";
@@ -9,7 +8,9 @@
 @import "banner";
 
 @import "container";
-@import "mobile_navbar";
+@import "mobile_navbar_bottom";
+@import "navbar_desktop";
+@import "mobile_navbar_top";
 
 @import "card";
 
