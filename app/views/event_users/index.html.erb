@@ -2,23 +2,23 @@
 
 
 
-<% @event_users.each do |application|  %>
+<% @applications.each do |application|  %>
   <p>Applicant: <%= application.user.first_name %></p>
   <p>ID: <%= application.user.id %></p>
    url('<%#= cl_image_path application.user.photo.key %>')
-        <% if application.status == "applied" %>
+        <% if application.applied? %>
            <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Pending
              </button>
             <div class="dropdown-menu"  data-controller ="menu" aria-labelledby="dropdownMenuButton">
-              <%= link_to "Accept", event_users_path(application, query:"accepted"), method: :patch,  class:"dropdown-item", remote: true%>
-              <%= link_to "Reject", event_users_path(application, query: "rejected"), method: :patch, class:"dropdown-item", remote: true%>
-              <%= link_to "Pending", event_users_path(application, query: "pending"), method: :patch, class:"dropdown-item", remote: true%>
+              <%= link_to "Accept", event_user_path(application, query:"accepted"), method: :patch,  class:"dropdown-item"%>
+              <%= link_to "Reject", event_user_path(application, query: "rejected"), method: :patch, class:"dropdown-item"%>
+              <%= link_to "Pending", event_user_path(application, query: "pending"), method: :patch, class:"dropdown-item"%>
 
             </div>
           </div>
-        <% elsif application.status == "accepted" %>
+        <% elsif application.accepted? %>
           <p>Accept</p>
         <% else %>
           <p>Reject</p>
