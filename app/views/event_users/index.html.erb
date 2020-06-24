@@ -1,0 +1,27 @@
+<h3> Hello, <%= current_user.first_name %> Here are the people that want to join you</h3>
+
+
+
+<% @event_users.each do |application|  %>
+  <p>Applicant: <%= application.user.first_name %></p>
+  <p>ID: <%= application.user.id %></p>
+   url('<%#= cl_image_path application.user.photo.key %>')
+        <% if application.status == "applied" %>
+           <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Pending
+             </button>
+            <div class="dropdown-menu"  data-controller ="menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to "Accept", event_users_path(application, query:"accepted"), method: :patch,  class:"dropdown-item", remote: true%>
+              <%= link_to "Reject", event_users_path(application, query: "rejected"), method: :patch, class:"dropdown-item", remote: true%>
+              <%= link_to "Pending", event_users_path(application, query: "pending"), method: :patch, class:"dropdown-item", remote: true%>
+
+            </div>
+          </div>
+        <% elsif application.status == "accepted" %>
+          <p>Accept</p>
+        <% else %>
+          <p>Reject</p>
+        <% end %>
+
+  <% end %>

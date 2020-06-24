@@ -1,5 +1,7 @@
+
 <div class="container-event-box">
     <%= cl_image_tag @event.photo.key, class:"event-banner"%>
+
   <div class="description-box">
     <% if @event.user.photo.attached? %>
     <img src="@event.user.photo.key" alt="" class="avatar-owner">
@@ -33,3 +35,12 @@
       </div>-->
   </div>
 </div>
+
+ 
+
+<%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
+<%= link_to "Delete the event", event_path(@event),  method: :delete  %>
+
+  <%# if current_user != @event.user %>
+     <%= render "event_users/new" %>
+  <%# end %>

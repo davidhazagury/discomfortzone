@@ -1,8 +1,7 @@
 class EventsController < ApplicationController
   def index
     # @events = Event.all # ---BEFORE PUNDIT---
-    # @events = policy_scope(Event) # FOR PUNDIT. Optional: .order(created_at: :desc)
-
+    # @events = policy_scope(Event) # FOR PUNDIT BUT BEFORE SEARCH FEATURE. Optional: .order(created_at: :desc)
     if params[:query].present?
       sql_query = "title ILIKE :query OR description ILIKE :query"
       @events = policy_scope(Event).where(sql_query, query: "%#{params[:query]}%")
@@ -13,6 +12,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @event_user = EventUser.new
     authorize @event # FOR PUNDIT
     @markers = [{ # Creates an array with one marker, easiest way to do it
       lat: @event.latitude,
