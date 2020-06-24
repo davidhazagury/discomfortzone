@@ -4,11 +4,11 @@ class Event < ApplicationRecord
 
   # N-N Relationship between Event and User, connected by join table >messages<
   has_many :messages
-  has_many :users, through: :messages
+  # has_many :users, through: :messages
 
   # N-N Relationship between Event and User, connected by join table >favourites<
   has_many :favourites
-  has_many :users, through: :favourites
+  # has_many :users, through: :favourites
 
   # N-N Relationship between Event and User, connected by join table >event_users<
   has_many :event_users
@@ -16,7 +16,7 @@ class Event < ApplicationRecord
 
   # N-N Relationship between Event and User, connected by join table >reviews<
   has_many :reviews
-  has_many :users, through: :reviews
+  # has_many :users, through: :reviews
 
   # Necessary for Maps and Geocoding
   geocoded_by :address
