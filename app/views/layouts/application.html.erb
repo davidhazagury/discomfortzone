@@ -12,11 +12,12 @@
   </head>
 
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/desktop_navbar' %>
+    <%= render 'shared/mobile_navbar_top' %>
     <div class="container container-custom">
       <%= yield %>
     </div>
-    <%= render 'shared/mobile_navbar' %>
+    <%= render 'shared/mobile_navbar_bottom' %>
     <%= render 'shared/flashes' %>
   </body>
 </html>
