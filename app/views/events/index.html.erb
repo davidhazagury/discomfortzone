@@ -1,15 +1,16 @@
 
 <h1>Customize your Adventure</h1>
 <br>
-<div class="buttons">
+<!-- <div class="buttons">
   <div class="btn btn-success btn-block">Easy-Going</div>
   <div class="btn btn-primary btn-block">Enterntaining</div>
   <div class="btn btn-danger btn-block">Crazy</div>
   <div class="btn btn-secondary btn-block">Sporty</div>
-</div>
+</div> -->
 <br>
 <br>
 
+<!-- The searchbar that was there before -->
 <div class="container">
   <%= simple_form_for :search, url: events_path, method: :get do |f| %>
     <div class="search-form-control form-group">
@@ -20,6 +21,17 @@
     </div>
   <% end %>
 </div>
+<br>
+
+<!-- Harry Potter Search Feature -->
+<%= form_tag events_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find an adventure"
+  %>
+  <%= submit_tag "Search", class: "btn btn-flat" %>
+<% end %>
 
 <br>
 
