@@ -1,7 +1,14 @@
 class EventsController < ApplicationController
   def index
     # @events = Event.all # ---BEFORE PUNDIT---
-    @events = policy_scope(Event) # FOR PUNDIT. Optional: .order(created_at: :desc)
+    # @events = policy_scope(Event) # FOR PUNDIT. Optional: .order(created_at: :desc)
+
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR description ILIKE :query"
+      @events = policy_scope(Event).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @events = policy_scope(Event)
+    end
   end
 
   def show
