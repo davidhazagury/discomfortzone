@@ -7,13 +7,35 @@ flex-grow: 1;
 
 .cards {  // The whole card, picture + description
   margin: 20px;
-  border-radius: 5px;
+  padding: 10px, 5px;
   position: relative;
+  // Making this a 100%, so that the Event Title and Avatar are properly spaced-out
+  .card-headder {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // TO GET RID OF THE UNDERLINE WHEN HOVERING
+  a:hover {
+    text-decoration: none;
+  }
+
+  #font-weak {
+    font-size: 18px;
+    font-weight: lighter;
+    opacity: 0.8;
+  }
+  .fonts {
+    font-size: 22px;
+    font-weight: normal;
+    opacity: 0.9;
+  }
 
   .card-category { // Upper part of the card -> Background picture + Event name
     background-size: cover;
     background-position: center;
-    height: 180px;
+    height: 240px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,23 +43,39 @@ flex-grow: 1;
     font-size: 24px;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    border-radius: 25px;
-    box-shadow: 2 2 12px rgba(0,0,0,1);
+    border-radius: 25px 25px 0px 0px;
+    box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
   }
 
   .cards-description { // Lower part of the card -> description on the left + favicon on the right
     display: flex;
-    padding: 5px;
     position: relative;
+    padding: 30px;
+    border-radius: 30px;
+    margin-top: -30px;
+    background-color: white;
+    box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
 
     .cards-text { // Description on the left
-      text-decoration: none,!important ;
       color: black;
+      width: 100%;
+
+      .event-title {
+       font-family: $headers-font;
+       font-size: 34px;
+       font: bold;
+      }
     }
 
     .favicon { // Favicon on the rightr
       position: absolute;
-      right: 10px;
+      right: 38px;
+      bottom: 38px;
+      color: $red-pink;
+      opacity: 0.1;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }

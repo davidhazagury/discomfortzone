@@ -1,16 +1,21 @@
 class EventUserPolicy < ApplicationPolicy
-  def create?
-    user.present?
-  end
-
   class Scope < Scope
     def resolve
       scope.all
     end
-
-    def update?
-      user.present?
-    end
   end
 
+  def create?
+    user.present? && !user_is_owner?
+  end
+
+  def update?
+    user.present? && user_is_owner?
+  end
+
+  private
+
+  def user_is_owner?
+    record.event.user == user
+  end
 end
