@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
-
 puts "1 - Cleaning the database...."
 EventUser.destroy_all
 Event.destroy_all
@@ -18,9 +17,10 @@ user1 = User.create!(email: "musk@gmail.com", password: "1234567", first_name: "
 user2 = User.create!(email: "elon@gmail.com", password: "1234567", first_name: "CEO", last_name:"SPACEX")
 user3 = User.create!(email: "louis@gmail.com", password: "1234567", first_name: "Louis", last_name:"Bemberg")
 user4 = User.create!(email: "david@gmail.com", password: "1234567", first_name: "David", last_name:"Hernandez")
-user5 = User.create!(email: "jonas@gmail.com", password: "1234567", first_name: "Wolfgang", last_name:"Alkier")
-user6 = User.create!(email: "wolfgang@gmail.com", password: "1234567", first_name: "Jonas", last_name:"Fuerstenberg")
-
+user5 = User.create!(email: "wolfgang@gmail.com", password: "1234567", first_name: "Wolfgang", last_name:"Alkier")
+user6 = User.create!(email: "jonas@gmail.com", password: "1234567", first_name: "Jonas", last_name:"Fuerstenberg")
+user7 = User.create(email: "steve@gmail.com", password: "1234567", first_name: "steve",last_name: 'jobs')
+user8 = User.create(email: "vader@gmail.com", password: "1234567", first_name: "darth",last_name: 'vader')
 
 
 puts "3 - Let's create some events..."
@@ -43,10 +43,15 @@ randomcity = Event.new(title: "Travel to a Random City", description: "Let's jum
 randomcity.photo.attach(io: randomcity_picture, filename: 'randomcity.png', content_type: 'image/png')
 randomcity.save!
 
+# more events, without pictures tho
+event2 = Event.create(title: "paragliding", description: "Exhileration experience just floating through the air and through the clouds", address: "switzerland", capacity: 4, user_id: user5.id)
+event3 = Event.create(title: "special-hike", description: "Early birds catches the worm and the best light in the world ", address: "vienna", capacity: 5, user_id: user3.id)
+
 puts "4 - Let's match some users with some events (event_user)"
 # Jonas, David and Wolfgang applying to Lou's bungee jumping
 event_user1 = EventUser.create!(motivation: "Please let me in!", status: 1, user_id: user4.id, event_id: bungeejumping.id)
 event_user2 = EventUser.create!(motivation: "Let's do this:)", status: 1, user_id: user5.id, event_id: bungeejumping.id)
 event_user3 = EventUser.create!(motivation: "I'd love to jump off a bridge with you mate.", status: 1, user_id: user6.id, event_id: bungeejumping.id)
 
-puts "5 - Finished!!"
+puts "5 - FINITOOO"
+
