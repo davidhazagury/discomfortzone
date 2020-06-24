@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Discomfortzone</title>
+    <title>Discomfort Zone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,11 +11,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
-   <!-- UNCOMMENT THE LINES BELOW -->
-    <%#= render 'shared/navbar' %>
-    <%#= render 'shared/flashes' %>
-
-    <%= yield %>
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
+    <%= render 'shared/navbar' %>
+    <div class="container container-custom">
+      <%= yield %>
+    </div>
+    <%= render 'shared/mobile_navbar' %>
+    <%= render 'shared/flashes' %>
   </body>
 </html>

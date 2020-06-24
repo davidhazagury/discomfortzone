@@ -1,0 +1,48 @@
+.cards-container { // The mother container of the cards
+display: grid;
+grid-template-columns: 1fr;
+grid-gap: 16px;
+padding: 2px;
+flex-grow: 1;
+
+.cards {  // The whole card, picture + description
+  margin: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  .card-category { // Upper part of the card -> Background picture + Event name
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  .cards-description { // Lower part of the card -> description on the left + favicon on the right
+    display: flex;
+    padding: 5px;
+    position: relative;
+
+    .cards-text { // Description on the left
+      text-decoration: none;
+      color: black;
+    }
+
+    .favicon { // Favicon on the rightr
+      position: absolute;
+      right: 10px;
+    }
+  }
+}
+}
+
+
+
+

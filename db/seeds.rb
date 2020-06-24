@@ -26,6 +26,7 @@ event1 = Event.create(title: "skydiving", description: "fun", address: "hongkong
 event2 = Event.create(title: "paragliding", description: "Exhileration experience just floating through the air and through the clouds", address: "switzerland", capacity: 4, user_id: user5.id)
 event3 = Event.create(title: "special-hike", description: "Early birds catches the worm and the best light in the world ", address: "vienna", capacity: 5, user_id: user3.id)
 
+
 event_user1 = EventUser.create(motivation: "fun", status: 1, user_id: user2.id, event_id: event1.id)
 event_user2 = EventUser.create(motivation: "clouds", status: 1, user_id: user4.id, event_id: event2.id)
 
