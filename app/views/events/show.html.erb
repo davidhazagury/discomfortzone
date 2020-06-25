@@ -1,26 +1,50 @@
 
 <div class="container-event-box">
     <%= cl_image_tag @event.photo.key, class:"event-banner"%>
-
   <div class="description-box">
     <% if @event.user.photo.attached? %>
+    <!--<div class="avatar-owner" style="background-image: url('<%= cl_image_path @event.user.photo.key %>');"></div>-->
     <%= cl_image_tag @event.user.photo.key , alt: "profilepic" , class: "avatar-owner"  %>
-
     <% else %>
-    <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "profile pic", class: "avatar-owner" %>
+    <div class="avatar-owner" style="background-image: url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png');"></div>
     <% end %>
     <div class="description">
       <h2><%= @event.title %></h2>
       <div class="icons-event-box">
-        <i class="fas fa-map-marker-alt">
-          <%= @event.address %>
+        <table>
+          <thead>
+            <th>
+              <i class="fas fa-map-marker-alt"></i>
+            </th>
+            <th>
+              <i class="far fa-calendar-alt"></i>
+            </th>
+            <th>
+              <i class="fas fa-users"></i>
+            </th>
+          </thead>
+          <tbody>
+            <td>
+              <%= @event.address %>
+            </td>
+            <td>
+              <%= @event.start_time.strftime("%d %b %y")  %>
+            </td>
+            <td>
+              <%= @event.capacity %>
+            </td>
+          </tbody>
+        </table>
+
+        <!--<i class="fas fa-map-marker-alt">
+          <%#= @event.address %>
         </i>
         <i class="far fa-calendar-alt">
-          <%= @event.start_time.strftime("%d %b %y")  %>
+          <#%= @event.start_time.strftime("%d %b %y")  %>
         </i>
         <i class="fas fa-users">
-          <%= @event.capacity %>
-        </i>
+          <%#= @event.capacity %>
+        </i>-->
       </div>
       <div class="avatars-event-box">
         <!-- THIS WILL NEED TO BE FETCH WITH THE PARTICIPANTS PROFILE PICTURES-->
@@ -35,8 +59,7 @@
       <!--<div id="map"
         style="width: 100%; height: 600px;"
         data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
       </div>-->
   </div>
 </div>
-<%= link_to "Log Out", destroy_user_session_path, method: "delete" %>
