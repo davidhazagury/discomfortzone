@@ -1,4 +1,4 @@
 <%= simple_form_for([@event, @event_user]) do |f| %>
-    <%= f.input :motivation%>
-    <%= f.submit "Join this event!", class: "btn-flat-RV", id: "anchor"%>
+    <%= f.input :motivation, placeholder: "Let the host know, why you want to join", class: "motivation-text"%>
+    <%= f.submit "Join this event!", class:"motivation-btn", id: "anchor"%>
   <% end %>

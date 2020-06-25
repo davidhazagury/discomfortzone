@@ -8,6 +8,25 @@
   transition: opacity 0.3s ease;
 }
 
+.btn-ghost-square {
+  color: $main-blue;
+  border: 1px solid $main-blue;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 400;
+  opacity: 1;
+}
+
+.btn-ghost-square-red {
+  font-family: "Lato", "sans-serif";
+  color: $cool-red;
+  background-color: rgba(248,4,71,0.05);
+  border: 1px solid $cool-red;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
 .btn-ghost:hover {
   opacity: 1;
 }
@@ -31,9 +50,23 @@
   font-weight: bold;
   background-color: #3FC1C9;
   transition: background 0.3s ease;
-  border: 0.5px solid $main-blue;
+  // border: 0.5px solid $main-blue;
   &:hover {
   background-color: #3FC1C9;
+  color: white;
+  }
+}
+
+.btn-cool-red {
+  color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: $cool-red;
+  transition: background 0.3s ease;
+  // border: 0.5px solid $main-blue;
+  &:hover {
+  background-color: $cool-red;
   color: white;
   }
 }
@@ -52,3 +85,25 @@
   color: white;
   }
 }
+
+.button-centered{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  .motivation-btn {
+    width: 100%;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    background-color: $cool-red;
+    transition: background 0.3s ease;
+    border: none;
+    &:hover {
+    background-color: $cool-red;
+    color: white;
+    }
+    }
+

@@ -10,9 +10,11 @@ class User < ApplicationRecord
 
   # 1-N Relationship: a host has many events
   has_many :events
+  has_many :applications, through: :events, source: :event_users
 
   # N-N Relationship between Event and User, connected by join table >reviews<
   has_many :reviews
+  
   #has_many :events, through: :reviews
 
   # N-N Relationship between Event and User, connected by join table >messages<

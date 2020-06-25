@@ -1,11 +1,15 @@
 <!--<h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>-->
+<!-- id of divers picture: 'a61syh4mku08aquxrbi9' -->
 
-<div class="banner" style="background-image: url(<%= cl_image_path 'disjq7ci8hjkpc4odri1' %>);">
-  <div class="container">
+<div class="banner" style="background-image: url(https://images.unsplash.com/photo-1483428400520-675ef69a3bc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80);">
+  <div class="container-shrink">
     <div class="position">
-      <h1 class="text-center"> THE DISCOMFORT ZONE </h1>
-      <h3> Where people say YES to adventures </h3>
+      <h1 class="text-center" id="home-banner-text"> It's time to venture ouf of your comfort zone </h1>
+      <h3 class="text-center">Join a community of people who say YES to adventures</h3>
+      <div class="button-centered">
+        <a class="btn btn-cool-red" href="/events"> FIND ADVENTURES </a>
+      </div>
     </div>
   </div>
 </div>
@@ -13,33 +17,35 @@
 <br>
 <br>
 
-<div class="banner-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path 'a61syh4mku08aquxrbi9' %>);">
+<div class="banner-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path 'disjq7ci8hjkpc4odri1' %>);">
   <div class="flex-box-card">
-    <a class="btn btn-gradient" href="/events"> FIND YOUR NEXT ADVENTURE </a>
   </div>
 </div>
 
 <br>
 <br>
 
-<div class="banner-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path 'zlgusakfycm1iirsp6ks' %>);">
+<!-- <div class="banner-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path 'zlgusakfycm1iirsp6ks' %>);">
+</div>  -->
+
   <div class="container">
-    <a class="btn btn-gradient" href="/events/new"> CREATE AN EVENT </a>
+    <h3 class="text-blue">Want to organize an experience and recruit people to join you?</h3>
+    <a class="btn-ghost-square-red" href="/events/new"> CREATE AN EVENT </a>
   </div>
-</div>
+
 
 <br>
 <br>
 
 <div class="container">
-  <h1> Meet Discomfort-Zoners : </h1>
+  <h1 class="text-blue"> Meet Discomfort-Zoners : </h1>
 </div>
 
 <div class="container">
   <%= simple_form_for :search, url: root_path, method: :get do |f| %>
     <div class="search-form-control form-group">
       <input class="form-control string required" type="text" name="search[query]" placeholder="Find your people" id="search_query" />
-      <button name="button" type="submit" class="btn btn-flat">
+      <button name="button" type="submit" class="btn btn-light-blue">
         <i class="fas fa-search"></i> Search
       </button>
     </div>
@@ -52,13 +58,17 @@
   <div class="box-flex">
     <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
   </div>
+  <div class="avatar-always-round" style="background-image: url('https://kitt.lewagon.com/placeholder/users/arthur-littm')">
+
+  </div>
+
 </div>
 
 <br>
 <br>
 
 <div class="container">
-  <h1 class="text-center"> GET INSPIRED : </h1>
+  <h1 class="text-center text-blue"> GET INSPIRED : </h1>
 </div>
 
 <br>

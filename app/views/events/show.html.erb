@@ -1,25 +1,51 @@
 
 <div class="container-event-box">
     <%= cl_image_tag @event.photo.key, class:"event-banner"%>
-
   <div class="description-box">
+    <%= link_to user_path(@event.user) do  %>
     <% if @event.user.photo.attached? %>
-    <img src="@event.user.photo.key" alt="" class="avatar-owner">
+    <%= cl_image_tag @event.user.photo.key , alt: "profilepic" , class: "avatar-owner"  %>
     <% else %>
-    <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "profile pic", class: "avatar-owner" %>
+    <div class="avatar-owner" style="background-image: url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png');"></div>
+    <% end %>
     <% end %>
     <div class="description">
       <h2><%= @event.title %></h2>
       <div class="icons-event-box">
-        <i class="fas fa-map-marker-alt">
-          <%= @event.address %>
+        <table>
+          <thead>
+            <th>
+              <i class="fas fa-map-marker-alt"></i>
+            </th>
+            <th>
+              <i class="far fa-calendar-alt"></i>
+            </th>
+            <th>
+              <i class="fas fa-users"></i>
+            </th>
+          </thead>
+          <tbody>
+            <td>
+              <%= @event.address %>
+            </td>
+            <td>
+              <%= @event.start_time.strftime("%d %b %y")  %>
+            </td>
+            <td>
+              <%= @event.capacity %>
+            </td>
+          </tbody>
+        </table>
+
+        <!--<i class="fas fa-map-marker-alt">
+          <%#= @event.address %>
         </i>
         <i class="far fa-calendar-alt">
-          <%= @event.start_time %>
+          <#%= @event.start_time.strftime("%d %b %y")  %>
         </i>
         <i class="fas fa-users">
-          <%= @event.capacity %>
-        </i>
+          <%#= @event.capacity %>
+        </i>-->
       </div>
       <div class="avatars-event-box">
         <!-- THIS WILL NEED TO BE FETCH WITH THE PARTICIPANTS PROFILE PICTURES-->
@@ -28,19 +54,21 @@
         <%= image_tag "https://vignette.wikia.nocookie.net/simpsons/images/b/bd/Homer_Simpson.png/revision/latest/top-crop/width/360/height/360?cb=20140126234206", alt: "alttext", class:"participants-avatar" %>
     </div>
     <p><%= @event.description %></p>
+    <% if current_user != @event.user %>
+     <%= render "event_users/new" %>
+    <% end %>
       <!--<div id="map"
         style="width: 100%; height: 600px;"
         data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
       </div>-->
   </div>
 </div>
 
-
-
-<%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
-<%= link_to "Delete the event", event_path(@event),  method: :delete  %>
+<%#= link_to "Log Out", destroy_user_session_path, method: :delete  %>
+<%#= link_to "Delete the event", event_path(@event),  method: :delete  %>
 
   <%# if current_user != @event.user %>
-     <%= render "event_users/new" %>
+     <%#= render "event_users/new" %>
   <%# end %>
+
