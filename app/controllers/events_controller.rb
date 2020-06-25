@@ -16,7 +16,6 @@ class EventsController < ApplicationController
     @event_user = EventUser.new
     @message = Message.new
     authorize @event # FOR PUNDIT
-
     @markers = [{ # Creates an array with one marker, easiest way to do it
       lat: @event.latitude,
       lng: @event.longitude,
