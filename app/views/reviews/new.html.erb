@@ -1,0 +1,6 @@
+<h1> Review </h1>
+<%= simple_form_for([@event, @review]) do |f| %>
+    <%= f.input :content, label: 'Add your review',required: "true", error: 'Please specify one' %>
+    <%= f.input :rating, label: 'Add a rating', required: "true", error: 'Please specify one', input_html: { min: 0, max: 5  }%>
+    <%= f.button :submit %>
+  <% end %>

@@ -33,7 +33,7 @@
 <h2>Your Results: </h2>
 <div class="cards-container">
     <% @events.each do |event| %>
-      <div class="cards">
+      <div class="event-card">
       <%= link_to event_path(event) do  %>
         <% if event.photo.attached? %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
@@ -47,19 +47,18 @@
             <div class="card-headder">
                 <h3 class="event-title"> <%= event.title.capitalize %> </h3>
                   <% if event.user.photo.attached? %>
-                  <%= event.user.photo.key %>
+                  <%#= event.user.photo.key %>
                   <% else %>
-                  <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "user-icon", class: "avatar", id: "default-avatar"%>
+                  <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "user-icon", class: "avatar-large"%>
                   <% end %>
             </div>
-            <h4 style="font-family: $body-font" class="fonts"> <i class="fas fa-calendar-alt"> </i> <%= event.start_time %></h4>
-            <h4 style="font-family: $body-font" class="fonts"> <i class="fas fa-location-arrow"> </i> <%= event.address.capitalize %></h4>
-            <h4 style="font-family: $body-font" id="font-weak"> Creator: <%= event.user.first_name.capitalize %> (<%= event.spots_left %> spots left)</h4>
+            <h4> <i class="fas fa-calendar-alt"> </i>  <%= event.start_time %></h4>
+            <h4> <i class="fas fa-location-arrow"> </i>  <%= event.address.capitalize %></h4>
+            <h4> <%#= event.user.first_name.capitalize %><i class="fas fa-user-friends"></i>  <%= event.spots_left %> spots left</h4>
           </div>
-          <div class="favicon">
-            <i class="fa fa-heart" aria-hidden="true"></i>
-          </div>
-          </div>
+            <i class="far fa-heart" aria-hidden="true"></i>
+<!--             Add an if statement that if it is already liked, we display this (solid) heart : <i class="fas fa-heart"></i>
+ -->          </div>
         </div>
       <% end %>
     <% end %>
