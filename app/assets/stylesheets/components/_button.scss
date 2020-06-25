@@ -93,16 +93,24 @@
   justify-content: center;
 }
   .motivation-btn {
-    width: 100vw;
+    width: 100%;
     color: white;
     padding: 8px 20px;
     border-radius: 4px;
     font-weight: bold;
     background-color: $cool-red;
     transition: background 0.3s ease;
-    // border: 0.5px solid $main-blue;
+    border: none;
     &:hover {
     background-color: $cool-red;
     color: white;
     }
     }
+.motivation-text {
+  font-weight: 200;
+  font-size: 16px;
+  font-style: italic;
+
+}
+
+}

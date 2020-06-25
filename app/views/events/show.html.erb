@@ -3,8 +3,8 @@
     <%= cl_image_tag @event.photo.key, class:"event-banner"%>
   <div class="description-box">
     <% if @event.user.photo.attached? %>
-    <div class="avatar-owner" style="background-image: url('<%= cl_image_path @event.user.photo.key %>');"></div>
-    <%#= cl_image_tag @event.user.photo.key , alt: "profilepic" , class: "avatar-owner"  %>
+    <!--<div class="avatar-owner" style="background-image: url('<%= cl_image_path @event.user.photo.key %>');"></div>-->
+    <%= cl_image_tag @event.user.photo.key , alt: "profilepic" , class: "avatar-owner"  %>
     <% else %>
     <div class="avatar-owner" style="background-image: url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png');"></div>
     <% end %>
@@ -65,4 +65,3 @@
       </div>-->
   </div>
 </div>
-<%= link_to "Log Out", destroy_user_session_path, method: "delete" %>

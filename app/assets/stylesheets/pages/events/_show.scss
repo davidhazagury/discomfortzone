@@ -9,6 +9,7 @@
     border-radius: 10px 10px 0px 0px;
     margin-top: calc(30vh - 65px);
     position:relative;
+    padding-bottom: 20px;
     .participants-avatar {
       height: 50px;
       width: 50px;
@@ -43,6 +44,7 @@
       font-weight: lighter;
       margin-bottom: 0px;
     }
+
   }
 .icons-event-box {
   display: flex;
