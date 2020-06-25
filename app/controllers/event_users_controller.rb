@@ -4,6 +4,9 @@ class EventUsersController < ApplicationController
     #@event_users = current_user.event_users
     @applications = policy_scope(current_user.applications)
     @event_users = policy_scope(current_user.event_users)
+    @owned_events = current_user.events
+    @applied_events = current_user.applied_events
+
   end
 
   def create
@@ -23,6 +26,7 @@ class EventUsersController < ApplicationController
 
   def update
     @event_user = EventUser.find(params[:id])
+    byebug
     authorize @event_user
 
     if params[:query] == "accepted"

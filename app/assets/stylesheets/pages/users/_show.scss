@@ -1,0 +1,59 @@
+.header {
+   display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-right: 8%;
+}
+.header h3 {
+    font-family: $headers-font;
+    font-size: 30px;
+    margin: 0px;
+}
+.join-in {
+  font-family: $body-font;
+  font-weight: 300;
+  font-size: 14px;
+  position: absolute;
+  top: 37px;
+}
+
+.description {
+  h3 {
+    font-family: $headers-font;
+    font-size: 20px;
+  }
+  p {
+    font-family: $body-font;
+    font-weight: 200;
+    font-size: 16px;
+  }
+}
+.header-title {
+  position: relative;
+}
+.host-avatar {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.review-card {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: white;
+  border-radius: 20px;
+}
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
