@@ -9,6 +9,7 @@ require 'open-uri'
 
 puts "1 - Cleaning the database...."
 EventUser.destroy_all
+Message.destroy_all
 Event.destroy_all
 User.destroy_all
 

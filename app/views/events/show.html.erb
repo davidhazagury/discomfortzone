@@ -54,7 +54,7 @@
         <%= image_tag "https://vignette.wikia.nocookie.net/simpsons/images/b/bd/Homer_Simpson.png/revision/latest/top-crop/width/360/height/360?cb=20140126234206", alt: "alttext", class:"participants-avatar" %>
     </div>
     <p><%= @event.description %></p>
-    <% if current_user != @event.user %>
+    <% unless current_user == @event.user || @event.participant?(current_user) %>
      <%= render "event_users/new" %>
     <% end %>
       <!--<div id="map"
@@ -62,7 +62,17 @@
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
       </div>-->
+
+      <!-- Content if current_user is either the host, or accepted to the event -->
+      <% if current_user == @event.user || @event.participant?(current_user) %>
+        <h2 style="border-top: 1px solid rgb(225,225,225)">Woohoo! <%= @event.user.first_name %> has accepted you for this adventure</h2>
+        <h4>Why not have a chat with the other participants?</h4>
+        <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
+      <% end %>
   </div>
+
+  </div>
+
 </div>
 
 <%#= link_to "Log Out", destroy_user_session_path, method: :delete  %>
@@ -71,4 +81,5 @@
   <%# if current_user != @event.user %>
      <%#= render "event_users/new" %>
   <%# end %>
+
 
