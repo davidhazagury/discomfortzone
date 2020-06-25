@@ -28,4 +28,8 @@ class Event < ApplicationRecord
   def spots_left
     capacity - event_users.accepted.count
   end
+
+  def favourited?(user)
+    favourites.pluck(:user_id).include? user.id
+  end
 end

@@ -20,6 +20,8 @@ class EventsController < ApplicationController
       lng: @event.longitude,
       infoWindow: render_to_string(partial: "info_window", locals: { event: @event })
     }]
+
+    # For FAVOURITES
   end
 
   def new

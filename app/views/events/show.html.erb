@@ -10,7 +10,9 @@
     <% end %>
     <% end %>
     <div class="description">
-      <h2><%= @event.title %></h2>
+      <div class="headders">
+        <h2><%= @event.title %></h2>
+        </div>
       <div class="icons-event-box">
         <table>
           <thead>
@@ -56,6 +58,7 @@
     <p><%= @event.description %></p>
     <% if current_user != @event.user %>
      <%= render "event_users/new" %>
+     <%= render "favourites/new", event: @event %>
     <% end %>
       <!--<div id="map"
         style="width: 100%; height: 600px;"

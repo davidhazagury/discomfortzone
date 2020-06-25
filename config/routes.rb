@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :events do
     resources :event_users, only: [:create]
+    resources :favourites, only: [:create, :destroy]
   end
   resources :event_users, only: [:index, :update]
   resources :users, only: [:show]
-  resources :favourite, only: [:new, :create, :index, :show]
 end
