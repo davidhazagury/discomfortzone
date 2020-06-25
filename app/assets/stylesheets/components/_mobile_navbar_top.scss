@@ -18,7 +18,10 @@
     }
   }
 }
-
+  .fixed {
+    position:fixed;
+    top:0;
+  }
 
 @media all and (min-width: $navbar-break-point) {
   .mobile-navbar-top {
