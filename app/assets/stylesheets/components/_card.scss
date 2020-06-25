@@ -3,17 +3,20 @@ display: grid;
 grid-template-columns: 1fr;
 grid-gap: 16px;
 padding: 2px;
-flex-grow: 1;
 
-.cards {  // The whole card, picture + description
+.event-card {  // The whole card, picture + description
   margin: 20px;
-  padding: 10px, 5px;
-  position: relative;
   // Making this a 100%, so that the Event Title and Avatar are properly spaced-out
   .card-headder {
     width: 100%;
     display: flex;
+    position: relative;
     justify-content: space-between;
+  }
+  .avatar-large {
+    position: absolute;
+    top: -56px;
+    right: 0;
   }
 
   // TO GET RID OF THE UNDERLINE WHEN HOVERING
@@ -21,29 +24,11 @@ flex-grow: 1;
     text-decoration: none;
   }
 
-  #font-weak {
-    font-size: 18px;
-    font-weight: lighter;
-    opacity: 0.8;
-  }
-  .fonts {
-    font-size: 22px;
-    font-weight: normal;
-    opacity: 0.9;
-  }
-
   .card-category { // Upper part of the card -> Background picture + Event name
     background-size: cover;
     background-position: center;
     height: 240px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    border-radius: 25px 25px 0px 0px;
+    border-radius: 6px 6px 0px 0px;
     box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
   }
 
@@ -56,27 +41,38 @@ flex-grow: 1;
     background-color: white;
     box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
 
-    .cards-text { // Description on the left
-      color: black;
-      width: 100%;
-
-      .event-title {
-       font-family: $headers-font;
-       font-size: 34px;
-       font: bold;
-      }
-    }
-
-    .favicon { // Favicon on the rightr
+    i.fa-heart { // Favicon on the rightr
       position: absolute;
+      font-size: 24px;
       right: 38px;
       bottom: 38px;
       color: $red-pink;
-      opacity: 0.1;
+      opacity: 0.7;
       &:hover {
         opacity: 1;
       }
     }
+
+    .cards-text { // Description on the left
+      color: black;
+      width: 100%;
+      h4 {
+        font-size: 22px;
+        font-weight: 100;
+        color: $blue-gray;
+      }
+
+      .event-title {
+       color: $green-blue;
+       font-family: $headers-font;
+       font-size: 34px;
+       font-weight: 500;
+      }
+
+    }
+
+
+
   }
 }
 }
