@@ -5,12 +5,25 @@
         <i class="fas fa-feather-alt"></i>
       <% end %>
     </div>
-  <div class="prettybrand d-flex align-items-center">
-    <h3 style="font-weight: 600;">D</h3>
-    <h3 style="font-weight: 300; font-size: 20px;">iscomfort</h3>
-    <h3 style="font-weight: 600; transform: scaleX(-1)">Z</h3>
-    <h3 style="font-weight: 300; font-size: 20px;">one</h3>
-  </div>
-  <h3></h3>
+    <div class="prettybrand d-flex align-items-center">
+      <h3 style="font-weight: 600;">D</h3>
+      <h3 style="font-weight: 300; font-size: 20px;">iscomfort</h3>
+      <h3 style="font-weight: 600; transform: scaleX(-1)">Z</h3>
+      <h3 style="font-weight: 300; font-size: 20px;">one</h3>
+    </div>
+    <!-- DROPDOWN BUTTON -->
+    <% unless current_user.present? %>
+        <%= link_to "Login", new_user_session_path, class: "nav-link text-blue" %>
+    <% else %>
+      <div class="dropdown">
+        <img class="avatar dropdown-toggle dropleft" src="https://kitt.lewagon.com/placeholder/users/ssaunier" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "Dashboard", event_users_path, class: "dropdown-item" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </div>
+    <% end %>
+    <!-- END OF TEST FOR DROPDOWN BUTTON -->
   </div>
 </div>
