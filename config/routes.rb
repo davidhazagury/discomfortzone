@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :event_users, only: [:create]
     resources :messages, only: [:create]
+    resource :chat, only: [:show]
   end
   resources :event_users, only: [:index, :update]
 end

@@ -7,9 +7,10 @@ class MessagesController < ApplicationController
     @message.user = current_user
     authorize @message
     if @message.save
-      redirect_to event_path(@event)
+      EventChannel.broadcast_to(@event, render_to_string(partial: 'message', locals: { message: @message }))
+      redirect_to event_chat_path(@event)  # Redirecting to its own page now
     else
-      render "events/show"
+      render "chats/show" # also changed that
     end
   end
 
