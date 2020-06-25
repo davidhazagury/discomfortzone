@@ -2,7 +2,7 @@
   <div class="header">
     <h3>Hi, I'm <%= @user.first_name.capitalize %></h3>
     <%= cl_image_tag @user.photo.key, alt: "pic", class: "host-avatar"%>
-    <span class="join-in">Join in <%= @user.created_at.year %></span>
+    <span class="join-in">Joined in <%= @user.created_at.year %></span>
     <%#= link_to "Edit your profile", edit_user_registration_path  %>
   </div>
 
@@ -26,8 +26,8 @@
         <% end %>
       <% end %>
     </div>
-
-<%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
+  </div>
 </div>
 
 <%#= link_to "Review " + @user.first_name, new_event_review_path(@user.event)  %>
