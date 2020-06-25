@@ -57,11 +57,7 @@
     <% unless current_user == @event.user || @event.participant?(current_user) %>
      <%= render "event_users/new" %>
     <% end %>
-      <!--<div id="map"
-        style="width: 100%; height: 600px;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
-      </div>-->
+
 
       <!-- Content if current_user is either the host, or accepted to the event -->
       <% if current_user == @event.user || @event.participant?(current_user) %>
@@ -81,5 +77,9 @@
   <%# if current_user != @event.user %>
      <%#= render "event_users/new" %>
   <%# end %>
-
+<!--<div id="map"-->
+       <!-- style="width: 100%; height: 600px;"-->
+       <!-- data-markers="<%#= @markers.to_json %>"-->
+       <!-- data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">-->
+     <!--</div>-->
 
