@@ -15,6 +15,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event_user = EventUser.new
     authorize @event # FOR PUNDIT
+
     @markers = [{ # Creates an array with one marker, easiest way to do it
       lat: @event.latitude,
       lng: @event.longitude,
