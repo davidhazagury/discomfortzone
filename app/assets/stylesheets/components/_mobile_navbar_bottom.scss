@@ -16,6 +16,9 @@
   }
 }
 
+.navbar-link:hover {
+  color: $light-blue;
+}
 
 @media all and (min-width: $navbar-break-point) {
   .mobile-navbar-bottom {
