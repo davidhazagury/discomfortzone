@@ -1,27 +1,103 @@
-<h3> Hello, <%= current_user.first_name %> Here are the people that want to join you</h3>
+<br>
+<br>
+<br>
+<br>
+
+<h3> <%= current_user.first_name %>, this is your Dashboard</h3>
 
 
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="own-events-tab" data-toggle="pill" href="#own-events" role="tab" aria-controls="own-events" aria-selected="true">Your own events</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="applied-events-tab" data-toggle="pill" href="#applied-events" role="tab" aria-controls="applied-events" aria-selected="false">The events you applied for</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="favorites-tab" data-toggle="pill" href="#favorites" role="tab" aria-controls="favorites" aria-selected="false">Favorites</a>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="own-events" role="tabpanel" aria-labelledby="own-events-tab">
 
-<% @applications.each do |application|  %>
-  <p>Applicant: <%= application.user.first_name %></p>
-  <p>ID: <%= application.user.id %></p>
-   url('<%#= cl_image_path application.user.photo.key %>')
-        <% if application.applied? %>
-           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Pending
-             </button>
-            <div class="dropdown-menu"  data-controller ="menu" aria-labelledby="dropdownMenuButton">
-              <%= link_to "Accept", event_user_path(application, query:"accepted"), method: :patch,  class:"dropdown-item"%>
-              <%= link_to "Reject", event_user_path(application, query: "rejected"), method: :patch, class:"dropdown-item"%>
-              <%= link_to "Pending", event_user_path(application, query: "pending"), method: :patch, class:"dropdown-item"%>
+    <div class="created-events">
+      <% if @owned_events.any? %>
+        <% current_user.events.each do |event| %>
+          <%= event.title %>
+          <% event.event_users.each do |application|  %>
+          <p>Applicant: <%= application.user.first_name %></p>
 
-            </div>
-          </div>
-        <% elsif application.accepted? %>
-          <p>Accept</p>
-        <% else %>
-          <p>Reject</p>
+                <% if application.status == "applied" %>
+                   <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Pending
+                     </button>
+                    <div class="dropdown-menu"  data-controller ="menu" aria-labelledby="dropdownMenuButton">
+                      <%= link_to "Accept", event_users_path(application, query:"accepted"), method: :patch,  class:"dropdown-item", remote: true%>
+                      <%= link_to "Reject", event_users_path(application, query: "rejected"), method: :patch, class:"dropdown-item", remote: true%>
+                      <%= link_to "Pending", event_users_path(application, query: "pending"), method: :patch, class:"dropdown-item", remote: true%>
+
+                    </div>
+                  </div>
+                <% elsif application.status == "accepted" %>
+                  <p>Accept</p>
+                <% else %>
+                  <p>Reject</p>
+                <% end %>
+
+          <% end %>
+        <% end %>
+      <% else %>
+         <p>You dont have any created events. Go ahead and create one  <%= link_to "here", new_event_path %></p>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="tab-pane fade" id="applied-events" role="tabpanel" aria-labelledby="applied-events-tab">
+    <div class="applied-events cards-container">
+      <% if @applied_events.any? %>
+        <% current_user.applied_events.each do |event| %>
+          <div class="cards">
+            <%= link_to event_path(event) do  %>
+              <% if event.photo.attached? %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
+                </div>
+              <% else %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?adventure)">
+                </div>
+              <% end %>
+              <div class="cards-description">
+                <div class="cards-text">
+                  <h3> Event: <%= event.title %> </h3>
+                  <h4> Location: <%= event.address %></h4>
+                  <h4> Creator: <%= event.user.first_name %> (<%= event.spots_left %> spots left)</h4>
+                </div>
+                <div class="favicon">
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </div>
+                </div>
+              </div>
+            <% end %>
+          <%= event.title %>
         <% end %>
 
-  <% end %>
+      <% else %>
+         <p>You didnt apply to any events</p>
+      <% end %>
+    </div>
+
+
+  </div>
+  <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
+    <div class="favorites">
+      <p>no favourites so far</p>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+

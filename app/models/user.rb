@@ -14,15 +14,16 @@ class User < ApplicationRecord
 
   # N-N Relationship between Event and User, connected by join table >reviews<
   has_many :reviews
-  # has_many :events, through: :reviews
+  
+  #has_many :events, through: :reviews
 
   # N-N Relationship between Event and User, connected by join table >messages<
   has_many :messages
-  # has_many :events, through: :messages
+  #has_many :events, through: :messages
 
   # N-N Relationship between Event and User, connected by join table >favourites<
   has_many :favourites
-  # has_many :events, through: :favourites
+  has_many :favorited_events, through: :favourites, source: :event
 
   # N-N Relationship between Event and User, connected by >event_users<
   has_many :event_users
