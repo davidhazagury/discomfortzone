@@ -1,5 +1,4 @@
 .mobile-navbar-top{
-  // position:fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,10 +17,33 @@
     }
   }
 }
-  .fixed {
-    position:fixed;
-    top:0;
+
+.mobile-navbar-top-concept{
+  position:fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // padding: 25px 0;
+  height: $top-navbar-height;
+  width: 100vw;
+  background: transparent;
+  // border-bottom: 1px solid rgb(211,211,211);
+  h3{
+    color: white;
+    font-size: 40px
   }
+  .navbar-top-logo {
+    color: white;
+    i {
+      font-size: 25px;
+    }
+  }
+}
+
+.fixed {
+  position:fixed;
+  top:0;
+}
 
 @media all and (min-width: $navbar-break-point) {
   .mobile-navbar-top {

@@ -76,3 +76,29 @@ padding: 2px;
   }
 }
 }
+
+.scrolling-wrapper {
+  margin: 20px 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  .scrolling-card {
+    margin-right: 10px;
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    height: 400px;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    h3 {
+      color: white;
+      position: absolute;
+      top: 15px;
+      left: 5px;
+      font-size: 20px;
+
+    }
+  }
+}

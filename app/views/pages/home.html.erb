@@ -2,10 +2,10 @@
 <p>Find me in app/views/pages/home.html.erb</p>-->
 <!-- id of divers picture: 'a61syh4mku08aquxrbi9' -->
 
-<div class="banner" style="background-image: url(https://images.unsplash.com/photo-1483428400520-675ef69a3bc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80);">
+<div class="banner-home" style="background-image: url(https://images.unsplash.com/photo-1483428400520-675ef69a3bc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80);">
   <div class="container-shrink">
     <div class="position">
-      <h1 class="text-center" id="home-banner-text"> It's time to venture ouf of your comfort zone </h1>
+      <h1 class="text-center" id="home-banner-text"> It's time to venture out of your comfort zone </h1>
       <h3 class="text-center">Join a community of people who say YES to adventures</h3>
       <div class="button-centered">
         <a class="btn btn-cool-red" href="/events"> FIND ADVENTURES </a>
@@ -14,32 +14,32 @@
   </div>
 </div>
 
-<br>
-<br>
+<!-- <div class="container">
+  <h1 class=" text-blue"> Get Inspired </h1>
+</div> -->
 
-<div class="banner-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path 'disjq7ci8hjkpc4odri1' %>);">
-  <div class="flex-box-card">
+<div class="scrolling-wrapper">
+  <div class="scrolling-card" style="background-image: url('https://images.unsplash.com/photo-1512036666432-2181c1f26420?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')">
+    <h3>Sunset Hike</h3>
+  </div>
+  <div class="scrolling-card" style="background-image: url('https://images.unsplash.com/photo-1504851149312-7a075b496cc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=949&q=80')">
+    <h3>Starry Camping</h3>
+  </div>
+  <div class="scrolling-card" style="background-image: url('https://images.unsplash.com/photo-1580485040966-42ab49b19771?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=582&q=80')">
+    <h3>Paragliding</h3>
+  </div>
+  <div class="scrolling-card" style="background-image: url('https://images.unsplash.com/photo-1498354178607-a79df2916198?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')">
+    <h3>Random Travelling</h3>
   </div>
 </div>
 
-<br>
-<br>
 
-<!-- <div class="banner-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path 'zlgusakfycm1iirsp6ks' %>);">
-</div>  -->
-
-  <div class="container">
-    <h3 class="text-blue">Want to organize an experience and recruit people to join you?</h3>
-    <a class="btn-ghost-square-red" href="/events/new"> CREATE AN EVENT </a>
-  </div>
-
-
-<br>
-<br>
-
-<div class="container">
-  <h1 class="text-blue"> Meet Discomfort-Zoners : </h1>
+<div class="banner-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1522098635833-216c03d81fbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80);">
+  <h3 class="text-blue">Want to organize an experience and recruit people to join you?</h3>
+  <a class="btn-ghost-square-red" href="/events/new"> CREATE AN EVENT </a>
 </div>
+
+
 
 <div class="container">
   <%= simple_form_for :search, url: root_path, method: :get do |f| %>
@@ -56,19 +56,10 @@
 
 <div class="container">
   <div class="box-flex">
-    <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+    <img class="avatar-large" alt="avatar-large" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80">
   </div>
-  <div class="avatar-always-round" style="background-image: url('https://kitt.lewagon.com/placeholder/users/arthur-littm')">
-
+    <div class="avatar-always-round" style="background-image: url('https://kitt.lewagon.com/placeholder/users/arthur-littm')">
   </div>
-
-</div>
-
-<br>
-<br>
-
-<div class="container">
-  <h1 class="text-center text-blue"> GET INSPIRED : </h1>
 </div>
 
 <br>
