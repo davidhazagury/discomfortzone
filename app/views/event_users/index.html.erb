@@ -1,11 +1,30 @@
-<h3> Hello, <%= current_user.first_name %> Here are the people that want to join you</h3>
+<br>
+<br>
+<br>
+<br>
 
+<h3> <%= current_user.first_name %>, this is your Dashboard</h3>
 
+<ul class="list-inline tabs-underlined">
+  <li>
+    <a href="#" class="tab-underlined active">Your own events</a>
+  </li>
+  <li>
+    <a href="#" class="tab-underlined">The events you applied for</a>
+  </li>
+  <li>
+    <a href="#" class="tab-underlined">Favorites</a>
+  </li>
+</ul>
 
-<% @event_users.each do |application|  %>
+<div class="created-events">
+<% if @owned_events.any? %>
+  <% current_user.events.each do |event| %>
+    <%= event.title %>
+  <% end %>
+  <% @event.event_users.each do |application|  %>
   <p>Applicant: <%= application.user.first_name %></p>
-  <p>ID: <%= application.user.id %></p>
-   url('<%#= cl_image_path application.user.photo.key %>')
+
         <% if application.status == "applied" %>
            <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -25,3 +44,32 @@
         <% end %>
 
   <% end %>
+<% else %>
+   <p>You dont have any created events. Go ahead and create one  <%= link_to "here", new_event_path %></p>
+<% end %>
+</div>
+
+
+
+<div class="applied-events">
+<% if @applied_events.any? %>
+  <% current_user.applied_events.each do |event| %>
+    <%= event.title %>
+  <% end %>
+<% else %>
+   <p>You didnt apply to any events</p>
+<% end %>
+</div>
+
+
+<div class="favorites">
+
+</div>
+
+
+
+
+
+
+
+
