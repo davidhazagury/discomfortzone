@@ -3,7 +3,6 @@ class EventUsersController < ApplicationController
   def index
     #@event_users = current_user.event_users
     @event_users = policy_scope(current_user.event_users)
-    @event = Event.new
     @owned_events = current_user.events
     @applied_events = current_user.applied_events
 
