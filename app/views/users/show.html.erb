@@ -5,20 +5,21 @@
       <span class="join-in">Joined in <%= @user.created_at.year %></span>
     </div>
     <%if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key, alt: "pic", class: "host-avatar"%>
+      <div class="host-avatar" style = " background-image: url(<%= cl_image_path @user.photo.key %>)"></div>
     <% else %>
-    <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "alttext", class: "host-avatar" %>
+      <div class="host-avatar-no-picture" id="no-pic-avatar" style="background-color: lightslategrey"><%= @user.first_name.first.capitalize + @user.last_name.first.capitalize%></div>
     <% end %>
   </div>
-  <%= link_to "Edit your profile", edit_user_registration_path, class: "btn-cool-red "  %>
+  <% if @user == current_user %>
+    <%= link_to "Edit your profile", edit_user_registration_path, class: "btn-cool-red "  %>
+  <% end %>
   <div class="description-user-box">
     <h3><%= @user.first_name.capitalize%>'s listings</h3>
     <div class="listed-events">
       <% @user.events.each do |event| %>
         <%= link_to event_path(event), style:"text-decoration: none;" do  %>
-          <div class="event-card">
+          <div class="event-card" style = " background-image: url(<%= cl_image_path event.photo.key %>);">
             <h3><%= event.title.capitalize %></h3>
-            <%= cl_image_tag event.photo.key, alt: "event_pic", style: "width : 100%" %>
           </div>
         <% end %>
       <% end %>
@@ -32,12 +33,12 @@
                 <div class="creation-rating">
                   <p><%= review.created_at.strftime("%B,  %Y")%></p>
                   <%= content_tag(:i, "", class: "fas fa-star", id: "icon-reviews") * review.rating%>
-                    <!--<i class="fas fa-star" style="color:#F80447"></i>-->
                 </div>
+                <p style="margin:0; font-weight: 400"><%= review.event.title.capitalize %></p>
                 <p id="review"><%= review.content.capitalize %></p>
                 <div class="reviewer-area">
                   <%if review.user.photo.attached? %>
-                    <%= cl_image_tag review.user.photo.key, alt: "pic", class: "host-avatar"%>
+                    <%= cl_image_tag review.user.photo.key, alt: "pic", class: "reviewer-avatar"%>
                   <% else %>
                     <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "alttext", class: "reviewer-avatar" %>
                   <% end %>
@@ -47,9 +48,6 @@
             <% end %>
           </div>
         <% end %>
-    </div>
-
-    <%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
   </div>
 </div>
 
