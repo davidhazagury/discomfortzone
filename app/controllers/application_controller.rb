@@ -15,6 +15,12 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+
+  # For LOG-IN redirection
+  # def after_sign_in_path_for(resource)
+  #   stored_location_for(resource) || request.referrer
+  # end
+
   private
 
   def skip_pundit?
