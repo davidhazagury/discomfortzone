@@ -75,7 +75,7 @@ user9.save!
 
 # User10: Sarah Brown
 sarah_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
-user10 = User.new(email: "gabriela@gmail.com", password: "1234567", first_name: "Sarah",last_name: 'Brown')
+user10 = User.new(email: "sarah@gmail.com", password: "1234567", first_name: "Sarah",last_name: 'Brown')
 user10.photo.attach(io: sarah_pic, filename: 'sarah.png', content_type: 'image/png')
 user10.save!
 
@@ -99,7 +99,7 @@ hiking.save!
 
 # Shark Cage Diving
 skydiving_picture = URI.open('https://source.unsplash.com/1600x900/?adventure')
-skydiving = Event.new(title: "Skydiving", start_time: "2020-07-18 17:00", end_time: "2020-07-18 20:00", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non cursus metus, nec vehicula diam. Fusce id metus finibus, hendrerit tortor ac, efficitur tortor. Etiam sodales feugiat nibh lacinia pulvinar. Donec eget ullamcorper nulla, eu tristique magna. Nunc felis orci, euismod eget ligula nec, pretium cursus lectus. Duis ex dolor, interdum vitae leo quis, pulvinar congue nulla. Cras sem enim, facilisis quis dui sit amet, imperdiet rutrum metus. Praesent gravida mattis elit eleifend pulvinar. Curabitur ac diam lorem. Etiam sed venenatis lacus, non blandit ex. Donec finibus est arcu, vel lobortis ex lacinia vel. Aliquam tristique placerat purus, ac hendrerit magna facilisis quis. Donec iaculis a nisi in malesuada. Nam feugiat imperdiet magna, ut ultrices nibh hendrerit vel. Donec sollicitudin luctus mauris vel aliquet. Curabitur vulputate nisl neque, vitae feugiat ipsum cursus vel.", address: "Hong Kong", capacity: 8, user_id: user4.id)
+skydiving = Event.new(title: "Skydiving", start_time: "2020-07-18 17:00", end_time: "2020-07-18 20:00", description: "I'm looking for some people to join me in this crazy adventure. I've never jumped out of a plane and none of my friends want to join me... Will you?", address: "Hong Kong", capacity: 8, user_id: user4.id)
 skydiving.photo.attach(io: skydiving_picture, filename: 'spain.png', content_type: 'image/png')
 skydiving.save!
 
