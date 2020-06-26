@@ -22,3 +22,10 @@ body {
 .box-flex {
   display: flex;
 }
+
+.flex-footer {
+  display: flex;
+  i.fab {
+    justify-content: space-around;
+  }
+}
