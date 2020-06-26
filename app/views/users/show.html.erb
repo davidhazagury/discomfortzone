@@ -38,9 +38,11 @@
                 <p id="review"><%= review.content.capitalize %></p>
                 <div class="reviewer-area">
                   <%if review.user.photo.attached? %>
-                    <%= cl_image_tag review.user.photo.key, alt: "pic", class: "reviewer-avatar"%>
+                  <div class="reviewer-avatar-avatar" style = " background-image: url(<%= cl_image_path review.user.photo.key %>)"></div>
+                    <%#= cl_image_tag review.user.photo.key, alt: "pic", class: "reviewer-avatar"%>
                   <% else %>
-                    <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "alttext", class: "reviewer-avatar" %>
+                  <div class="reviewer-avatar" id="reviewer-avatar-no-pic" style="background-color: lightslategrey"><%= review.user.first_name.first.capitalize + review.user.last_name.first.capitalize%></div>
+                    <%#= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "alttext", class: "reviewer-avatar" %>
                   <% end %>
                   <%= review.user.first_name.capitalize + " " + review.user.last_name.capitalize %>
                 </div>
