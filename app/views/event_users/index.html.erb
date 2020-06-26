@@ -8,10 +8,10 @@
 <% #THESE ARE THE TABS %>
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="own-events-tab" data-toggle="pill" href="#own-events" role="tab" aria-controls="own-events" aria-selected="true">Your own events</a>
+    <a class="nav-link active" id="own-events-tab" data-toggle="pill" href="#own-events" role="tab" aria-controls="own-events" aria-selected="true">Your Events</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="applied-events-tab" data-toggle="pill" href="#applied-events" role="tab" aria-controls="applied-events" aria-selected="false">The events you applied for</a>
+    <a class="nav-link" id="applied-events-tab" data-toggle="pill" href="#applied-events" role="tab" aria-controls="applied-events" aria-selected="false">Applied Events</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="favorites-tab" data-toggle="pill" href="#favorites" role="tab" aria-controls="favorites" aria-selected="false">Favorites</a>
@@ -24,7 +24,7 @@
     <div class="created-events cards-container">
       <% if @owned_events.any? %>
         <% current_user.events.each do |event| %>
-          <%= event.title %>
+          <%#= event.title %>
           <div class="event-card">
             <%= link_to event_path(event) do  %>
             <% if event.photo.attached? %>
@@ -51,17 +51,19 @@
              </div>
             <% end %>
           </div>
+
           <% event.event_users.each do |application|  %>
             <p>Applicant: <%= application.user.first_name %></p>
                 <% if application.applied?%>
+
                    <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Pending
                      </button>
                     <div class="dropdown-menu"  data-controller ="menu" aria-labelledby="dropdownMenuButton">
-                      <%= button_to "Accept", event_users_path(application, query:"accepted"), method: :patch,  class:"dropdown-item"%>
-                      <%= button_to "Reject", event_users_path(application, query: "rejected"), method: :patch, class:"dropdown-item"%>
-                      <%= button_to "Pending", event_users_path(application, query: "pending"), method: :patch, class:"dropdown-item"%>
+                      <%= button_to "Accept", event_user_path(application, query:"accepted"), method: :patch,  class:"dropdown-item"%>
+                      <%= button_to "Reject", event_user_path(application, query: "rejected"), method: :patch, class:"dropdown-item"%>
+                      <%= button_to "Pending", event_user_path(application, query: "pending"), method: :patch, class:"dropdown-item"%>
                     </div>
                   </div>
                 <% elsif application.accepted? %>
@@ -70,6 +72,9 @@
                   <p>Reject</p>
                 <% end %>
           <% end %>
+          <br>
+          <br>
+          <br>
         <% end %>
       <% else %>
          <p>You dont have any created events. Go ahead and create one  <%= link_to "here", new_event_path %></p>
@@ -115,15 +120,55 @@
         <% end %>
 
       <% else %>
-         <p>You didnt apply to any events</p>
+         <p>You didn't apply to any events so far, <%=current_user.first_name %>. Go find some <%= link_to "here", events_path %> </p>
       <% end %>
     </div>
-
-
   </div>
+  <br>
+  <br>
+  <br>
+
+
+
+ <% #THIS IS THE "FAVOURITES" PART %>
   <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
-    <div class="favorites">
+    <div class="favorites cards-container">
+      <% if current_user.favourited_events.any? %>
+        <% current_user.favourited_events.each do |event| %>
+          <div class="event-card">
+            <%= link_to event_path(event) do  %>
+            <% if event.photo.attached? %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
+              </div>
+            <% else %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?adventure)">
+              </div>
+            <% end %>
+              <div class="cards-description">
+                <div class="cards-text">
+                  <div class="card-headder">
+                      <h3 class="event-title"> <%= event.title.capitalize %> </h3>
+                        <% if event.user.photo.attached? %>
+                        <%#= event.user.photo.key %>
+                        <% else %>
+                        <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "user-icon", class: "avatar-large"%>
+                        <% end %>
+                  </div>
+                  <h4> <i class="fas fa-calendar-alt"> </i>  <%= event.start_time %></h4>
+                  <h4> <i class="fas fa-location-arrow"> </i>  <%= event.address.capitalize %></h4>
+                  <h4> <%#= event.user.first_name.capitalize %><i class="fas fa-user-friends"></i>  <%= event.spots_left %> spots left</h4>
+                </div>
+                  <%= render "favourites/new", event: event %>
+      <!--             Add an if statement that if it is already liked, we display this (solid) heart : <i class="fas fa-heart"></i>
+       -->      </div>
+            <% end %>
+          </div>
+          <%#= event.title %>
+        <% end %>
+        <% else %>
+
       <p>You don't have any favourites so far, <%=current_user.first_name %>. Go find some <%= link_to "here", events_path %> </p>
+      <% end %>
     </div>
 
   </div>
