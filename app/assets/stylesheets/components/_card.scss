@@ -4,75 +4,81 @@ grid-template-columns: 1fr;
 grid-gap: 16px;
 padding: 2px;
 
-.event-card {  // The whole card, picture + description
-  margin: 20px;
-  // Making this a 100%, so that the Event Title and Avatar are properly spaced-out
-  .card-headder {
-    width: 100%;
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-  }
-  .avatar-large {
-    position: absolute;
-    top: -56px;
-    right: 0;
-  }
-
-  // TO GET RID OF THE UNDERLINE WHEN HOVERING
-  a:hover {
-    text-decoration: none;
-  }
-
-  .card-category { // Upper part of the card -> Background picture + Event name
-    background-size: cover;
-    background-position: center;
-    height: 240px;
-    border-radius: 6px 6px 0px 0px;
-    box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
-  }
-
-  .cards-description { // Lower part of the card -> description on the left + favicon on the right
-    display: flex;
-    position: relative;
-    padding: 30px;
-    border-radius: 30px;
-    margin-top: -30px;
-    background-color: white;
-    box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
-
-    i.fa-heart { // Favicon on the rightr
-      position: absolute;
-      font-size: 24px;
-      right: 38px;
-      bottom: 38px;
-      color: $red-pink;
-      opacity: 0.7;
-      &:hover {
-        opacity: 1;
-      }
-    }
-
-    .cards-text { // Description on the left
-      color: black;
+  .event-card {  // The whole card, picture + description
+    margin: 20px;
+    .entire-card {
+      display: block;
       width: 100%;
-      h4 {
-        font-size: 22px;
-        font-weight: 100;
-        color: $blue-gray;
-      }
-
-      .event-title {
-       color: $green-blue;
-       font-family: $headers-font;
-       font-size: 34px;
-       font-weight: 500;
-      }
-
+    }
+    // Making this a 100%, so that the Event Title and Avatar are properly spaced-out
+    .card-headder {
+      width: 100%;
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+    }
+    .avatar-large {
+      position: absolute;
+      top: -56px;
+      right: 0;
     }
 
+    // TO GET RID OF THE UNDERLINE WHEN HOVERING
+    a:hover {
+      text-decoration: none;
+    }
+
+    .card-category { // Upper part of the card -> Background picture + Event name
+      background-size: cover;
+      background-position: center;
+      height: 240px;
+      border-radius: 6px 6px 0px 0px;
+      box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
+    }
+
+    .cards-description { // Lower part of the card -> description on the left + favicon on the right
+      display: flex;
+      position: relative;
+      padding: 30px;
+      border-radius: 30px;
+      margin-top: -30px;
+      background-color: white;
+      box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
+
+      .heart-link {
+        position: absolute;
+        bottom: 35px;
+        right: 40px;
+        color: $red-pink;
+      }
+
+      .cards-text { // Description on the left
+        color: black;
+        width: 100%;
+        h4 {
+          font-size: 22px;
+          font-weight: 100;
+          color: $blue-gray;
+        }
+
+        .event-title {
+         color: $green-blue;
+         font-family: $headers-font;
+         font-size: 34px;
+         font-weight: 500;
+        }
+      }
+    }
+  }
+}
 
 
+i.fa-heart { // Favicon on the rightr
+  font-size: 24px;
+  color: $red-pink;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
   }
 }
 }
@@ -102,3 +108,4 @@ padding: 2px;
     }
   }
 }
+

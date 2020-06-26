@@ -1,8 +1,13 @@
-<div class="container">
+
   <div class="header">
-    <h3>Hi, I'm <%= @user.first_name.capitalize %></h3>
+    <div class="header-title">
+      <h3>Hi, I'm <%= @user.first_name.capitalize %></h3>
+      <span class="join-in">Join in <%= @user.created_at.year %></span>
+    </div>
     <%= cl_image_tag @user.photo.key, alt: "pic", class: "host-avatar"%>
+
     <span class="join-in">Joined in <%= @user.created_at.year %></span>
+
     <%#= link_to "Edit your profile", edit_user_registration_path  %>
   </div>
 
@@ -10,11 +15,11 @@
     <h3><%= @user.first_name.capitalize%>´s listings</h3>
     <div class="listed-events">
       <% @user.events.each do |event| %>
-      <p><%= event.title %></p>
-      <p><%= event.address %></p>
-      <p><%= event.description.first(150) %>...</p>
-      <%= cl_image_tag event.photo.key, alt: "event_pic", style: "width : 70%" %>
-      <p><% end %>
+      <div class="event-card">
+        <%= event.title %>
+        <%= cl_image_tag event.photo.key, alt: "event_pic", style: "width : 100%" %>
+      </div>
+      <% end %>
     </div>
     <div class="reviews-box" >
       <% @user.events.each do |event| %>
@@ -26,8 +31,10 @@
         <% end %>
       <% end %>
     </div>
+
     <%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
   </div>
 </div>
+
 
 <%#= link_to "Review " + @user.first_name, new_event_review_path(@user.event)  %>

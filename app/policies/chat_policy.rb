@@ -1,5 +1,5 @@
-class ChatPolicy < Struct.new(:user, :event)
+class ChatPolicy < ApplicationPolicy
   def show?
-    true
+    user == record.user || record.participant?(user)
   end
 end

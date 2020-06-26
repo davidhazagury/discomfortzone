@@ -4,7 +4,13 @@ class EventsController < ApplicationController
     # @events = Event.all # ---BEFORE PUNDIT---
     # @events = policy_scope(Event) # FOR PUNDIT BUT BEFORE SEARCH FEATURE. Optional: .order(created_at: :desc)
     if params[:query].present?
-      sql_query = "title ILIKE :query OR description ILIKE :query"
+      # sql_query = "title ILIKE :query OR description ILIKE :query OR address ILIKE :query"
+      sql_query = " \
+        title ILIKE :query \
+        OR description ILIKE :query \
+        OR address ILIKE :query \
+      "
+
       @events = policy_scope(Event).where(sql_query, query: "%#{params[:query]}%")
     else
       @events = policy_scope(Event)
@@ -16,12 +22,13 @@ class EventsController < ApplicationController
     @event_user = EventUser.new
     @message = Message.new
     authorize @event # FOR PUNDIT
-
     @markers = [{ # Creates an array with one marker, easiest way to do it
       lat: @event.latitude,
       lng: @event.longitude,
       infoWindow: render_to_string(partial: "info_window", locals: { event: @event })
     }]
+
+    # For FAVOURITES
   end
 
   def new
