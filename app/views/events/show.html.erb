@@ -11,7 +11,8 @@
     <% end %>
     <div class="description">
       <div class="headders">
-        <h2><%= @event.title %></h2>
+        <h2><%= @event.title.capitalize %></h2>
+        <span><%= render "favourites/new", event: @event %></span>
         </div>
       <div class="icons-event-box">
         <table>
@@ -28,7 +29,7 @@
           </thead>
           <tbody>
             <td>
-              <%= @event.address %>
+              <%= @event.address.capitalize %>
             </td>
             <td>
               <%= @event.start_time.strftime("%d %b %y")  %>
@@ -58,7 +59,6 @@
     <p><%= @event.description %></p>
     <% unless current_user == @event.user || @event.participant?(current_user) %>
      <%= render "event_users/new" %>
-     <%= render "favourites/new", event: @event %>
     <% end %>
 
 
