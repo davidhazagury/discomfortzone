@@ -35,6 +35,14 @@
       width: 80%;
       text-align: left;
       margin: 0 auto;
+      .headders {
+        position: relative;
+          span {
+            position: absolute;
+            right: 15px;
+            top: 12px;
+          }
+      }
     }
     h2 {
       font-family: $headers-font;
