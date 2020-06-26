@@ -50,7 +50,7 @@ user5.photo.attach(io: wolfgang_pic, filename: 'wolfgang.png', content_type: 'im
 user5.save!
 
 # User6: TheCodingJonas
-jonas_pic = URI.open ("http://res.cloudinary.com/dgsqurpio/image/upload/v1593009378/jauae2tbjyzjuhccirbg.jpg")
+jonas_pic = URI.open ("https://res.cloudinary.com/dzevgses3/image/upload/v1593172342/jonas-profile.jpg")
 user6 = User.new(email: "jonas@gmail.com", password: "1234567", first_name: "Jonas", last_name:"Fuerstenberg")
 user6.photo.attach(io: jonas_pic, filename: 'jonas.png', content_type: 'image/png')
 user6.save!
