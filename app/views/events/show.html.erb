@@ -3,11 +3,12 @@
     <%= cl_image_tag @event.photo.key, class:"event-banner"%>
   <div class="description-box">
     <%= link_to user_path(@event.user) do  %>
-    <% if @event.user.photo.attached? %>
-    <%= cl_image_tag @event.user.photo.key , alt: "profilepic" , class: "avatar-owner"  %>
-    <% else %>
-    <div class="avatar-owner" style="background-image: url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png');"></div>
-    <% end %>
+      <% if @event.user.photo.attached? %>
+        <div class="avatar-owner" style = " background-image: url(<%= cl_image_path @event.user.photo.key %>)"></div>
+        <%#= cl_image_tag @event.user.photo.key , alt: "profilepic" , class: "avatar-owner"  %>
+      <% else %>
+        <div class="host-avatar-no-picture" id="no-pic-avatar"style="background-color: lightslategrey"><%= @event.user.first_name.first.capitalize + @event.user.last_name.first.capitalize%></div>
+      <% end %>
     <% end %>
     <div class="description">
       <div class="headders">
@@ -39,22 +40,24 @@
             </td>
           </tbody>
         </table>
-
-        <!--<i class="fas fa-map-marker-alt">
-          <%#= @event.address %>
-        </i>
-        <i class="far fa-calendar-alt">
-          <#%= @event.start_time.strftime("%d %b %y")  %>
-        </i>
-        <i class="fas fa-users">
-          <%#= @event.capacity %>
-        </i>-->
       </div>
       <div class="avatars-event-box">
+        <% @event.event_users.each do |participant| %>
+          <% if participant.status == "accepted" %>
+            <% if @event.user.photo.attached? %>
+              <div class="partipants-avatar" style = " background-image: url(<%= cl_image_path participant.user.photo.key %>)"></div>
+            <% else %>
+              <div class="participants-avatar" id ="participant-no-pic"style="background-color: lightslategrey"><%= participant.user.first_name.first.capitalize + participant.user.last_name.first.capitalize%></div>
+            <% end %>
+            <!--<div class="partipants-avatar" style = " background-image: url(<%#= cl_image_path participant.user.photo.key %>")></div>-->
+          <% else %>
+            <p> No participants yet</p>
+            <% end %>
+          <% end %>
         <!-- THIS WILL NEED TO BE FETCH WITH THE PARTICIPANTS PROFILE PICTURES-->
-        <%= image_tag "https://www.biography.com/.image/t_share/MTY2MzU3Nzk2OTM2MjMwNTkx/elon_musk_royal_society.jpg", alt: "alttext", class:"participants-avatar" %>
-        <%= image_tag "https://www.biography.com/.image/t_share/MTY2NzA3ODE3OTgwMzcyMjYw/jeff-bezos-andrew-harrer_bloomberg-via-getty-images.jpg", alt: "alttext", class:"participants-avatar" %>
-        <%= image_tag "https://vignette.wikia.nocookie.net/simpsons/images/b/bd/Homer_Simpson.png/revision/latest/top-crop/width/360/height/360?cb=20140126234206", alt: "alttext", class:"participants-avatar" %>
+          <%#= image_tag "https://www.biography.com/.image/t_share/MTY2MzU3Nzk2OTM2MjMwNTkx/elon_musk_royal_society.jpg", alt: "alttext", class:"participants-avatar" %>
+          <%#= image_tag "https://www.biography.com/.image/t_share/MTY2NzA3ODE3OTgwMzcyMjYw/jeff-bezos-andrew-harrer_bloomberg-via-getty-images.jpg", alt: "alttext", class:"participants-avatar" %>
+          <%#= image_tag "https://vignette.wikia.nocookie.net/simpsons/images/b/bd/Homer_Simpson.png/revision/latest/top-crop/width/360/height/360?cb=20140126234206", alt: "alttext", class:"participants-avatar" %>
     </div>
     <p><%= @event.description %></p>
     <% unless current_user == @event.user || @event.participant?(current_user) %>
@@ -63,8 +66,14 @@
 
 
       <!-- Content if current_user is either the host, or accepted to the event -->
-      <% if current_user == @event.user || @event.participant?(current_user) %>
-        <h2 style="border-top: 1px solid rgb(225,225,225)">Woohoo! <%= @event.user.first_name %> has accepted you for this adventure</h2>
+      <% if current_user == @event.user %>
+        <h4 style="border-top: 1px solid rgb(225,225,225)">Ready to organize this event?</h4>
+        <h4>Why not have a chat with the other participants?</h4>
+        <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
+      <% end %>
+
+      <% if @event.participant?(current_user) %>
+        <h4 style="border-top: 1px solid rgb(225,225,225)">Woohoo! <%= @event.user.first_name %> has accepted you for this adventure</h4>
         <h4>Why not have a chat with the other participants?</h4>
         <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
       <% end %>

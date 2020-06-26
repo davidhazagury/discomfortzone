@@ -3,6 +3,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :events, only: [:index]
   get "/crashed", to: 'pages#crashed'
+
+  # For LOG-IN
+  # get '/user' => "pages#home", :as => :user_root
+
+  # namespace :user do
+  #   root :to => "pages#home"
+  # end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :events do
@@ -19,6 +27,6 @@ Rails.application.routes.draw do
 
   end
   resources :event_users, only: [:index, :update]
-  resources :users, only: [:show]
 
+  resources :users, only: [:show, :index]
 end
