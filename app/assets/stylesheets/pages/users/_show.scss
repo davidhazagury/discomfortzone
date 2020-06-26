@@ -18,14 +18,24 @@
   font-family: $body-font;
   font-weight: 300;
   font-size: 14px;
-  position: absolute;
-  top: 37px;
 }
 .host-avatar {
   height: 70px;
   width: 70px;
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.host-avatar-no-picture {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
+  vertical-align: middle;
+  line-height: 70px;
+  color: white;
+  font-size:20px;
+  letter-spacing: 1px;
 }
 // ********* PROFILE PAGE DESCRIPTION SECTION ********
 .description-user-box {
@@ -52,9 +62,11 @@
     position: relative;
     display: inline-block;
     border-radius: 20px;
-    width: 100%;
+    width: 80%;
+    height: 150px;
     background-size: cover;
     background-position: center;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     h3 {
       color: white;
       position: absolute;
