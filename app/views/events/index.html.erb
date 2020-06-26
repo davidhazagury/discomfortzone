@@ -49,7 +49,7 @@
                   <% if event.user.photo.attached? %>
                   <%#= event.user.photo.key %>
                   <% else %>
-                  <div class="avatar-large" style="background-color: lightslategrey;"><%= event.user.first_name.first.capitalize + event.user.last_name.first.capitalize%></div>
+                  <div class="avatar-large" id= "no-pic-avatar-index"style="background-color: lightslategrey;"><%= event.user.first_name.first.capitalize + event.user.last_name.first.capitalize%></div>
                     <%#= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "user-icon", class: "avatar-large"%>
                   <% end %>
             </div>
