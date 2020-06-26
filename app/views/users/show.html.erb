@@ -5,6 +5,9 @@
       <span class="join-in">Join in <%= @user.created_at.year %></span>
     </div>
     <%= cl_image_tag @user.photo.key, alt: "pic", class: "host-avatar"%>
+
+    <span class="join-in">Joined in <%= @user.created_at.year %></span>
+
     <%#= link_to "Edit your profile", edit_user_registration_path  %>
   </div>
 
@@ -29,7 +32,9 @@
       <% end %>
     </div>
 
-<%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
+  </div>
+</div>
 
 
 <%#= link_to "Review " + @user.first_name, new_event_review_path(@user.event)  %>

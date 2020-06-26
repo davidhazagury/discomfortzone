@@ -20,11 +20,15 @@
 .btn-ghost-square-red {
   font-family: "Lato", "sans-serif";
   color: $cool-red;
-  background-color: rgba(248,4,71,0.05);
   border: 1px solid $cool-red;
   padding: 8px 24px;
   border-radius: 6px;
   font-weight: 700;
+  &:hover {
+  text-decoration: none;
+  background: $cool-red;
+  color: white;
+  }
 }
 
 .btn-ghost:hover {
@@ -92,18 +96,19 @@
   align-items: center;
   justify-content: center;
 }
-  .motivation-btn {
-    width: 100%;
-    color: white;
-    padding: 8px 20px;
-    border-radius: 4px;
-    font-weight: bold;
-    background-color: $cool-red;
-    transition: background 0.3s ease;
-    border: none;
-    &:hover {
-    background-color: $cool-red;
-    color: white;
-    }
-    }
+
+.motivation-btn {
+  width: 100%;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: $cool-red;
+  transition: background 0.3s ease;
+  border: none;
+  &:hover {
+  background-color: $cool-red;
+  color: white;
+  }
+}
 
