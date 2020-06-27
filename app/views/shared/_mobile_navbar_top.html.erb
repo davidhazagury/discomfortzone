@@ -1,15 +1,10 @@
 <div class="navbar mobile-navbar-top <%= "fixed" if controller_name === 'events' && action_name == 'show' %>">
   <div class="container">
-    <div>
-      <%= link_to root_path, class: "navbar-top-logo" do %>
-        <i class="fas fa-feather-alt"></i>
-      <% end %>
-    </div>
     <div class="prettybrand d-flex align-items-center">
-      <h3 style="font-weight: 600;">D</h3>
-      <h3 style="font-weight: 300; font-size: 20px;">iscomfort</h3>
-      <h3 style="font-weight: 600; transform: scaleX(-1)">Z</h3>
-      <h3 style="font-weight: 300; font-size: 20px;">one</h3>
+      <h4 id="navbar-letter-d"style=";">D</h4>
+<!--       <h3 style="font-weight: 300; font-size: 20px;">iscomfort</h3> -->
+      <h4 id="navbar-letter-z"style="">Z</h4>
+<!--       <h3 style="font-weight: 300; font-size: 20px;">one</h3> -->
     </div>
     <!-- DROPDOWN BUTTON -->
     <% unless current_user.present? %>
