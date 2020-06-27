@@ -1,36 +1,42 @@
+<!-- Filter buttons - probably won't implement -->
 
-<h1>Customize your Adventure</h1>
-<br>
 <!-- <div class="buttons">
   <div class="btn btn-success btn-block">Easy-Going</div>
   <div class="btn btn-primary btn-block">Enterntaining</div>
   <div class="btn btn-danger btn-block">Crazy</div>
   <div class="btn btn-secondary btn-block">Sporty</div>
+  https://images.unsplash.com/photo-1483444308400-fb9510501d23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2106&q=80
+  https://images.unsplash.com/photo-1482398650355-d4c6462afa0e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80
 </div> -->
-<br>
-<br>
 
-<!-- Harry Potter Search Feature -->
-<div class="conatiner">
-  <%= form_tag events_path, method: :get do %>
-  <div class="search-form-control form-group">
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control string required",
-      placeholder: "Find an adventure"
-    %>
-    <%= submit_tag "Search", class: "btn btn-light-blue" %>
-    </div>
-  <% end %>
+<div class="banner-index" style="background-image: url(https://images.unsplash.com/photo-1526723476341-307183286978?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);">
+  <div class="container-shrink">
+      <%= form_tag events_path, method: :get do %>
+        <div class="search-form-control form-group">
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control string required",
+          placeholder: "Find an adventure..."
+          %>
+          <%= submit_tag "Search", class: "btn btn-cool-red" %>
+        </div>
+      <% end %>
+  </div>
 </div>
 
+
 <br>
+
+<% if @events.empty? %>
+  <h4>Oops! Looks like no one is organizing such an adventure yet. Why not organizing it yourself?</h4>
+  <a class="btn-ghost-square-red" href="/events/new"> List an Adventure </a>
+<% end %>
 
 <!--THIS IS AN PERSONALIZE AVATAR-->
 <%# if @current_user.photo.attached? %>
 <!-- <div style="width: 50px; border-radius: 50%;"><%#= cl_image_tag @current_user.photo.key %></div>
  --><%# end %>
-<h2>Your Results: </h2>
+<!-- <h2>Your Results: </h2> -->
 <div class="cards-container">
     <% @events.each do |event| %>
       <div class="event-card">
