@@ -36,7 +36,7 @@
               <%= @event.start_time.strftime("%d %b %y")  %>
             </td>
             <td>
-              <%= @event.capacity %>
+              <%= (@event.capacity - @event.spots_left).to_s + "/" + @event.capacity.to_s %>
             </td>
           </tbody>
         </table>

@@ -1,18 +1,36 @@
 <div class="mobile-navbar-bottom navbar">
-  <%= link_to root_path do %>
+
+<!--   HOME BUTTON -->
+<!--   <%= link_to root_path do %>
     <div class="navbar-link"><i class="fa fa-home" aria-hidden="true"></i></div>
-  <% end %>
-  <%= link_to events_path do %>
-    <div class="navbar-link"><i class="fa fa-search" aria-hidden="true"></i></div>
-  <% end %>
+  <% end %> -->
+
+
+
+<!-- NEW ADVENTURE BUTTON -->
   <%= link_to new_event_path do %>
     <div class="navbar-link"><i class="far fa-calendar-plus" aria-hidden="true"></i></div>
   <% end %>
-  <%= link_to root_path do %> <!--UPDATE WHEN ROUTE IS READY-->
-    <div class="navbar-link"><i class="fa fa-users" aria-hidden="true"></i></div>
+
+  <!--   SEARCH BUTTON -->
+  <%= link_to events_path do %>
+    <div class="navbar-link"><i class="fa fa-search" style="font-size: 40px;" aria-hidden="true"></i></div>
   <% end %>
-  <%= link_to root_path do %> <!--UPDATE WHEN ROUTE IS READY-->
-    <div class="navbar-link"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
+
+<!-- COMMUNITY BUTTON (USELESS?) -->
+<!--   <%= link_to root_path do %>
+    <div class="navbar-link"><i class="fa fa-users" aria-hidden="true"></i></div>
+  <% end %> -->
+
+
+  <% if current_user.present? %>
+    <%= link_to user_path(current_user) do %> <!--UPDATE WHEN ROUTE IS READY-->
+      <div class="navbar-link"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path do %> <!--UPDATE WHEN ROUTE IS READY-->
+      <div class="navbar-link"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
+    <% end %>
   <% end %>
 </div>
 
