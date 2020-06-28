@@ -31,12 +31,6 @@
   <h4>Oops! Looks like no one is organizing such an adventure yet. Why not organizing it yourself?</h4>
   <a class="btn-ghost-square-red" href="/events/new"> List an Adventure </a>
 <% end %>
-
-<!--THIS IS AN PERSONALIZE AVATAR-->
-<%# if @current_user.photo.attached? %>
-<!-- <div style="width: 50px; border-radius: 50%;"><%#= cl_image_tag @current_user.photo.key %></div>
- --><%# end %>
-<!-- <h2>Your Results: </h2> -->
 <div class="cards-container">
     <% @events.each do |event| %>
       <div class="event-card">
@@ -56,7 +50,6 @@
                   <div class="avatar-large"  style="background-image: url('<%= cl_image_path event.user.photo.key %>')"></div>
                   <% else %>
                   <div class="avatar-large" id= "no-pic-avatar-index"style="background-color: lightslategrey;"><%= event.user.first_name.first.capitalize + event.user.last_name.first.capitalize%></div>
-                    <%#= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "user-icon", class: "avatar-large"%>
                   <% end %>
             </div>
             <h4> <i class="fas fa-calendar-alt"> </i>  <%= event.start_time.strftime("%d %b %y") %></h4>
