@@ -1,8 +1,4 @@
 <br>
-<br>
-<br>
-<br>
-
 <h3> <%= current_user.first_name %>, this is your Dashboard</h3>
 
 <% #THESE ARE THE TABS %>
@@ -20,7 +16,8 @@
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="own-events" role="tabpanel" aria-labelledby="own-events-tab">
 
-    <% #THIS IS THE "YOUR OWN EVENTS" PART %>
+<!--     #THIS IS THE "YOUR OWN EVENTS" PART  -->
+
     <div class="created-events cards-container">
       <% if @owned_events.any? %>
         <% current_user.events.each do |event| %>
@@ -49,9 +46,8 @@
                   <h4> <i class="fas fa-location-arrow"> </i>  <%= event.address.capitalize %></h4>
 
                   <h4> <%#= event.user.first_name.capitalize %><i class="fas fa-user-friends"></i> <%= event.spots_left %> spots left</h4>
-
                 </div>
-
+                <% end %>
 
                 <hr>
                 <% if event.event_users.applied.any? %>
@@ -64,24 +60,20 @@
                 <div class="applicants-container">
                   <div class="applicant-profile">
                     <% if application.user.photo.attached? %>
-<!--                       <div class="avatar-always-round" style = " background-image: url(<%= cl_image_path application.user.photo.key %>)"></div>
- -->                  <!--<div class="partipants-avatar" style = " background-image: url(<%#= cl_image_path participant.user.photo.key %>)"></div>-->
+                       <div class="avatar-always-round" style = " background-image: url(<%= cl_image_path application.user.photo.key %>)"></div>
                     <% else %>
-<!--                        <div class="avatar-always-round" id="no-pic-avatar" style="background-color: lightslategrey"><%= application.user.first_name.first.capitalize + application.user.last_name.first.capitalize%></div>
- -->                    <% end %>
-
+                       <div class="avatar-always-round" id="no-pic-avatar" style="background-color: lightslategrey"><%= application.user.first_name.first.capitalize + application.user.last_name.first.capitalize%></div>
+                    <% end %>
                      <p class = "applicant"><%= link_to application.user.first_name + application.user.last_name, application.user %></p>
                    </div>
 
                    <p class = "applicant-message"> <strong>Message: </strong><%= application.motivation %></p>
-
-
                    <div class="decider">
                      <%= link_to event_user_path(application, query:"accepted"), method: :patch do%>
-                       <i class="fas fa-check-circle" style ="color: green; font-size: 40px;"></i>
+                       <i class="fas fa-check-circle" id="check" style ="color: green; font-size: 40px;"></i>
                      <% end %>
                      <%= link_to event_user_path(application, query:"rejected"), method: :patch do%>
-                        <i class="fas fa-times-circle" style ="color: red; font-size: 40px"></i>
+                        <i class="fas fa-times-circle" id="decline" style ="color: red; font-size: 40px"></i>
                      <% end %>
                     </div>
                 </div>
@@ -101,30 +93,39 @@
                       <br>
               <% end %>
 
-              <% if event.event_users.accepted.any? %>
-                  <h4>Those are coming with you:</h4>
-                  <% end %>
-                <% event.event_users.accepted.each do |application|  %>
 
-                    <p class = "applicant"><%= link_to application.user.first_name, application.user %></p>
+          <% if event.event_users.accepted.any? %>
+            <h4>Those are coming with you:</h4>
+          <% end %>
 
+          <div class="accepted-container">
+          <% event.event_users.accepted.each do |application|  %>
+            <div class="accepted-profile">
+              <% if application.user.photo.attached? %>
+                 <div class="avatar-always-round" style = " background-image: url(<%= cl_image_path application.user.photo.key %>)"></div>
+              <% else %>
+                 <div class="avatar-always-round" id="no-pic-avatar" style="background-color: lightslategrey"><%= application.user.first_name.first.capitalize + application.user.last_name.first.capitalize%></div>
               <% end %>
+               <p class = "applicant"><%= link_to application.user.first_name + application.user.last_name, application.user %></p>
              </div>
-            <% end %>
+
+          <% end %>
           </div>
+        </div>
 
-          <br>
-          <br>
-          <br>
         <% end %>
-      <% else %>
-         <p>You dont have any created events. Go ahead and create one  <%= link_to "here", new_event_path %></p>
-      <% end %>
+        </div>
+        </div>
+        <% else %>
+        <p>You dont have any created events. Go ahead and create one  <%= link_to "here", new_event_path %></p>
+        <% end %>
+      </div>
     </div>
-  </div>
 
 
-  <% #THIS IS THE "THE EVENTS YOU APPLIED FOR" PART %>
+
+<!-- #THIS IS THE "APPLIED EVENTS" PART -->
+
   <div class="tab-pane fade" id="applied-events" role="tabpanel" aria-labelledby="applied-events-tab">
     <div class="applied-events cards-container">
       <% if @applied_events.any? %>
@@ -167,11 +168,6 @@
       <% end %>
     </div>
   </div>
-  <br>
-  <br>
-  <br>
-
-
 
  <% #THIS IS THE "FAVOURITES" PART %>
   <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">

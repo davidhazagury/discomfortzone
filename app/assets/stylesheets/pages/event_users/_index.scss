@@ -26,6 +26,13 @@ h4 {
 //       background-size: cover;
 // }
 
+.avatar-always-round {
+  display: block;
+  margin: 0 auto;
+  width: 60px;
+  height: 60px;
+}
+
 #no-pic-avatar{
       position: absolute;
       top:-22px;
@@ -39,10 +46,25 @@ h4 {
 
 .decider {
   text-align: center;
-  width: 0px 50px;
   margin-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 
+#check {
+  margin-right: 5px;
+}
 
+#decline {
+  margin-left: 5px;
+}
+
+.accepted-container {
+
+}
+
+.accepted-profile {
+
+}
 
 
