@@ -26,7 +26,6 @@ class EventUsersController < ApplicationController
 
   def update
     @event_user = EventUser.find(params[:id])
-
     authorize @event_user
 
     if params[:query] == "accepted"

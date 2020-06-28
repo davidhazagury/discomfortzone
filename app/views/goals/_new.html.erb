@@ -1,0 +1,5 @@
+<%= simple_form_for([@event, @event_user]) do |f| %>
+  <%= f.input :title, label:, placeholder: "Enter your title here..."%>
+  <%= f.input :description, label:, placeholder: "Explain briefly what this dream is about..."%>
+  <%= f.submit "ADD", class:"btn-cool-red", id: "anchor"%>
+<% end %>
