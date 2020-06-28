@@ -11,8 +11,14 @@
   <%= link_to root_path do %> <!--UPDATE WHEN ROUTE IS READY-->
     <div class="navbar-link"><i class="fa fa-users" aria-hidden="true"></i></div>
   <% end %>
-  <%= link_to root_path do %> <!--UPDATE WHEN ROUTE IS READY-->
-    <div class="navbar-link"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
+  <% if current_user.present? %>
+    <%= link_to user_path(current_user) do %> <!--UPDATE WHEN ROUTE IS READY-->
+      <div class="navbar-link"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path do %> <!--UPDATE WHEN ROUTE IS READY-->
+      <div class="navbar-link"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
+    <% end %>
   <% end %>
 </div>
 
