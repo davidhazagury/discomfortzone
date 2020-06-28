@@ -5,7 +5,7 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @goal = Event.new(goal_params)
+    @goal = Goal.new(goal_params)
     authorize @goal
     @goal.user_id = current_user.id
     if @goal.save
@@ -16,7 +16,7 @@ class GoalsController < ApplicationController
   end
 
   def update
-    @event_user = EventUser.find(params[:id])
+    @goal = EventUser.find(params[:id])
     authorize @event_user
 
     # write code here in order to be able to switch "completed" from true to false, or false to true
@@ -26,5 +26,15 @@ class GoalsController < ApplicationController
   end
 
   def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    authorize @event
+    redirect_to events_path
+  end
+
+  private
+
+  def goal_params
+    params.require(:goal).permit(:title, :description)
   end
 end
