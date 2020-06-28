@@ -4,7 +4,7 @@ class EventPolicy < ApplicationPolicy
       scope.all
     end
   end
-  def new
+  def new?
     return true
   end
 
