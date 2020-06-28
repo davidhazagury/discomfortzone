@@ -16,18 +16,17 @@ class GoalsController < ApplicationController
   end
 
   def update
-    @goal = EventUser.find(params[:id])
-    authorize @event_user
+    @goal = Goal.find(params[:id]) #this may not work, need to check
+    authorize @goal
 
     # write code here in order to be able to switch "completed" from true to false, or false to true
     # The logic should look something like this:
     # if completed == false, turn it true, else turn it false, end, save.
-
   end
 
   def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
+    @goal = Goal.find(params[:id])
+    @goal.destroy
     authorize @event
     redirect_to events_path
   end
@@ -35,6 +34,6 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-    params.require(:goal).permit(:title, :description)
+    params.require(:goal).permit(:name, :description)
   end
 end
