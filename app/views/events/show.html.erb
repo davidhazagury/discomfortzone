@@ -5,7 +5,6 @@
     <%= link_to user_path(@event.user) do  %>
       <% if @event.user.photo.attached? %>
         <div class="avatar-owner" style = " background-image: url(<%= cl_image_path @event.user.photo.key %>)"></div>
-        <%#= cl_image_tag @event.user.photo.key , alt: "profilepic" , class: "avatar-owner"  %>
       <% else %>
         <div class="host-avatar-no-picture" id="no-pic-avatar"style="background-color: lightslategrey"><%= @event.user.first_name.first.capitalize + @event.user.last_name.first.capitalize%></div>
       <% end %>
@@ -36,24 +35,25 @@
               <%= @event.start_time.strftime("%d %b %y")  %>
             </td>
             <td>
-              <%= @event.capacity %>
+              <%= (@event.capacity - @event.spots_left).to_s + "/" + @event.capacity.to_s %>
             </td>
           </tbody>
         </table>
       </div>
       <div class="avatars-event-box">
-        <% @event.event_users.each do |participant| %>
-          <% if participant.status == "accepted" %>
+        <% if @participants.empty?%>
+          <p id= "no-participants-text">No participants yet... Be the first one to join!</p>
+        <% else %>
+          <% @participants.each do |participant| %>
             <% if @event.user.photo.attached? %>
-            <div class="participants-avatar" style = " background-image: url(<%= cl_image_path participant.user.photo.key %>)"></div>
-              <!--<div class="partipants-avatar" style = " background-image: url(<%#= cl_image_path participant.user.photo.key %>)"></div>-->
-            <% else %>
+              <%= link_to user_path do%>
+                <div class="participants-avatar" style = " background-image: url(<%= cl_image_path participant.user.photo.key %>)"></div>
+              <% end %>
+            <% else  %>
               <div class="participants-avatar" id ="participant-no-pic"style="background-color: lightslategrey"><%= participant.user.first_name.first.capitalize + participant.user.last_name.first.capitalize%></div>
             <% end %>
-          <% else %>
-            <p> No participants yet</p>
-            <% end %>
           <% end %>
+        <% end %>
     </div>
     <p><%= @event.description %></p>
     <% unless current_user == @event.user || @event.participant?(current_user) %>
