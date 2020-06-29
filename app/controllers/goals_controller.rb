@@ -1,11 +1,13 @@
 class GoalsController < ApplicationController
   def new
+    @user = User.find(params[:user_id])
     @goal = Goal.new
     authorize @goal
   end
 
   def create
     @goal = Goal.new(goal_params)
+    @user = User.find(params[:user_id])
     authorize @goal
     @goal.user_id = current_user.id
     if @goal.save

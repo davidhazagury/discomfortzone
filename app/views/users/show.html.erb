@@ -63,25 +63,30 @@
 </div>
 <br>
 <br>
-<h6>Bucket List</h6>
-<% @goals.each do |goal| %>
-  <div class="goal-card">
-    <div class="completed-checkbox">
-      <% if goal.completed %>
-        <i class="fas fa-check-square"></i>
-      <% else %>
-        <i class="far fa-square"></i>
-      <% end %>
-    </div>
-    <div class="goal-content">
-      <h6><%= goal.title %></h6>
-      <p class="goal-date">
-      </p>
-      <p class="goal-description">
-      </p>
-    </div>
+
+<% if @goals.any? && current_user == @user %>
+  <div class="goal-menu">
+  <h6>Bucket List</h6>
+    <%= link_to new_user_goal_path(@user) do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
   </div>
-  <%= goal.name %>
+  <% @goals.each do |goal| %>
+    <div class="goal-card">
+      <div class="completed-checkbox">
+        <% if goal.completed %>
+          <i class="fas fa-check-square"></i>
+        <% else %>
+          <i class="far fa-square"></i>
+        <% end %>
+      </div>
+      <div class="goal-content">
+        <h6><%= goal.name %></h6>
+        <p class="goal-date"> Added on <%= goal.created_at.strftime("%d %b %y") %></p>
+        <p class="goal-description"> <%= goal.description %></p>
+      </div>
+    </div>
+  <% end %>
 <% end %>
 
 

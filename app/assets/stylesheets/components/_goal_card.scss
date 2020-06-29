@@ -1,0 +1,51 @@
+.goal-menu {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(200,200,200);
+  margin-bottom: 20px;
+  i {
+    color: $cool-red;
+    font-size: 20px;
+    padding-right: 20px;
+  }
+
+
+}
+
+.goal-card {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.completed-checkbox {
+  color: $cool-red;
+  font-size: 30px;
+  padding-right: 20px;
+}
+
+.goal-content {
+  background: white;
+  flex-grow: 1;
+  box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
+  border-radius: 12px;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  h6 {
+    margin-bottom: 0px;
+  }
+  .goal-date {
+    font-size: 10px;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(0,0,0,0.85);
+    margin-bottom: 10px;
+  }
+  .goal-description {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.85)
+  }
+}

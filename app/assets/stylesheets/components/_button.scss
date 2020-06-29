@@ -83,7 +83,7 @@
   font-weight: bold;
   background-color: $cool-red;
   transition: background 0.3s ease;
-  // border: 0.5px solid $main-blue;
+  border: none;
   &:hover {
   background-color: $cool-red;
   color: white;
