@@ -1,3 +1,26 @@
 .user-card {
-  display: flex;
+  width: 40%;
+
+  margin: 10px;
+  display: block;
+  box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
+}
+
+.user-picture {
+  background-image: center;
+  background-size: cover;
+  height: 60px;
+  border-radius: 6px 6px 0px 0px;
+  position: relative;
+}
+.user-description {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.avatar-large {
+  position: absolute;
+  // bottom: -69px;
+  // left: 120px;
+
 }

@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<div class="users-container">
+<!-- <div class="users-container">
   <% @users.each do |user| %>
     <div class="user-card justify-content-between">
       <div class="user d-flex flex-column justify-content-center align-items-center">
@@ -30,5 +30,34 @@
    </div>
     <hr>
   <% end %>
+</div> -->
+
+<div class="user-container">
+  <% @users.each do |user| %>
+    <div class="user-card">
+        <div class="user-picture" style = "background-image: url(https://source.unsplash.com/random);"></div>
+        <% if user.photo.attached? %>
+            <div class="avatar-large" style = " background-image: url(<%= cl_image_path user.photo.key %>)"></div>
+        <% else %>
+             <div class="host-avatar-no-picture"  style="background-color: lightslategrey"><%= user.first_name.first.capitalize + user.last_name.first.capitalize%></div>
+        <% end %>
+        <div class="user-description">
+          <div class="user-text">
+            <h6><%= user.first_name.capitalize + " " + user.last_name.capitalize %></h6>
+            <p> Barcelona </p>
+            <p> facebook instagram github</p>
+          </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+  <% end %>
 </div>
+
+
+
+
+
+
 
