@@ -3,6 +3,7 @@ class FavouritesController < ApplicationController
   before_action :set_event
 
   def create
+    # TWO IN ONE DUE TO AJAX IMPLEMENTATION
     if @event.favourited?(current_user)
       @favourite = Favourite.where(user: current_user).where(event: @event).first
       authorize @favourite
@@ -15,12 +16,11 @@ class FavouritesController < ApplicationController
     # redirect_to events_path, anchor: "event-#{@favourite.event.id}"
   end
 
-  def destroy
-    @favourite = Favourite.find(params[:id])
-    authorize @favourite
-    @favourite.destroy
-    # redirect_to events_path, anchor: "event-#{@favourite.event.id}"
-  end
+  # def destroy
+  #   @favourite = Favourite.find(params[:id])
+  #   authorize @favourite
+  #   @favourite.destroy
+  # end
 
   private
 
