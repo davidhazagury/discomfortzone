@@ -1,0 +1,8 @@
+console.log("Ajax")
+
+const replaceCard = () => {
+  const card = document.querySelector("#card-<%= @event_user.event.id%>")
+  card.innerHTML = "<%= j render 'card', event: @event_user.event%>"
+}
+
+replaceCard()
