@@ -20,70 +20,70 @@ puts "2 - Let's create some users ... with pictures"
 
 # User1: Elon Musk
 elon_pic = URI.open ("https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTY2MzU3Nzk2OTM2MjMwNTkx/elon_musk_royal_society.jpg")
-user1 = User.new(email: "musk@gmail.com", password: "1234567", first_name: "Elon", last_name:"Musk")
+user1 = User.new(email: "musk@gmail.com", password: "1234567", first_name: "Elon", last_name:"Musk", biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 user1.photo.attach(io: elon_pic, filename: 'elon.png', content_type: 'image/png')
 user1.save!
 
 # User2: Jeff Bezos
 jeff_pic =  URI.open ("https://pbs.twimg.com/profile_images/669103856106668033/UF3cgUk4_400x400.jpg")
-user2 = User.new(email: "jeff@gmail.com", password: "1234567", first_name: "Jeff", last_name:"Bezos")
+user2 = User.new(email: "jeff@gmail.com", password: "1234567", first_name: "Jeff", last_name:"Bezos", biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 user2.photo.attach(io: jeff_pic, filename: 'jeff.png', content_type: 'image/png')
 user2.save!
 
 # User3: Lou
 lou_pic = URI.open ("https://avatars3.githubusercontent.com/u/62842976?s=460&u=c9393f510acd2f73143a520bff805a36db8037d0&v=4")
-user3 = User.new(email: "louis@gmail.com", password: "1234567", first_name: "Louis", last_name:"Bemberg")
+user3 = User.new(email: "louis@gmail.com", password: "1234567", first_name: "Louis", last_name:"Bemberg", biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 user3.photo.attach(io: lou_pic, filename: 'lou.png', content_type: 'image/png')
 user3.save!
 
 
 # User4: David
 david_pic = URI.open ("https://avatars1.githubusercontent.com/u/57439844?s=400&u=974c959854561ec99af5e770a8455ac2134e9455&v=4")
-user4 = User.new(email: "david@gmail.com", password: "1234567", first_name: "David", last_name:"Hernandez")
+user4 = User.new(email: "david@gmail.com", password: "1234567", first_name: "David", last_name:"Hernandez", biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 user4.photo.attach(io: david_pic, filename: 'david.png', content_type: 'image/png')
 user4.save!
 
 # User5: Wolfgang
 wolfgang_pic = URI.open('https://avatars2.githubusercontent.com/u/55288885?s=400&u=a5ead364f1ee4761ac36793fce0ee4d5e03d238c&v=4')
-user5 = User.new(email: "wolfgang@gmail.com", password: "1234567", first_name: "Wolfgang", last_name:"Alkier")
+user5 = User.new(email: "wolfgang@gmail.com", password: "1234567", first_name: "Wolfgang", last_name:"Alkier", biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 user5.photo.attach(io: wolfgang_pic, filename: 'wolfgang.png', content_type: 'image/png')
 user5.save!
 
 # User6: TheCodingJonas
 jonas_pic = URI.open ("https://res.cloudinary.com/dzevgses3/image/upload/v1593172342/jonas-profile.jpg")
-user6 = User.new(email: "jonas@gmail.com", password: "1234567", first_name: "Jonas", last_name:"Fuerstenberg")
+user6 = User.new(email: "jonas@gmail.com", password: "1234567", first_name: "Jonas", last_name:"Fuerstenberg", biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 user6.photo.attach(io: jonas_pic, filename: 'jonas.png', content_type: 'image/png')
 user6.save!
 
 # User7: Steve Jobs
 steve_pic = URI.open ("https://www.pioneeringminds.com/wp-content/uploads/2018/10/Steve-Jobs-1440x960.jpg")
-user7 = User.new(email: "steve@gmail.com", password: "1234567", first_name: "steve",last_name: 'jobs')
+user7 = User.new(email: "steve@gmail.com", password: "1234567", first_name: "steve",last_name: 'jobs', biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 user7.photo.attach(io: steve_pic, filename: 'steve.png', content_type: 'image/png')
 user7.save!
 
 # User8: Darth Vader
 vader_pic = URI.open ("https://avatars.alphacoders.com/avatars/view/177869")
-user8 = User.new(email: "vader@gmail.com", password: "1234567", first_name: "Darth",last_name: 'Vader')
+user8 = User.new(email: "vader@gmail.com", password: "1234567", first_name: "Darth",last_name: 'Vader', biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 user8.photo.attach(io: vader_pic, filename: 'vader.png', content_type: 'image/png')
 user8.save!
 
 # User9: Gabriela Silvero
 gabriela_pic = URI.open ("https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
-user9 = User.new(email: "gabriela@gmail.com", password: "1234567", first_name: "Gabriela",last_name: 'Silvero')
+user9 = User.new(email: "gabriela@gmail.com", password: "1234567", first_name: "Gabriela",last_name: 'Silvero', biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 user9.photo.attach(io: gabriela_pic, filename: 'gabriela.png', content_type: 'image/png')
 user9.save!
 
 # User10: Sarah Brown
 sarah_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
-user10 = User.new(email: "sarah@gmail.com", password: "1234567", first_name: "Sarah",last_name: 'Brown')
+user10 = User.new(email: "sarah@gmail.com", password: "1234567", first_name: "Sarah",last_name: 'Brown', biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 user10.photo.attach(io: sarah_pic, filename: 'sarah.png', content_type: 'image/png')
 user10.save!
 
 # User11 Without Picture: Boris Paillard
-user11 = User.create!(email: "boris@gmail.com", password: "1234567", first_name: "Boris",last_name: 'Paillard')
+user11 = User.create!(email: "boris@gmail.com", password: "1234567", first_name: "Boris",last_name: 'Paillard', biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 
 # User11 Without Picture: Seb Saunier
-user12 = User.create!(email: "sebjesus@gmail.com", password: "1234567", first_name: "Sebastien",last_name: 'Saunier')
+user12 = User.create!(email: "sebjesus@gmail.com", password: "1234567", first_name: "Sebastien",last_name: 'Saunier', biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 
 
 
