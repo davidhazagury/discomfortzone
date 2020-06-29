@@ -1,66 +1,135 @@
+<div class="user-banner" style = " background-image: url(<%= cl_image_path @user.photo.key %>)">
+  <span class="joined-in">
+    Joined in <%= @user.created_at.year %>
+  </span>
+</div>
+<!-- Displays the EDIT BTN -->
+<% if @user == current_user %>
+    <%= link_to "Edit your profile", edit_user_registration_path, class: "btn-cool-red "  %>
+  <% end %>
 
-  <div class="header">
+<div class="name-bio">
+  <h4 class="user-name">Hi, I'm <%= @user.first_name.capitalize %></h4>
+  <div class="user-bio">
+    <i class="fa fa-quote-left" style="color: lightgrey"></i>
+    <p><%= " " + @user.biography + " " %></p>
+  </div>
+</div>
+<div class="user-listings">
+  <h5><%= @user.first_name.capitalize%>'s listings</h5>
+  <% if @user.events.empty? %>
+    <%= @user.first_name.capitalize + ", has no listed events yet" %>
+  <% else  %>
+    <div class="listed-events">
+      <% @user.events.each do |event| %>
+        <%= link_to event_path(event), style:"text-decoration: none;" do  %>
+          <div class="event-card" style = " background-image: url(<%= cl_image_path event.photo.key %>);">
+            <h6><%= event.title.capitalize %></h6>
+          </div>
+        <% end %>
+      <% end %>
+      </div>
+  <% end %>
+</div>
+<div class="user-reviews">
+  <h5><%= @user.first_name.capitalize %>'s reviews</h5>
+  <% if @user.reviews.empty?%>
+    <% @user.events.each do |event| %>
+      <div class="reviews-box">
+        <% event.reviews.each do |review| %>
+          <div class="review-card">
+              <p class="event-title-review"><%= review.event.title.capitalize %></p>
+              <%= content_tag(:i, "", class: "fas fa-star", id: "icon-reviews", style:"color:#F80447") * review.rating%>
+              <p><%= review.created_at.strftime("%B,  %Y")%></p>
+            <div class="reviewer-area">
+              <%if review.user.photo.attached? %>
+                <div class="reviewer-avatar" style = " background-image: url(<%= cl_image_path review.user.photo.key %>)"></div>
+              <% else %>
+                <div class="reviewer-avatar" id="reviewer-avatar-no-pic" style="background-color: lightslategrey"><%= review.user.first_name.first.capitalize + review.user.last_name.first.capitalize%></div>
+              <% end %>
+              <%= review.user.first_name.capitalize + " " + review.user.last_name.capitalize %>
+            </div>
+            <p class= "event-content-review"><%= review.content.capitalize %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= @user.first_name + ", has no reviews yet" %>
+  <% end %>
+
+
+</div>
+
+
+
+
+
+
+
+
+  <!--<div class="header">
     <div class="header-title">
       <h3>Hi, I'm <%= @user.first_name.capitalize %></h3>
       <span class="join-in">Joined in <%= @user.created_at.year %></span>
     </div>
-    <%if @user.photo.attached? %>
+    <%#if @user.photo.attached? %>
       <div class="host-avatar" style = " background-image: url(<%= cl_image_path @user.photo.key %>)"></div>
-    <% else %>
+    <%# else %>
       <div class="host-avatar-no-picture" id="no-pic-avatar" style="background-color: lightslategrey"><%= @user.first_name.first.capitalize + @user.last_name.first.capitalize%></div>
-    <% end %>
+    <%# end %>
   </div>
-  <% if @user == current_user %>
-    <%= link_to "Edit your profile", edit_user_registration_path, class: "btn-cool-red "  %>
-  <% end %>
+  <%# if @user == current_user %>
+    <%#= link_to "Edit your profile", edit_user_registration_path, class: "btn-cool-red "  %>
+  <%# end %>
   <div class="bio-box">
     <p>
       <i class="fa fa-quote-left" style="color: lightgrey"></i>
-        <%= " " + @user.biography + " " %>
+        <%#= " " + @user.biography + " " %>
       <i class="fa fa-quote-right" style="color: lightgrey"></i>
     </p>
   </div>
   <div class="description-user-box">
     <h3><%= @user.first_name.capitalize%>'s listings</h3>
     <div class="listed-events">
-      <% @user.events.each do |event| %>
-        <%= link_to event_path(event), style:"text-decoration: none;" do  %>
-          <div class="event-card" style = " background-image: url(<%= cl_image_path event.photo.key %>);">
-            <h3><%= event.title.capitalize %></h3>
+      <%# @user.events.each do |event| %>
+        <%#= link_to event_path(event), style:"text-decoration: none;" do  %>
+          <div class="event-card" style = " background-image: url(<%#= cl_image_path event.photo.key %>);">
+            <h3><%#= event.title.capitalize %></h3>
           </div>
-        <% end %>
-      <% end %>
+        <%# end %>
+      <%# end %>
     </div>
     <div class="reviews-user-box" >
       <h3>Reviews from guests</h3>
-        <% if @user.reviews.empty?%>
-          <% @user.events.each do |event| %>
+        <%# if @user.reviews.empty?%>
+          <%# @user.events.each do |event| %>
             <div class="reviews-box">
-              <% event.reviews.each do |review| %>
+              <%# event.reviews.each do |review| %>
                 <div class="review-card">
                   <div class="creation-rating">
-                    <p><%= review.created_at.strftime("%B,  %Y")%></p>
-                    <%= content_tag(:i, "", class: "fas fa-star", id: "icon-reviews") * review.rating%>
+                    <p><%#= review.created_at.strftime("%B,  %Y")%></p>
+                    <%#= content_tag(:i, "", class: "fas fa-star", id: "icon-reviews") * review.rating%>
                   </div>
-                  <p style="margin:0; font-weight: 400"><%= review.event.title.capitalize %></p>
-                  <p id="review"><%= review.content.capitalize %></p>
+                  <p style="margin:0; font-weight: 400"><%#= review.event.title.capitalize %></p>
+                  <p id="review"><%#= review.content.capitalize %></p>
                   <div class="reviewer-area">
-                    <%if review.user.photo.attached? %>
-                      <div class="reviewer-avatar" style = " background-image: url(<%= cl_image_path review.user.photo.key %>)"></div>
-                    <% else %>
-                      <div class="reviewer-avatar" id="reviewer-avatar-no-pic" style="background-color: lightslategrey"><%= review.user.first_name.first.capitalize + review.user.last_name.first.capitalize%></div>
-                    <% end %>
-                    <%= review.user.first_name.capitalize + " " + review.user.last_name.capitalize %>
+                    <%#if review.user.photo.attached? %>
+                      <div class="reviewer-avatar" style = " background-image: url(<%#= cl_image_path review.user.photo.key %>)"></div>
+                    <%# else %>
+                      <div class="reviewer-avatar" id="reviewer-avatar-no-pic" style="background-color: lightslategrey"><%#= review.user.first_name.first.capitalize + review.user.last_name.first.capitalize%></div>
+                    <%# end %>
+                    <%#= review.user.first_name.capitalize + " " + review.user.last_name.capitalize %>
                   </div>
                 </div>
-              <% end %>
+              <%# end %>
             </div>
-          <% end %>
-        <% else %>
-          <%= @user.first_name + ", has no reviews yet" %>
-        <% end %>
+          <%# end %>
+        <%# else %>
+          <%#= @user.first_name + ", has no reviews yet" %>
+        <%# end %>
     </div>
 </div>
 
 
-<%#= link_to "Review " + @user.first_name, new_event_review_path(@user.event)  %>
+<%#= link_to "Review " + @user.first_name, new_event_review_path(@user.event)  %>-->

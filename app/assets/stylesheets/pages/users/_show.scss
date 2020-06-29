@@ -1,130 +1,220 @@
-// *********** PROFILE PAGE TOP SECTION WITH DATA OF HOST ********
-.header {
-   display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-right: 8%;
-}
-.header h3 {
-    font-family: $headers-font;
-    font-size: 30px;
-    margin: 0px;
-}
-.header-title {
-  position: relative;
-}
-.join-in {
-  font-family: $body-font;
-  font-weight: 300;
-  font-size: 14px;
-}
-.host-avatar {
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.user-banner {
+  height:277px;
+  width: 90%;
+  border-radius: 25px;
+  background-size:cover;
   background-position: center;
-  background-size: cover;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 0 auto;
+  margin-top: 20px;
+  position:relative;
+  .joined-in {
+    color:white;
+    background-color: #F80447;
+    position: absolute;
+    bottom: -16px;
+    right: 10px;
+    border-radius: 29px;
+    height: 34px;
+    width: 151px;
+    text-align: center;
+    padding: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
 }
-.host-avatar-no-picture {
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+.name-bio {
   text-align: center;
-  vertical-align: middle;
-  line-height: 70px;
-  color: white;
-  font-size:20px;
-  letter-spacing: 1px;
-}
-// ********* PROFILE PAGE DESCRIPTION SECTION ********
-.description-user-box {
-  margin-bottom: 27%;
-  margin-top: 10%;
-  h3 {
-    font-family: $headers-font;
-    font-size: 20px;
-  }
-  p {
-    font-family: $body-font;
-    font-weight: 200;
-    font-size: 16px;
+  margin-top: 30px;
+  align-items: flex-start;
+
+  .user-bio {
+    display:flex;
+    p {
+      margin-left: 5px;
+      text-align: left;
+      width: 100%;
+    }
   }
 }
-// *********** HOST LISTED EVENTS ***************
+
 .listed-events {
   margin: 20px 0;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-  .event-card {
-    margin-right: 15px;
-    position: relative;
-    display: inline-block;
-    border-radius: 20px;
-    width: 80%;
-    height: 150px;
-    background-size: cover;
-    background-position: center;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    h3 {
-      color: white;
-      position: absolute;
-      top: 15px;
-      left: 5px;
-      font-size: 20px;
-    }
-  }
+ .event-card {
+   margin-right: 15px;
+   position: relative;
+   display: inline-block;
+   border-radius: 20px;
+   width: 306px;
+   height: 213px;
+   background-size: cover;
+   background-position: center;
+   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+   h6 {
+    color: white;
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    font-size: 20px;
+   }
  }
-// *************** REVIEWS *****************
-#review {
-  margin: 0;
-  font-size: 18px;
 }
-#icon-reviews {
-color:#F80447;}
-.review-card {
-  border-bottom: 0.2px solid lightgrey;
-  margin-bottom: 14px;
-}
-.creation-rating {
-display:flex;
-justify-content: start;
-align-items: center;
-font-size: 12px;
-p {
-  font-weight:400;
-  margin: 0 5px 0 0;
-}
-}
-.reviewer-area {
-  display:flex;
-  justify-content:start;
-  align-items:center;
-  margin-top: 10px;
-  margin-bottom: 16px;
-  .reviewer-avatar {
-    margin-right: 10px;
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    background-position: center;
-    background-size:cover;
+
+.user-reviews {
+  width:100%;
+  .reviewer-area {
+    display:flex;
+    justify-content: flex-start;
+    align-items: middle;
+  }
+  .review-card {
+    width: 100%;
+    padding: 15px;
+    margin: 20px 0 20px 0;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .event-title-review{
+    font-weight:bold;
+  }
+  p {
+    margin: 4px 0 4px 0;
   }
 }
-#reviewer-avatar-no-pic {
-  text-align: center;
-  vertical-align: middle;
-  line-height: 25px;
-  color: white;
-  font-size:10px;
-  letter-spacing: 1px;
-}
-.bio-box {
-  font-family: $body-font;
-  font-weight: 250;
-  margin-top: 35px;
-}
+
+
+
+
+
+
+
+// *********** PROFILE PAGE TOP SECTION WITH DATA OF HOST ********
+//.header {
+  // display: flex;
+  //  justify-content: space-between;
+    //margin-top: 20px;
+    //margin-bottom: 20px;
+    //padding-right: 8%;
+
+//.header h3 {
+   // font-family: $headers-font;
+   // font-size: 30px;
+   // margin: 0px;
+//}
+//header-title {
+ // position: relative;
+//.join-in {
+  //font-family: $body-font;
+ //font-weight: 300;
+ // font-size: 14px;
+//}
+//.host-avatar {
+  //height: 70px;
+ //width: 70px;
+ // border-radius: 50%;
+ // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+ // background-position: center;
+  //background-size: cover;
+//}
+//.host-avatar-no-picture {
+  //height: 70px;
+  //width: 70px;
+  //border-radius: 50%;
+  //box-shadow: 0 0 15px rgba(0,0,0,0.2);
+ // text-align: center;
+ // vertical-align: middle;
+ // line-height: 70px;
+ // color: white;
+ // font-size:20px;
+ // letter-spacing: 1px;
+//}
+// ********* PROFILE PAGE DESCRIPTION SECTION ********
+//.description-user-box {
+ // margin-bottom: 27%;
+ // margin-top: 10%;
+ // h3 {
+ //   font-family: $headers-font;
+ //   font-size: 20px;
+ // }
+ // p {
+ //   font-family: $body-font;
+ //   font-weight: 200;
+ //   font-size: 16px;
+ // }
+//}
+// *********** HOST LISTED EVENTS ***************
+//.listed-events {
+//  margin: 20px 0;
+ // overflow-x: scroll;
+ // overflow-y: hidden;
+ // white-space: nowrap;
+ // .event-card {
+ //   margin-right: 15px;
+  //  position: relative;
+  //  display: inline-block;
+  //  border-radius: 20px;
+   // width: 80%;
+   // height: 150px;
+   // background-size: cover;
+   // background-position: center;
+   // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  //  h3 {
+    //  color: white;
+    //  position: absolute;
+    //  top: 15px;
+     // left: 5px;
+    //  font-size: 20px;
+    //}
+  //}
+ //}
+// *************** REVIEWS *****************
+//#review {
+//  margin: 0;
+//  font-size: 18px;
+//}
+//#icon-reviews {
+//color:#F80447;}
+//  border-bottom: 0.2px solid lightgrey;
+//  margin-bottom: 14px;
+//.creation-rating {
+//justify-content: start;
+//align-items: center;
+//font-size: 12px;
+//p {
+//  font-weight:400;
+//  margin: 0 5px 0 0;
+//}
+//}
+//.reviewer-area {
+//  display:flex;
+//  justify-content:start;
+//  align-items:center;
+//  margin-top: 10px;
+ // margin-bottom: 16px;
+ // .reviewer-avatar {
+  //  margin-right: 10px;
+  //  height: 25px;
+  //  width: 25px;
+  ////  border-radius: 50%;
+  //  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  //  background-position: center;
+  //  background-size:cover;
+  //}
+//}
+//#reviewer-avatar-no-pic {
+//  text-align: center;
+//  vertical-align: middle;
+//  line-height: 25px;
+//  color: white;
+//  font-size:10px;
+//  letter-spacing: 1px;
+//}
+//.bio-box {
+//  font-family: $body-font;
+//  font-weight: 250;
+//  margin-top: 35px;
+//}
