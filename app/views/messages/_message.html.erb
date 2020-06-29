@@ -1,7 +1,16 @@
-<div class="message-container" id="message-<%= message.id %>">
+<div class="message-container bg-opacity-25" id="message-<%= message.id %>">
   <i class="author">
-    <span><%= message.user.first_name %></span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+    <div class="avatar-time-boox">
+      <%if message.user.photo.attached? %>
+        <div class="reviewer-avatar" style = " background-image: url(<%= cl_image_path message.user.photo.key %>)"></div>
+      <% else %>
+        <div class="reviewer-avatar" id="reviewer-avatar-no-pic" style="background-color: lightslategrey"><%= review.user.first_name.first.capitalize + review.user.last_name.first.capitalize%></div>
+      <% end %>
+      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+    </div>
+    <!--<div class="reviewer-avatar" style = " background-image: url(<%= cl_image_path message.user.photo.key %>)"></div>
+    <span ><%#= message.user.first_name %></span>
+    <small><%#= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>-->
   </i>
   <p><%= message.content %></p>
 </div>

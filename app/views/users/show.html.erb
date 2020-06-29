@@ -13,6 +13,13 @@
   <% if @user == current_user %>
     <%= link_to "Edit your profile", edit_user_registration_path, class: "btn-cool-red "  %>
   <% end %>
+  <div class="bio-box">
+    <p>
+      <i class="fa fa-quote-left" style="color: lightgrey"></i>
+        <%= " " + @user.biography + " " %>
+      <i class="fa fa-quote-right" style="color: lightgrey"></i>
+    </p>
+  </div>
   <div class="description-user-box">
     <h3><%= @user.first_name.capitalize%>'s listings</h3>
     <div class="listed-events">
@@ -26,7 +33,7 @@
     </div>
     <div class="reviews-user-box" >
       <h3>Reviews from guests</h3>
-        <% if @user.reviews %>
+        <% if @user.reviews.empty?%>
           <% @user.events.each do |event| %>
             <div class="reviews-box">
               <% event.reviews.each do |review| %>

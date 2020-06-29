@@ -5,14 +5,13 @@
     <%= link_to user_path(@event.user) do  %>
       <% if @event.user.photo.attached? %>
         <div class="avatar-owner" style = " background-image: url(<%= cl_image_path @event.user.photo.key %>)"></div>
-        <%#= cl_image_tag @event.user.photo.key , alt: "profilepic" , class: "avatar-owner"  %>
       <% else %>
         <div class="host-avatar-no-picture" id="no-pic-avatar"style="background-color: lightslategrey"><%= @event.user.first_name.first.capitalize + @event.user.last_name.first.capitalize%></div>
       <% end %>
     <% end %>
     <div class="description">
       <div class="headders">
-        <h2><%= @event.title.capitalize %></h2>
+        <h5><%= @event.title.capitalize %></h5>
         <span><%= render "favourites/new", event: @event %></span>
         </div>
       <div class="icons-event-box">
@@ -42,18 +41,19 @@
         </table>
       </div>
       <div class="avatars-event-box">
-        <% @event.event_users.each do |participant| %>
-          <% if participant.status == "accepted" %>
+        <% if @participants.empty?%>
+          <p id= "no-participants-text">No participants yet... Be the first one to join!</p>
+        <% else %>
+          <% @participants.each do |participant| %>
             <% if @event.user.photo.attached? %>
-            <div class="participants-avatar" style = " background-image: url(<%= cl_image_path participant.user.photo.key %>)"></div>
-              <!--<div class="partipants-avatar" style = " background-image: url(<%#= cl_image_path participant.user.photo.key %>)"></div>-->
-            <% else %>
+              <%= link_to user_path do%>
+                <div class="participants-avatar" style = " background-image: url(<%= cl_image_path participant.user.photo.key %>)"></div>
+              <% end %>
+            <% else  %>
               <div class="participants-avatar" id ="participant-no-pic"style="background-color: lightslategrey"><%= participant.user.first_name.first.capitalize + participant.user.last_name.first.capitalize%></div>
             <% end %>
-          <% else %>
-            <p> No participants yet</p>
-            <% end %>
           <% end %>
+        <% end %>
     </div>
     <p><%= @event.description %></p>
     <% unless current_user == @event.user || @event.participant?(current_user) %>
@@ -63,16 +63,20 @@
 
       <!-- Content if current_user is either the host, or accepted to the event -->
       <% if current_user == @event.user %>
-        <h4 style="border-top: 1px solid rgb(225,225,225)">Ready to organize this event?</h4>
-        <h4>Why not have a chat with the other participants?</h4>
-        <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
-      <% end %>
+      <div class="chat-container">
+          <h4>Ready to organize this event?</h4>
+          <h5>Why not have a chat with the other participants?</h5>
+          <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
+        <% end %>
+      </div>
 
       <% if @event.participant?(current_user) %>
-        <h4 style="border-top: 1px solid rgb(225,225,225)">Woohoo! <%= @event.user.first_name %> has accepted you for this adventure</h4>
-        <h4>Why not have a chat with the other participants?</h4>
-        <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
-      <% end %>
+      <div class="chat-container">
+          <h4>Wohoo! <%= @event.user.first_name %> has accepted you for this adventure</h4>
+          <h5>Why not have a chat with the other participants?</h5>
+          <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
+        <% end %>
+      </div>
   </div>
 
   </div>

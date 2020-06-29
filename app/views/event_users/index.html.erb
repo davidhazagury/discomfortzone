@@ -1,8 +1,4 @@
 <br>
-<br>
-<br>
-<br>
-
 <h3> <%= current_user.first_name %>, this is your Dashboard</h3>
 
 <% #THESE ARE THE TABS %>
@@ -20,84 +16,25 @@
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="own-events" role="tabpanel" aria-labelledby="own-events-tab">
 
-    <% #THIS IS THE "YOUR OWN EVENTS" PART %>
+<!--     #THIS IS THE "YOUR OWN EVENTS" PART  -->
+
     <div class="created-events cards-container">
       <% if @owned_events.any? %>
         <% current_user.events.each do |event| %>
           <%#= event.title %>
-          <div class="event-card">
-            <%= link_to event_path(event) do  %>
-            <% if event.photo.attached? %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
-              </div>
-            <% else %>
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?adventure)">
-              </div>
-            <% end %>
-              <div class="cards-description">
-                <div class="cards-text">
-                  <div class="card-headder">
-                      <h3 class="event-title"> <%= event.title.capitalize %> </h3>
-                        <% if event.user.photo.attached? %>
-                        <%#= event.user.photo.key %>
-                        <% else %>
-                        <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "user-icon", class: "avatar-large"%>
-                        <% end %>
-                  </div>
-                  <h4> <i class="fas fa-calendar-alt"> </i>  <%= event.start_time.strftime("%d %b %y")  %></h4>
-                  <h4> <i class="fas fa-location-arrow"> </i>  <%= event.address.capitalize %></h4>
-
-                  <h4> <%#= event.user.first_name.capitalize %><i class="fas fa-user-friends"></i> <%= event.spots_left %> spots left</h4>
-
-                </div>
-
-
-                <hr>
-                <% if event.event_users.applied.any? %>
-                  <h4>Those people want to join:</h4>
-                  <% end %>
-
-              <% event.event_users.applied.each do |application| %>
-               <p class = "applicant"><%= link_to application.user.first_name, application.user %></p>
-                        <p class = "applicant-message"> Motivation: <%= application.motivation %></p>
-                       <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Pending
-                         </button>
-                        <div class="dropdown-menu"  data-controller ="menu" aria-labelledby="dropdownMenuButton">
-                          <%= button_to "Accept", event_user_path(application, query:"accepted"), method: :patch,  class:"dropdown-item"%>
-                          <%= button_to "Reject", event_user_path(application, query: "rejected"), method: :patch, class:"dropdown-item"%>
-                          <%= button_to "Pending", event_user_path(application, query: "pending"), method: :patch, class:"dropdown-item"%>
-                        </div>
-                      </div>
-                      <hr>
-                      <br>
-              <% end %>
-
-              <% if event.event_users.accepted.any? %>
-                  <h4>Those are coming with you:</h4>
-                  <% end %>
-                <% event.event_users.accepted.each do |application|  %>
-
-                    <p class = "applicant"><%= link_to application.user.first_name, application.user %></p>
-
-              <% end %>
-             </div>
-            <% end %>
-          </div>
-
-          <br>
-          <br>
-          <br>
+            <div class="event-card" id="card-<%= event.id %>">
+             <%= render "card", event: event %>
+           </div>
+          <% end %>
+        <% else %>
+          <p>You dont have any created events. Go ahead and create one  <%= link_to "here", new_event_path %></p>
         <% end %>
-      <% else %>
-         <p>You dont have any created events. Go ahead and create one  <%= link_to "here", new_event_path %></p>
-      <% end %>
+      </div>
     </div>
-  </div>
 
 
-  <% #THIS IS THE "THE EVENTS YOU APPLIED FOR" PART %>
+<!-- #THIS IS THE "APPLIED EVENTS" PART -->
+
   <div class="tab-pane fade" id="applied-events" role="tabpanel" aria-labelledby="applied-events-tab">
     <div class="applied-events cards-container">
       <% if @applied_events.any? %>
@@ -140,11 +77,6 @@
       <% end %>
     </div>
   </div>
-  <br>
-  <br>
-  <br>
-
-
 
  <% #THIS IS THE "FAVOURITES" PART %>
   <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">

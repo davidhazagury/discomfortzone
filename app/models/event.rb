@@ -29,11 +29,10 @@ class Event < ApplicationRecord
     capacity - event_users.accepted.count
   end
 
-
   def favourited?(user)
     favourites.pluck(:user_id).include? user.id
   end
-  
+
   def participant?(user)
     return false unless user
     event_users.accepted.pluck(:user_id).include?(user.id)
