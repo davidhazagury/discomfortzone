@@ -1,0 +1,25 @@
+.message-container {
+  position: relative;
+  background: lightslategrey;
+  border-radius: .4em;
+  padding-left: 20px;
+  color:white;
+  padding-top: 17px;
+  padding-bottom: 1px;
+  margin-bottom: 20px;
+  h4 {
+    margin-top:15px;
+    margin-bottom: 20px;
+  }
+  p {
+    margin-top: -7px;
+    margin-left: 35px;
+  }
+  .avatar-time-boox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+
