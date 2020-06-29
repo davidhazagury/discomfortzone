@@ -53,9 +53,14 @@
             right: 15px;
             top: 12px;
           }
+          h5 {
+            width: 80%;
+            text-align: left;
+          }
+
       }
     }
-    h2 {
+    h5 {
       font-family: $headers-font;
     }
     p {
