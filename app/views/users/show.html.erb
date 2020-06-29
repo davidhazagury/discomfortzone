@@ -33,7 +33,7 @@
     </div>
     <div class="reviews-user-box" >
       <h3>Reviews from guests</h3>
-        <% if @user.reviews %>
+        <% if @user.reviews.empty?%>
           <% @user.events.each do |event| %>
             <div class="reviews-box">
               <% event.reviews.each do |review| %>
