@@ -27,6 +27,7 @@ end
 
   def show
     @user = User.find(params[:id])
+    @goals = @user.goals
     authorize @user
   end
 end
