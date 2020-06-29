@@ -9,18 +9,10 @@ class EventsController < ApplicationController
         OR description ILIKE :query \
         OR address ILIKE :query \
       "
-      sql_query_users = " \
-        first_name ILIKE :query \
-        OR last_name ILIKE :query \
-        OR address ILIKE :query \
-      "
-      # MAKE THIS QUERY MORE ELABORATE WITH A JOIN TABLE TO ACCOUNT FOR GOALS
       @events = policy_scope(Event).where(sql_query_events, query: "%#{params[:query]}%")
-      @users = policy_scope(Event).where(sql_query_users, query: "%#{params[:query]}%")
 
     else
       @events = policy_scope(Event)
-      @users = policy_scope(User)
     end
   end
 
