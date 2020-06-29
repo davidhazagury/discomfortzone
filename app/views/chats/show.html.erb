@@ -1,5 +1,5 @@
 <% if current_user == @event.user || @event.participant?(current_user) %>
-  <h1>Chatroom</h1>
+  <h4><%= @event.title %></h4>
   <div id="messages" data-chatroom-id="<%= @event.id %>">
     <% @event.messages.each do |message| %>
       <%= render 'messages/message', message: message %>

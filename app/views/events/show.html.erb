@@ -43,11 +43,12 @@
       </div>
       <div class="avatars-event-box">
         <% @event.event_users.each do |participant| %>
-          <% if participant.status == "accepted" %>
+          <% if participant.status == 1 %>
             <% if @event.user.photo.attached? %>
-            <div class="participants-avatar" style = " background-image: url(<%= cl_image_path participant.user.photo.key %>)"></div>
-              <!--<div class="partipants-avatar" style = " background-image: url(<%#= cl_image_path participant.user.photo.key %>)"></div>-->
-            <% else %>
+              <%= link_to user_path do%>
+                <div class="participants-avatar" style = " background-image: url(<%= cl_image_path participant.user.photo.key %>)"></div>
+              <% end %>
+            <% else  %>
               <div class="participants-avatar" id ="participant-no-pic"style="background-color: lightslategrey"><%= participant.user.first_name.first.capitalize + participant.user.last_name.first.capitalize%></div>
             <% end %>
           <% else %>
