@@ -1,9 +1,11 @@
 .message-container {
   position: relative;
-  background: lightslategrey;
+  background: rgb(224, 224, 224);
   border-radius: .4em;
   padding-left: 20px;
-  color:white;
+  color: rgba(0, 0, 0, 0.82);
+  box-shadow: 0 0 20px rgba(224, 224, 224, 1);
+  border: none;
   padding-top: 17px;
   padding-bottom: 1px;
   margin-bottom: 20px;
