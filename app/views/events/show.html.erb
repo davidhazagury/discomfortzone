@@ -64,16 +64,20 @@
 
       <!-- Content if current_user is either the host, or accepted to the event -->
       <% if current_user == @event.user %>
-        <h4 style="border-top: 1px solid rgb(225,225,225)">Ready to organize this event?</h4>
-        <h4>Why not have a chat with the other participants?</h4>
-        <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
-      <% end %>
+      <div class="chat-container">
+          <h4>Ready to organize this event?</h4>
+          <h5>Why not have a chat with the other participants?</h5>
+          <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
+        <% end %>
+      </div>
 
       <% if @event.participant?(current_user) %>
-        <h4 style="border-top: 1px solid rgb(225,225,225)">Woohoo! <%= @event.user.first_name %> has accepted you for this adventure</h4>
-        <h4>Why not have a chat with the other participants?</h4>
-        <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
-      <% end %>
+      <div class="chat-container">
+          <h4>Wohoo! <%= @event.user.first_name %> has accepted you for this adventure</h4>
+          <h5>Why not have a chat with the other participants?</h5>
+          <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
+        <% end %>
+      </div>
   </div>
 
   </div>
