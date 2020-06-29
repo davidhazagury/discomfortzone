@@ -29,6 +29,6 @@ Rails.application.routes.draw do
   resources :event_users, only: [:index, :update]
 
   resources :users, only: [:show, :index] do
-    resources :goals, only: [:new, :create]
+    resources :goals, only: [:new, :create, :update]
   end
 end

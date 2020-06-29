@@ -22,6 +22,20 @@
   color: $cool-red;
   font-size: 30px;
   padding-right: 20px;
+
+  i {
+    text-decoration: none;
+  }
+}
+
+.completed-checkbox-visitor {
+  color: $main-blue;
+  font-size: 30px;
+  padding-right: 20px;
+
+  i {
+    text-decoration: none;
+  }
 }
 
 .goal-content {
