@@ -1,7 +1,12 @@
-<div class="message-container" id="message-<%= message.id %>">
+<div class="message-container bg-opacity-25" id="message-<%= message.id %>">
   <i class="author">
-    <span><%= message.user.first_name %></span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+    <div class="avatar-time-boox">
+      <div class="reviewer-avatar" style = " background-image: url(<%= cl_image_path message.user.photo.key %>)"></div>
+      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+    </div>
+    <!--<div class="reviewer-avatar" style = " background-image: url(<%= cl_image_path message.user.photo.key %>)"></div>
+    <span ><%#= message.user.first_name %></span>
+    <small><%#= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>-->
   </i>
   <p><%= message.content %></p>
 </div>
