@@ -34,7 +34,7 @@
 <div class="cards-container">
     <% @events.each do |event| %>
       <div class="event-card">
-      <%= link_to event_path(event), class: "entire-card" do  %>
+      <%= link_to event_path(event), class: "entire-card", id: "event-#{event.id}" do  %>
         <% if event.photo.attached? %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
           </div>
