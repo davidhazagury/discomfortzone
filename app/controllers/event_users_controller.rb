@@ -26,7 +26,6 @@ class EventUsersController < ApplicationController
 
   def update
     @event_user = EventUser.find(params[:id])
-
     authorize @event_user
 
     if params[:query] == "accepted"
@@ -39,8 +38,10 @@ class EventUsersController < ApplicationController
       @event_user.status = "applied"
       @event_user.save
     end
-
-    redirect_to event_users_path
+    respond_to do |format|
+      format.html { redirect_to event_users_path }
+      format.js
+    end
   end
 
   private

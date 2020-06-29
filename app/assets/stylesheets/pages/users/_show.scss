@@ -111,6 +111,8 @@ p {
     width: 25px;
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background-position: center;
+    background-size:cover;
   }
 }
 #reviewer-avatar-no-pic {
@@ -120,4 +122,9 @@ p {
   color: white;
   font-size:10px;
   letter-spacing: 1px;
+}
+.bio-box {
+  font-family: $body-font;
+  font-weight: 250;
+  margin-top: 35px;
 }

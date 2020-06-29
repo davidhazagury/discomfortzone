@@ -1,19 +1,26 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    # @events = Event.all # ---BEFORE PUNDIT---
+    # @events = Event.all           # ---BEFORE PUNDIT---
     # @events = policy_scope(Event) # FOR PUNDIT BUT BEFORE SEARCH FEATURE. Optional: .order(created_at: :desc)
     if params[:query].present?
-      # sql_query = "title ILIKE :query OR description ILIKE :query OR address ILIKE :query"
-      sql_query = " \
+      sql_query_events = " \
         title ILIKE :query \
         OR description ILIKE :query \
         OR address ILIKE :query \
       "
+      sql_query_users = " \
+        first_name ILIKE :query \
+        OR last_name ILIKE :query \
+        OR address ILIKE :query \
+      "
+      # MAKE THIS QUERY MORE ELABORATE WITH A JOIN TABLE TO ACCOUNT FOR GOALS
+      @events = policy_scope(Event).where(sql_query_events, query: "%#{params[:query]}%")
+      @users = policy_scope(Event).where(sql_query_users, query: "%#{params[:query]}%")
 
-      @events = policy_scope(Event).where(sql_query, query: "%#{params[:query]}%")
     else
       @events = policy_scope(Event)
+      @users = policy_scope(User)
     end
   end
 

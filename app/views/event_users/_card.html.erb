@@ -1,0 +1,97 @@
+
+            <%= link_to event_path(event) do  %>
+              <% if event.photo.attached? %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
+                </div>
+              <% else %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?adventure)">
+                </div>
+              <% end %>
+            <% end %>
+              <div class="cards-description">
+                <%= link_to event_path(event) do  %>
+                  <div class="cards-text">
+                    <div class="card-headder">
+                      <h3 class="event-title"> <%= event.title.capitalize %> </h3>
+                      <% if event.user.photo.attached? %>
+                      <%#= event.user.photo.key %>
+                      <% else %>
+                      <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "user-icon", class: "avatar-large"%>
+                      <% end %>
+                    </div>
+                    <h4> <i class="fas fa-calendar-alt"> </i>  <%= event.start_time.strftime("%d %b %y")  %></h4>
+                    <h4> <i class="fas fa-location-arrow"> </i>  <%= event.address.capitalize %></h4>
+
+                    <h4> <%#= event.user.first_name.capitalize %><i class="fas fa-user-friends"></i> <%= pluralize event.spots_left, 'spot' %> left</h4>
+                  </div>
+                <% end %>
+
+
+                <hr>
+                <% if event.event_users.applied.any? %>
+                  <h4>Those people want to join:</h4>
+                  <br>
+
+                  <% end %>
+
+              <% event.event_users.applied.each do |application| %>
+                <div class="applicants-container">
+                  <div class="applicant-profile">
+                    <% if application.user.photo.attached? %>
+
+                         <div class="avatar-always-round" style = " background-image: url(<%= cl_image_path application.user.photo.key %>)"></div>
+
+                      <% else %>
+                         <div class="avatar-always-round" id="no-pic-avatar" style="background-color: lightslategrey"><%= application.user.first_name.first.capitalize + application.user.last_name.first.capitalize%></div>
+                      <% end %>
+                      <p class = "applicant"><%= link_to application.user.first_name + " " + application.user.last_name, application.user %></p>
+                   </div>
+
+                   <p class = "applicant-message"> <strong>Message: </strong><%= application.motivation %></p>
+                   <div class="decider">
+                     <%= link_to event_user_path(application, query:"accepted"), method: :patch, remote: true do%>
+                       <i class="fas fa-check-circle" id="check" style ="color: green; font-size: 40px;"></i>
+                     <% end %>
+                     <%= link_to event_user_path(application, query:"rejected"), method: :patch, remote: true do%>
+                        <i class="fas fa-times-circle" id="decline" style ="color: red; font-size: 40px"></i>
+                     <% end %>
+                    </div>
+                </div>
+
+
+                       <!-- <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Pending
+                         </button>
+                        <div class="dropdown-menu"  data-controller ="menu" aria-labelledby="dropdownMenuButton">
+                          <%= button_to "Accept", event_user_path(application, query:"accepted"), method: :patch,  class:"dropdown-item"%>
+                          <%= button_to "Reject", event_user_path(application, query: "rejected"), method: :patch, class:"dropdown-item"%>
+                          <%= button_to "Pending", event_user_path(application, query: "pending"), method: :patch, class:"dropdown-item"%>
+                        </div>
+                      </div> -->
+                      <hr>
+                      <br>
+              <% end %>
+
+
+            <% if event.event_users.accepted.any? %>
+              <h4>Those are coming with you:</h4>
+            <% end %>
+
+            <div class="row">
+            <% event.event_users.accepted.each do |application|  %>
+              <div class="col-6">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                  <% if application.user.photo.attached? %>
+                    <div class="avatar-always-round" style = " background-image: url(<%= cl_image_path application.user.photo.key %>)"></div>
+                  <% else %>
+                    <div class="avatar-always-round" id="no-pic-avatar" style="background-color: lightslategrey"><%= application.user.first_name.first.capitalize + application.user.last_name.first.capitalize%></div>
+                  <% end %>
+                  <p class = "applicant"><%= link_to application.user.first_name + " " + application.user.last_name, application.user %></p>
+                </div>
+              </div>
+
+            <% end %>
+            </div>
+            </div>
+

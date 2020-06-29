@@ -1,6 +1,7 @@
 .applicant {
   color: black;
   font-size: 20px;
+
 }
 
 .applicant-message {
@@ -11,4 +12,62 @@
 
 h4 {
   color: black;
+  font-size: 28px;
 }
+
+// .participants-avatar {
+//       height: 50px;
+//       width: 50px;
+//       border-radius: 50%;
+//       z-index: 0;
+//       right: 34px;
+//       box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//       background-position: center;
+//       background-size: cover;
+// }
+
+.avatar-always-round {
+  display: block;
+  margin: 0 auto;
+  width: 60px;
+  height: 60px;
+}
+
+#no-pic-avatar{
+      position: absolute;
+      top:-22px;
+      right:34px;
+      display: inline-block;
+    }
+
+.applicants-container {
+  text-align: center;
+}
+
+.decider {
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#check {
+  margin-right: 5px;
+}
+
+#decline {
+  margin-left: 5px;
+}
+
+.applicant-message {
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
