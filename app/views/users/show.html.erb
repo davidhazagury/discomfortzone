@@ -40,7 +40,7 @@
 <div class="user-listings">
   <h5><%= @user.first_name.capitalize%>'s listings</h5>
   <% if @user.events.empty? %>
-    <%= @user.first_name.capitalize + " has no listed events yet" %>
+    <%= @user.first_name.capitalize + " hasn't listed an adventure yet" %>
   <% else  %>
     <div class="listed-events">
       <% @user.events.each do |event| %>
@@ -55,7 +55,7 @@
 </div>
 <div class="user-reviews">
   <h5><%= @user.first_name.capitalize %>'s reviews</h5>
-  <% if @user.reviews.empty?%>
+  <% unless @user.reviews.empty?%>
     <% @user.events.each do |event| %>
       <div class="reviews-box">
         <% event.reviews.each do |review| %>
@@ -87,14 +87,14 @@
 <!-- DO NOT REMOVE THIS EMPTY DIV, USING IT FOR ANCHORS:) -->
 <div id="bucket-list-top"></div>
 <!-- BEGINNING OF BUCKET LIST -->
-<% if @goals.any? && current_user == @user %>
-  <div class="goal-menu">
-  <h5>Bucket List</h5>
-    <%= link_to new_user_goal_path(@user) do %>
-      <i class="fas fa-plus"></i>
-    <% end %>
-  </div>
+<div class="goal-menu">
+<h5><%= @user.first_name + "'s Bucket List" %></h5>
+  <%= link_to new_user_goal_path(@user) do %>
+    <i class="fas fa-plus"></i>
+  <% end %>
+</div>
 <!--   WHAT THE OWNER SEES -->
+<% if @goals.any? && current_user == @user %>
   <% @goals.each do |goal| %>
     <div class="goal-card">
       <div class="completed-checkbox">
