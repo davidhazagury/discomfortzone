@@ -1,7 +1,7 @@
 
 <div class="img-event" style= " background-image: url(<%= cl_image_path @event.photo.key %>)"></div>
 
-<div class="description-area">
+<div class="description-area-events">
 
   <h4 class="event-title"><%= @event.title%></h4>
 
@@ -55,8 +55,8 @@
   </div>
 
   <div class="event-motivation">
-    <h4>Convince the host</h4>
     <% unless current_user == @event.user || @event.participant?(current_user) %>
+      <h4>Convince the host</h4>
       <%= render "event_users/new" %>
     <% end %>
   <!-- Content if current_user is either the host, or accepted to the event -->
