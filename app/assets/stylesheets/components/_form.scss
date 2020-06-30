@@ -1,10 +1,13 @@
 .form-container {
+    h4 {
+      color: $main-blue;
+    }
    padding-top: 20px;
    padding-bottom: 50px;
    label {
-    color: $main-blue;
-    font-size: 18px;
-    font-weight: 600;
+    color: $grayish-blue;
+    font-size: 16px;
+    font-weight: normal;
    }
    input {
       margin-bottom: 15px;
