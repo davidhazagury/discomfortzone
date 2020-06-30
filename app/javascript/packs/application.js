@@ -31,6 +31,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initChatroomCable } from '../channels/event_channel';
 import { heartToggler } from '../plugins/heart_toggle';
+import { homeNavbarAnimation } from '../plugins/home_navbar';
 //import { initFlatpickr } from '../plugins/init_flatpickr'
 
 document.addEventListener('turbolinks:load', () => {
@@ -41,4 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initChatroomCable();
+  homeNavbarAnimation();
 });
