@@ -23,11 +23,10 @@
           <% end %>
         <% end %>
       </div>
-
-      <%= simple_form_for [@event, @message], remote: true do |f|%>
-      <%= f.input :content, label: false, placeholder: "Type your message here..." %>
-      <%= f.submit "Send Message", class:"motivation-btn", id: "anchor"%>
-      <% end %>
+    <% end %>
+    <%= simple_form_for [@event, @message], remote: true do |f|%>
+    <%= f.input :content, label: false, placeholder: "Type your message here..." %>
+    <%= f.submit "Send Message", class:"motivation-btn", id: "anchor"%>
     <% end %>
   <% end %>
 </div>
