@@ -8,18 +8,13 @@
   border-radius: 0 0 30px 30px;
   h4 {
   font-weight: 600;
+  font-size: 40px;
+  letter-spacing: 2px;
   margin-top: 35px;
   margin-bottom: 10px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-  padding: 0px 10px;
-  }
-  h6 {
-  font-weight: 400;
-  color: white;
-  opacity: 0.8;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-  padding: 0px 10px;
+  padding: 0px 30px;
   }
 }
 
@@ -115,5 +110,49 @@
   &:hover {
   transform: scale(1.03);
   box-shadow: 0 5px 10px 0 rgba(51, 51, 51, .6);
+  }
+}
+
+.banner-card-home-container {
+  position: relative;
+}
+
+.banner-card-home {
+
+  background-size: cover;
+  background-position: 50% 100%;
+  // padding-top: 150px;
+  // padding-bottom: 150px
+  border-radius: 25px;
+  box-shadow: 0 5px 10px 0 rgba(51, 51, 51, .2);
+  margin: auto;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 60vh;
+  transition: transform .2s;
+  overflow: hidden;
+  text-align: center;
+
+
+}
+.banner-card-home-content {
+  width: 85%;
+  margin: auto;
+  background-color: white;
+  text-align: center;
+  position: absolute;
+  border-radius: 25px;
+  top: 75%;
+  left: 7.5%;
+  padding: 30px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .25);
+  h5 {
+  color: rgb(75,75,75);
+  font-weight: 400;
+  font-spacing: 2px;
+  line-height: 35px;
+  margin-bottom: 20px;
+  }
+  a {
   }
 }
