@@ -27,4 +27,11 @@
     display: flex;
     justify-content: space-between;
    }
+   .form-name-wrap {
+    display: flex;
+    justify-content: space-between;
+      .form-name-field {
+        width: 45%;
+      }
+   }
 }
