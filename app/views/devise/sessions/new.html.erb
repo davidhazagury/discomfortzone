@@ -1,4 +1,4 @@
-<h4>Log in</h4>
+<h4 class="my-3" style="color: #EA084B">LOG IN</h4>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -13,7 +13,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in", class: "btn-cool-red" %>
+    <%= f.button :submit, "Log in", class: "btn-cool-red my-2" %>
   </div>
 <% end %>
 
