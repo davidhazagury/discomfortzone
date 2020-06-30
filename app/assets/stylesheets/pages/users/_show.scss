@@ -24,10 +24,12 @@
 }
 
 .name-bio {
-  text-align: center;
+  text-align: left;
   margin-top: 30px;
   align-items: flex-start;
-
+  .user-name{
+      margin-left: 21px;
+    }
   .user-bio {
     display:flex;
     p {
