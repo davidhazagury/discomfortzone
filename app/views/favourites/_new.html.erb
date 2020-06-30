@@ -1,18 +1,7 @@
-
-<% if user_signed_in? && event.favourited?(current_user) %>
-  <% favourite = event.favourites.where(user_id: current_user.id).first %>
-  # <%= link_to event_favourites_path(event, favourite), class: "heart-link", method: :post, remote: true  do %>
-    <i class="fas fa-heart"></i>
-  <% end %>
-<% else %>
-  <%= link_to event_favourites_path(event, favourite), class: "heart-link", method: :post, remote: true do %>
-    <i class="far fa-heart"></i>
+<% favourite = event.favourites.where(user_id: current_user.id) %>
+<% heart = event.favourites.any? {|favourite| favourite.user == current_user} ? " fas " : " far "%>
+<% if user_signed_in? %>
+  <%= link_to event_favourites_path(event, favourite), class: "heart-link", method: :post, remote: true  do %>
+    <i class=" <%= heart %> fa-heart"></i>
   <% end %>
 <% end %>
-
-<!--
-data: { toggle_text: 'Liked', toggle_href: event_favourite_path(event, favourite), id: @event.id }
- -->
-
-
-

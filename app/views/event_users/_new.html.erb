@@ -1,6 +1,8 @@
+
 <div class="form-container">
   <%= simple_form_for([@event, @event_user]) do |f| %>
-      <%= f.input :motivation, placeholder: "Enter your text here...", class: "motivation-text"%>
+      <%= f.input :motivation, placeholder: "Enter your text here...", input_html: { maxlength: "500"}, class: "motivation-text"%>
       <%= f.submit "APPLY", class:"motivation-btn", id: "anchor"%>
     <% end %>
 </div>
+

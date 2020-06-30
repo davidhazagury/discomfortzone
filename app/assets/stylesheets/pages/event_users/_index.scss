@@ -1,6 +1,6 @@
 .applicant {
-  color: black;
-  font-size: 20px;
+  color: #261862;
+  font-size: 26px;
 }
 
 .tab-menu {
@@ -22,9 +22,9 @@
 
 
 .applicant-message {
-  font-size: 12px;
+  font-size: 20px;
   font-style: italic;
-  color: black;
+  color: #3A4047;
 }
 
 h4 {
@@ -46,8 +46,8 @@ h4 {
 .avatar-always-round {
   display: block;
   margin: 0 auto;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
 }
 
 #no-pic-avatar{
@@ -76,10 +76,24 @@ h4 {
   margin-left: 5px;
 }
 
-.applicant-message {
-  font-size: 16px;
-}
 
+
+.decision {
+  border-radius: 25px;
+  padding: 4px 8px;
+  width: fit-content;
+  font-size: 18px;
+  color: white;
+  &.accepted{
+    background: $red-pink;
+  }
+   &.rejected{
+    background: $grayish-blue;
+  }
+   &.applied{
+    background: $orange;
+  }
+}
 
 
 
