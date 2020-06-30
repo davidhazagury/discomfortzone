@@ -1,4 +1,5 @@
 const toggle = (event) => {
+  console.log("hello")
   const like = event.currentTarget.querySelector("i")
   if (like.classList.contains("fas")) {
     console.log("This heart is full")
@@ -15,7 +16,7 @@ const toggle = (event) => {
 const heartToggler = () => {
   const hearts = document.querySelectorAll(".heart-link")
   hearts.forEach((heart) => {
-    heart.addEventListener('click', toggle)
+     heart.addEventListener('click', toggle)
   })
 }
 
