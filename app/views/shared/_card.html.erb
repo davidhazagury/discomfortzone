@@ -1,0 +1,34 @@
+<div class="cards-container">
+  <% @events.each do |event| %>
+    <%= link_to event_path(event), class: "entire-card", id: "event-#{event.id}" do  %>
+    <div class="event-card">
+      <% if event.photo.attached? %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
+          <%= render "favourites/new", event: event %>
+        </div>
+      <% else %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?adventure)">
+          <%= render "favourites/new", event: event %>
+        </div>
+      <% end %>
+        <div class="cards-description">
+          <div class="cards-text">
+            <div class="card-headder">
+              <h4 class="event-title"> <%= event.title.capitalize %></h4>
+              <% if event.user.photo.attached? %>
+                <div class="avatar-large" style="background-image: url('<%= cl_image_path event.user.photo.key %>')">
+                </div>
+              <% else %>
+                <div class="avatar-large" id="no-pic-avatar-index" style="background-color: lightslategrey;">
+                </div>
+              <% end %>
+            </div>
+            <h5> <i class="fas fa-calendar-alt"> </i>  <%= event.start_time.strftime("%d %b %y") %></h5>
+            <h5> <i class="fas fa-location-arrow"> </i>  <%= event.address.capitalize %></h5>
+            <h5> <i class="fas fa-user-friends"> </i><strong><%= pluralize event.spots_left, 'spot' %></strong> out of <%= event.capacity %> left</h5>
+          </div>
+        </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
