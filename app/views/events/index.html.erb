@@ -32,38 +32,36 @@
   <a class="btn-ghost-square-red" href="/events/new"> List an Adventure </a>
 <% end %>
 <div class="cards-container">
-    <% @events.each do |event| %>
-      <div class="event-card">
-      <%= link_to event_path(event), class: "entire-card", id: "event-#{event.id}" do  %>
-        <% if event.photo.attached? %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
-          </div>
-        <% else %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?adventure)">
-          </div>
-        <% end %>
+  <% @events.each do |event| %>
+    <%= link_to event_path(event), class: "entire-card", id: "event-#{event.id}" do  %>
+    <div class="event-card">
+      <% if event.photo.attached? %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
+        </div>
+      <% else %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?adventure)">
+        </div>
+      <% end %>
         <div class="cards-description">
           <div class="cards-text">
             <div class="card-headder">
-                <h3 class="event-title"> <%= event.title.capitalize %></h3>
-                  <% if event.user.photo.attached? %>
-                  <div class="avatar-large"  style="background-image: url('<%= cl_image_path event.user.photo.key %>')"></div>
-                  <% else %>
-                  <div class="avatar-large" id= "no-pic-avatar-index"style="background-color: lightslategrey;"><%= event.user.first_name.first.capitalize + event.user.last_name.first.capitalize%></div>
-                  <% end %>
+              <h3 class="event-title"> <%= event.title.capitalize %></h3>
+              <% if event.user.photo.attached? %>
+                <div class="avatar-large" style="background-image: url('<%= cl_image_path event.user.photo.key %>')">
+                </div>
+              <% else %>
+                <div class="avatar-large" id="no-pic-avatar-index" style="background-color: lightslategrey;">
+                </div>
+              <% end %>
             </div>
             <h4> <i class="fas fa-calendar-alt"> </i>  <%= event.start_time.strftime("%d %b %y") %></h4>
             <h4> <i class="fas fa-location-arrow"> </i>  <%= event.address.capitalize %></h4>
-            <h4> <%#= event.user.first_name.capitalize %><i class="fas fa-user-friends"></i>  <strong><%= pluralize event.spots_left, 'spot' %></strong> out of <%= event.capacity %> left</h4>
-          </div>
+            <h4> <i class="fas fa-user-friends"> </i>  <strong><%= pluralize event.spots_left, 'spot' %></strong> out of <%= event.capacity %> left</h4>
             <%= render "favourites/new", event: event %>
-<!--             Add an if statement that if it is already liked, we display this (solid) heart : <i class="fas fa-heart"></i>
- -->          </div>
+          </div>
         </div>
-      <% end %>
+    </div>
     <% end %>
-  </div>
-        <br>
-        <br>
-        <br>
-
+  <% end %>
+</div>
+<br>

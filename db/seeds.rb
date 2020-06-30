@@ -12,6 +12,7 @@ EventUser.destroy_all
 Message.destroy_all
 Review.destroy_all
 Favourite.destroy_all
+Goal.destroy_all
 Event.destroy_all
 User.destroy_all
 
@@ -147,6 +148,11 @@ review2 = Review.create!(content:"Worst experience ever! Don´t go to any other 
 review3 = Review.create!(content:"Super nice!", rating: 3, user_id: user4.id, event_id: paragliding.id)
 review4 = Review.create!(content:"Pow pow pow, Discomfort zone is amaaazing", rating: 4,user_id: user5.id, event_id: hiking.id)
 review5 = Review.create!(content:"Could´ve been better", rating: 2,user_id: user1.id, event_id: hiking.id)
+
+puts "5 - Let´s create some goals"
+# Goals for David
+goal1 = Goal.create!(name: "Jump off a plane", description: "I'm terrified of heights and this feels like the perfect thing to get out of my comfort zone", user_id: user4.id)
+goal2 = Goal.create!(name: "Go to Paris", description: "This city feels so magical to me, and I've always dreamed to go there.", user_id: user4.id, completed: true)
 
 puts "6 - FINITOOO"
 

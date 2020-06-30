@@ -128,6 +128,55 @@
         <%# end %>
     </div>
 </div>
+<br>
+<br>
 
+<% if @goals.any? && current_user == @user %>
+  <div class="goal-menu">
+  <h6 class="bucket-list-top">Bucket List</h6>
+    <%= link_to new_user_goal_path(@user) do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
+  </div>
+  <% @goals.each do |goal| %>
+    <div class="goal-card">
+      <div class="completed-checkbox">
+        <%= link_to user_goal_path(@user, goal), method: :patch do  %>
+          <% if goal.completed %>
+            <i class="fas fa-check-square"></i>
+          <% else %>
+            <i class="far fa-square"></i>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="goal-content">
+        <h6><%= goal.name %></h6>
+        <p class="goal-date"> Added on <%= goal.created_at.strftime("%d %b %y") %></p>
+        <p class="goal-description"> <%= goal.description %></p>
+      </div>
+    </div>
+  <% end %>
+<% elsif @goals.any? %>
+   <div class="goal-menu">
+      <h6 class="bucket-list-top">Bucket List</h6>
+  </div>
+  <% @goals.each do |goal| %>
+    <div class="goal-card">
+      <div class="completed-checkbox-visitor">
+          <% if goal.completed %>
+            <i class="fas fa-check-square"></i>
+          <% else %>
+            <i class="far fa-square"></i>
+          <% end %>
+      </div>
+      <div class="goal-content">
+        <h6><%= goal.name %></h6>
+        <p class="goal-date"> Added on <%= goal.created_at.strftime("%d %b %y") %></p>
+        <p class="goal-description"> <%= goal.description %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
 <%#= link_to "Review " + @user.first_name, new_event_review_path(@user.event)  %>-->
+
