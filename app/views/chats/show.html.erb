@@ -1,12 +1,18 @@
-<% if current_user == @event.user || @event.participant?(current_user) %>
-  <h4><%= @event.title %></h4>
-  <div id="messages" data-chatroom-id="<%= @event.id %>">
-    <% @event.messages.each do |message| %>
-      <%= render 'messages/message', message: message %>
+<div class="container">
+  <% if current_user == @event.user || @event.participant?(current_user) %>
+    <h4><%= @event.title %></h4>
+    <%  if !@event.messages.any? %>
+    <h6> There are no messages yet. Be the first one!</h6>
+    <% else %>
     <% end %>
-  </div>
-  <%= simple_form_for [@event, @message], remote: true do |f|%>
-  <%= f.input :content, placeholder: "Type your message here..." %>
-  <%= f.submit "Send Message", class:"motivation-btn", id: "anchor"%>
+    <div id="messages" data-chatroom-id="<%= @event.id %>">
+      <% @event.messages.each do |message| %>
+        <%= render 'messages/message', message: message %>
+      <% end %>
+    </div>
+    <%= simple_form_for [@event, @message], remote: true do |f|%>
+    <%= f.input :content, label: false, placeholder: "Type your message here..." %>
+    <%= f.submit "Send Message", class:"motivation-btn", id: "anchor"%>
+    <% end %>
   <% end %>
-<% end %>
+</div>
