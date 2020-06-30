@@ -13,6 +13,7 @@
 }
 
 .goal-card {
+  position: relative;
   display: flex;
   width: 100%;
   margin-bottom: 10px;
@@ -24,16 +25,20 @@
   padding-right: 20px;
 
   i {
-    text-decoration: none;
+    color: $cool-red;
+    text-decoration: none
   }
 }
 
 .completed-checkbox-visitor {
+  position: absolute;
+  right: 0;
   color: $main-blue;
   font-size: 30px;
   padding-right: 20px;
 
   i {
+    color: $main-blue;
     text-decoration: none;
   }
 }

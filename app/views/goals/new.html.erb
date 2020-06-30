@@ -1,5 +1,8 @@
-<%= simple_form_for([@user, @goal]) do |f| %>
-  <%= f.input :name, placeholder: "Enter your title here..."%>
-  <%= f.input :description, placeholder: "Explain briefly what this dream is about..."%>
-  <%= f.submit "ADD", class:"btn-cool-red", id: "anchor"%>
-<% end %>
+<div class="container form-container">
+  <h4>New Bucket List item</h4>
+  <%= simple_form_for([@user, @goal]) do |f| %>
+    <%= f.input :name, placeholder: "Enter your title here..."%>
+    <%= f.input :description, placeholder: "Explain briefly what this dream is about..."%>
+    <%= f.submit "Add Bucket List Item", class:"btn-cool-red", id: "anchor"%>
+  <% end %>
+</div>
