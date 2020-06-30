@@ -1,26 +1,46 @@
 .user-card {
   width: 40%;
-
+  position: relative;
   margin: 10px;
   display: block;
   box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
+  border-radius: 6px;
 }
 
 .user-picture {
   background-image: center;
   background-size: cover;
   height: 60px;
-  border-radius: 6px 6px 0px 0px;
-  position: relative;
+  border-radius: 6px;
+  // border-radius: 6px 6px 0px 0px;
 }
-.user-description {
-  margin-top: 15px;
+.user-text {
+  margin-top: 45px;
   text-align: center;
 }
 
 .avatar-large {
   position: absolute;
-  // bottom: -69px;
-  // left: 120px;
+  top: 15px;
+  left: 60px;
+  width: 75px;
+  height: 75px;
+}
+
+.host-avatar-no-picture {
+  position: absolute;
+  top: 21px;
+  left: 66px;
+  width: 70px;
+  height: 70px;
+}
+
+p {
+  text-decoration: none;
+}
+
+p:hover {
+  text-decoration: none;
 
 }
+
