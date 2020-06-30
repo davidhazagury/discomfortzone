@@ -1,18 +1,33 @@
 <div class="container">
   <% if current_user == @event.user || @event.participant?(current_user) %>
-    <h4><%= @event.title %></h4>
-    <%  if !@event.messages.any? %>
-    <h6> There are no messages yet. Be the first one!</h6>
-    <% else %>
+    <%= link_to event_path(@event) do %>
+      <div class="go-back-wrapper">
+        <i class="fas fa-caret-left"></i>
+        <h4><%= @event.title %></h4>
+      </div>
     <% end %>
-    <div id="messages" data-chatroom-id="<%= @event.id %>">
-      <% @event.messages.each do |message| %>
-        <%= render 'messages/message', message: message %>
+    <%  if !@event.messages.any? %>
+      <h6> There are no messages yet. Be the first one!</h6>
+    <% else %>
+
+      <div id="messages" class="messages-container" data-chatroom-id="<%= @event.id %>">
+        <% @event.messages.each do |message| %>
+          <% if message.user == current_user %>
+            <div class="user-message">
+              <%= render 'messages/message', message: message %>
+            </div>
+          <% else %>
+            <div class="others-message">
+              <%= render 'messages/message', message: message %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <%= simple_form_for [@event, @message], remote: true do |f|%>
+      <%= f.input :content, label: false, placeholder: "Type your message here..." %>
+      <%= f.submit "Send Message", class:"motivation-btn", id: "anchor"%>
       <% end %>
-    </div>
-    <%= simple_form_for [@event, @message], remote: true do |f|%>
-    <%= f.input :content, label: false, placeholder: "Type your message here..." %>
-    <%= f.submit "Send Message", class:"motivation-btn", id: "anchor"%>
     <% end %>
   <% end %>
 </div>
