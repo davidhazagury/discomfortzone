@@ -1,8 +1,8 @@
 <div class="new-event-form-container">
   <%= simple_form_for @event do |f| %>
-    <%= f.input :title, label: 'Add a title', required: "true", error: 'Please specify one' %>
-    <%= f.input :description, label: 'Add a description',required: "true", error: 'Please specify one' %>
-    <%= f.input :address, label:'Add the address', required: "true", error: 'Please specify one' %>
+    <%= f.input :title, label: 'Title', required: "true", error: 'Please specify one' %>
+    <%= f.input :description, label: 'Description',required: "true", error: 'Please specify one' %>
+    <%= f.input :address, label:'Address', required: "true", error: 'Please specify one' %>
     <%= f.input :capacity, label:'For how many people?', required: "true", error: 'Please specify one'%>
     <%= f.input :photo, as: :file, label: 'Upload a photo', required: "true", error: 'Please specify one'%>
     <input type="text" class="calendar flatpickr flatpickr-input" name= "event[start_time]">
