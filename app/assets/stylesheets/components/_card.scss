@@ -16,11 +16,12 @@ padding: 2px;
       display: flex;
       position: relative;
       justify-content: space-between;
+      margin-bottom: 3%;
     }
     .avatar-large {
       position: absolute;
-      top: -56px;
-      right: 0;
+      top: -8px;
+      right: -14px;
     }
 
     // TO GET RID OF THE UNDERLINE WHEN HOVERING
@@ -34,9 +35,15 @@ padding: 2px;
       height: 240px;
       border-radius: 6px 6px 0px 0px;
       box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
+      position: relative;
+      i {
+        position: absolute;
+        right: 20px;
+        top: 16px;
+      }
     }
 
-    .cards-description { // Lower part of the card -> description on the left + favicon on the right
+    .cards-description { // Lower part of the card -> description on the left
       //display: flex;
       position: relative;
       padding: 30px;
@@ -45,27 +52,21 @@ padding: 2px;
       background-color: white;
       box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
 
-      .heart-link {
-        position: absolute;
-        bottom: 35px;
-        right: 40px;
-        color: $red-pink;
-      }
-
       .cards-text { // Description on the left
-        color: black;
         width: 100%;
-        h4 {
-          font-size: 22px;
-          font-weight: 100;
-          color: $blue-gray;
+        i {
+          margin-right: 10px;
         }
+        h4 {
+          color: $purple-blue;
+          font-size: 40px;
+          width: 85%;
 
-        .event-title {
-         color: $main-blue;
-         font-family: $headers-font;
-         font-size: 34px;
-         font-weight: 500;
+        }
+        h5 {
+          font-size: 21px;
+          font-weight: 100;
+          color: $grayish-blue;
         }
       }
     }
@@ -74,7 +75,7 @@ padding: 2px;
 
 
 i.fa-heart { // Favicon on the rightr
-  font-size: 24px;
+  font-size: 31px;
   color: $red-pink;
   opacity: 0.7;
   &:hover {

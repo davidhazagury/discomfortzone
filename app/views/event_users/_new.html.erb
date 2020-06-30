@@ -1,4 +1,4 @@
 <%= simple_form_for([@event, @event_user]) do |f| %>
-    <%= f.input :motivation, label: "Tell the host why you want to join this adventure" , placeholder: "Enter your text here...", class: "motivation-text"%>
+    <%= f.input :motivation, placeholder: "Enter your text here...", class: "motivation-text"%>
     <%= f.submit "APPLY", class:"motivation-btn", id: "anchor"%>
   <% end %>
