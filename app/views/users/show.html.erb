@@ -5,8 +5,8 @@
 </div>
 <!-- Displays the EDIT BTN -->
 <% if @user == current_user %>
-    <%= link_to "Edit your profile", edit_user_registration_path, class: "btn-cool-red "  %>
-  <% end %>
+  <%= link_to "Edit Profile", edit_user_registration_path, class: "btn-ghost-square-red-wide" %>
+<% end %>
 <div class="description-area">
 <div class="name-bio">
   <h4 class="user-name">Hi, I'm <%= @user.first_name.capitalize %></h4>

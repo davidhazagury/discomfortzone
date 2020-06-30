@@ -31,6 +31,21 @@
   }
 }
 
+.btn-ghost-square-red-wide {
+  font-family: "Lato", "sans-serif";
+  width: 100%;
+  color: $cool-red;
+  border: 1px solid $cool-red;
+  padding: 6px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  &:hover {
+  text-decoration: none;
+  background: $cool-red;
+  color: white;
+  }
+}
+
 .btn-ghost-square-white {
   font-family: "Lato", "sans-serif";
   color: white;
