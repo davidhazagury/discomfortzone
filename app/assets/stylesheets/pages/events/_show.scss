@@ -18,8 +18,14 @@
     margin:0;
     width:319px;
     text-align:center;
+    font-family: $headers-font;
+    color: $purple-blue;
+    font-weight:bold;
+    font-size:40px;
   }
   .event-details-icons {
+    font-family: $body-font;
+    color: $grayish-blue;
     width: 319px;
     margin-top: 20px;
     text-align:center;
@@ -28,6 +34,13 @@
       width: 100%;
       text-align: center;
       vertical-align: middle;
+      th {
+        font-size: 18px;
+      }
+      td {
+        font-size:16px;
+        font-weight: 300;
+      }
     }
   }
   .avatar-wrapper {
@@ -50,127 +63,17 @@
     margin-top: 35px;
     width:100%;
     p {
-
-    }
-  }
-}
-/*
- .container-event-box .event-banner {
-    top: $top-navbar-height;
-    position: fixed;
-    width:100%;
-    z-index: -1;
-  }
-  .description-box {
-    background-color: white;
-    border-radius: 10px 10px 0px 0px;
-    margin-top: calc(30vh - 65px);
-    position:relative;
-    padding-bottom: 20px;
-    .participants-avatar {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      z-index: 0;
-      right: 34px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      background-position: center;
-      background-size: cover;
-
-    }
-    .avatar-owner{
-      height: 70px;
-      width: 70px;
-      border-radius: 50%;
-      position: absolute;
-      top: -22px;
-      z-index: 0;
-      right: 34px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      background-position: center;
-      background-size: cover;
-    }
-    #no-pic-avatar{
-      position: absolute;
-      top:-22px;
-      right:34px;
-    }
-    .description {
-      padding-top: 15%;
-      width: 80%;
-      text-align: left;
-      margin: 0 auto;
-      .headders {
-        text-align:center;
-        width:100%;
-        position: relative;
-          span {
-            position: absolute;
-            top: -42px;
-            left: 16px;
-          }
-      }
-    }
-    h2 {
-      font-family: $headers-font;
-    }
-    p {
       font-family: $body-font;
-      font-size: 16px;
-      font-weight: lighter;
-      margin-bottom: 0px;
+      color: $grayish-blue;
+      font-size: 20px;
     }
-    .chat-container {
-      margin-top: 30px;
-      padding: 20px;
-      background-color: #e0e0e0;
-      h4 {
-      font-weight: bold;
-      text-align: center;
-      font-size: 37px;
-      }
-      h5 {
-      font-weight: lighter;
-      text-align: center;
-      padding: 15px;
-      color: rgba(10,10,10,0.9);
-      }
-      a {
-
-      }
-    }
-
   }
-.icons-event-box {
-  display: flex;
-  justify-content: space-evenly;
+  .event-motivation {
+    h4 {
+      font-family: $headers-font;
+      color: $purple-blue;
+      font-size: 28px;
+      font-weight: 600;
+    }
+  }
 }
-.avatars-event-box {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-evenly;
-
-}
-
-table {
-  table-layout: fixed ;
-    width: 100%;
-    height: 50%;
-    text-align: center;
-    vertical-align: middle;
-}
-#participant-no-pic {
-  text-align: center;
-  vertical-align: middle;
-  line-height: 50px;
-  color: white;
-  font-size:15px;
-  letter-spacing: 1px;
-}
-
-#no-participants-text {
-  font-family: $body-font;
-  color: #F80447;
-  font-weight:normal;
-}*/
