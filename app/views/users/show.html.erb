@@ -38,9 +38,9 @@
       <div class="reviews-box">
         <% event.reviews.each do |review| %>
           <div class="review-card">
-              <p class="event-title-review"><%= review.event.title.capitalize %></p>
+              <h5 class="event-title-review"><%= review.event.title.capitalize %></h5>
               <%= content_tag(:i, "", class: "fas fa-star", id: "icon-reviews", style:"color:#F80447") * review.rating%>
-              <p><%= review.created_at.strftime("%B,  %Y")%></p>
+              <p><i class="fas fa-calendar-alt"> </i><%= review.created_at.strftime("%B,  %Y")%></p>
             <div class="reviewer-area">
               <%if review.user.photo.attached? %>
                 <div class="reviewer-avatar" style = " background-image: url(<%= cl_image_path review.user.photo.key %>)"></div>
@@ -49,7 +49,7 @@
               <% end %>
               <%= review.user.first_name.capitalize + " " + review.user.last_name.capitalize %>
             </div>
-            <p class= "event-content-review"><%= review.content.capitalize %></p>
+            <p class= "event-content-review" style="margin-top: 5px;"><%= review.content.capitalize %></p>
           </div>
         <% end %>
       </div>
