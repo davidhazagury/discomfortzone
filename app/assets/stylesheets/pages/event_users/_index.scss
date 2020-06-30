@@ -1,8 +1,21 @@
 .applicant {
   color: black;
   font-size: 20px;
-
 }
+.nav-item {
+    color: #475361;
+    .nav-link  {
+     color: #475361;
+     padding: 8px;
+     border-radius: 0;
+    }
+    .nav-link.active {
+      color: $main-blue;
+      border-bottom: 3px solid $cool-red;
+      background-color: transparent;
+    }
+}
+
 
 .applicant-message {
   font-size: 12px;
