@@ -1,18 +1,19 @@
-<div class="navbar mobile-navbar-top <%= "fixed" if controller_name === 'events' && action_name == 'show' %>">
-  <div class="container">
-      <%= link_to root_path do  %>
-    <div class="prettybrand d-flex align-items-center">
-        <h4 id="navbar-letter-d"style=";">D</h4>
-        <h4 id="navbar-letter-z"style="">Z</h4>
-    </div>
-      <% end %>
+<div class="navbar mobile-navbar-top <%= 'fixed' if (controller_name == 'events') && (action_name == 'show') %>">
+  <div class="container" style="padding-bottom: 0px;">
+    <%= link_to root_path do %>
+      <div class="prettybrand d-flex align-items-center">
+          <h4 id="navbar-letter-d"style=";">D</h4>
+          <h4 id="navbar-letter-z"style="">Z</h4>
+      </div>
+    <% end %>
     <!-- DROPDOWN BUTTON -->
+
+
     <% unless current_user.present? %>
         <%= link_to "Login", new_user_session_path, class: "nav-link text-blue" %>
     <% else %>
-      <div class="dropdown  dropleft">
+      <div class="dropdown dropleft">
         <i class="fas fa-bars text-blue" style ="font-size:25px" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
           <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
           <%= link_to "Dashboard", event_users_path, class: "dropdown-item" %>
