@@ -32,26 +32,29 @@
   <% end %>
 </div> -->
 
-<div class="user-container">
+<div class="user-container container">
+  <div class="row">
   <% @users.each do |user| %>
-    <%= link_to user_path(user) do %>
-      <div class="user-card">
-          <div class="user-picture" style = "background-image: url(https://source.unsplash.com/random);"></div>
-          <% if user.photo.attached? %>
-              <div class="avatar-large" style = " background-image: url(<%= cl_image_path user.photo.key %>)"></div>
-          <% else %>
-               <div class="host-avatar-no-picture"  style="background-color: lightslategrey"><%= user.first_name.first.capitalize + user.last_name.first.capitalize%></div>
-          <% end %>
-          <div class="user-description">
-            <div class="user-text">
-              <h6><%= user.first_name.capitalize + " " + user.last_name.capitalize %></h6>
-              <p> Barcelona </p>
-
+        <div class="col-6">
+          <div class="user-card">
+          <%= link_to user_path(user) do %>
+            <div class="user-picture" style = "background-image: url(https://source.unsplash.com/random);"></div>
+            <% if user.photo.attached? %>
+                <div class="avatar-position avatar-large" style = " background-image: url(<%= cl_image_path user.photo.key %>)"></div>
+            <% else %>
+                 <div class="host-avatar-no-picture"  style="background-color: lightslategrey"><%= user.first_name.first.capitalize + user.last_name.first.capitalize%></div>
+            <% end %>
+            <div class="user-description">
+              <div class="user-text">
+                <h6 ><%= user.first_name.capitalize + " " + user.last_name.capitalize %></h6>
+                <p> Barcelona </p>
+              </div>
             </div>
+          <% end %>
           </div>
-      </div>
-    <% end %>
+        </div>
   <% end %>
+  </div>
 </div>
 
 

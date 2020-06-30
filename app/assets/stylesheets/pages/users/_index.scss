@@ -1,28 +1,45 @@
+.user-container {
+  margin-top: 20px;
+}
+
 .user-card {
-  width: 40%;
+  width: 100%;
   position: relative;
-  margin: 10px;
   display: block;
   box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
   border-radius: 6px;
+  text-decoration: none;
+
+}
+
+.user-card:hover {
+  text-decoration: none;
 }
 
 .user-picture {
   background-image: center;
   background-size: cover;
   height: 60px;
-  border-radius: 6px;
+  border-radius: 6px 6px 0px 0px;
   // border-radius: 6px 6px 0px 0px;
 }
 .user-text {
-  margin-top: 45px;
+  margin: 45px auto;
   text-align: center;
+  text-decoration: none;
+  color: #364F6B
+
 }
 
-.avatar-large {
+a:hover{
+  text-decoration: none !important;
+
+}
+
+.avatar-position {
   position: absolute;
   top: 15px;
-  left: 60px;
+  left: 63px;
   width: 75px;
   height: 75px;
 }
