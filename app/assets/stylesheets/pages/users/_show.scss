@@ -99,6 +99,22 @@
   }
 }
 
+.option-buttons {
+  display: flex;
+  justify-content: space-around;
+  .option-button{
+    text-align: center;
+    i {
+      font-size: 20px;
+      color: $main-blue;
+    }
+    p {
+      color: rgb(100,100,100);
+      font-size: 12px;
+    }
+  }
+}
+
 
 
 

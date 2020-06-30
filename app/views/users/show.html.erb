@@ -3,9 +3,31 @@
     Joined in <%= @user.created_at.year %>
   </span>
 </div>
-<!-- Displays the EDIT BTN -->
+<!-- BUTTONS FOR OWNER ONLY -->
 <% if @user == current_user %>
-  <%= link_to "Edit Profile", edit_user_registration_path, class: "btn-ghost-square-red-wide" %>
+  <div class="option-buttons">
+    <!-- first button -->
+    <div class="option-button">
+      <%= link_to edit_user_registration_path do %>
+        <i class="fas fa-user-cog"></i>
+      <p>Settings</p>
+      <% end %>
+    </div>
+    <!-- second button -->
+    <div class="option-button">
+      <%= link_to event_users_path do %>
+        <i class="fas fa-calendar-alt"></i>
+      <p>Adventures</p>
+      <% end %>
+    </div>
+    <!-- third button -->
+    <div class="option-button">
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fas fa-sign-out-alt"></i>
+      <p>Log Out</p>
+      <% end %>
+    </div>
+  </div>
 <% end %>
 <div class="description-area">
 <div class="name-bio">
