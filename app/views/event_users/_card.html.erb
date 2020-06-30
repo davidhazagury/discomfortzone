@@ -19,10 +19,10 @@
                       <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "user-icon", class: "avatar-large"%>
                       <% end %>
                     </div>
-                    <h4> <i class="fas fa-calendar-alt"> </i>  <%= event.start_time.strftime("%d %b %y")  %></h4>
-                    <h4> <i class="fas fa-location-arrow"> </i>  <%= event.address.capitalize %></h4>
+                    <h5> <i class="fas fa-calendar-alt"> </i>  <%= event.start_time.strftime("%d %b %y")  %></h5>
+                    <h5> <i class="fas fa-location-arrow"> </i>  <%= event.address.capitalize %></h5>
 
-                    <h4> <%#= event.user.first_name.capitalize %><i class="fas fa-user-friends"></i> <%= pluralize event.spots_left, 'spot' %> left</h4>
+                    <h5> <%#= event.user.first_name.capitalize %><i class="fas fa-user-friends"></i> <%= pluralize event.spots_left, 'spot' %> left</h5>
                   </div>
                 <% end %>
 
@@ -36,24 +36,24 @@
 
               <% event.event_users.applied.each do |application| %>
                 <div class="applicants-container">
-                  <div class="applicant-profile">
-                    <% if application.user.photo.attached? %>
+                  <%= link_to user_path(application.user) do  %>
+                    <div class="applicant-profile">
+                      <% if application.user.photo.attached? %>
+                           <div class="avatar-always-round" style = " background-image: url(<%= cl_image_path application.user.photo.key %>)"></div>
+                        <% else %>
+                           <div class="avatar-always-round" id="no-pic-avatar" style="background-color: lightslategrey"><%= application.user.first_name.first.capitalize + application.user.last_name.first.capitalize%></div>
+                        <% end %>
+                        <p class = "applicant"><%=application.user.first_name + " " + application.user.last_name%></p>
+                     </div>
+                   <% end %>
 
-                         <div class="avatar-always-round" style = " background-image: url(<%= cl_image_path application.user.photo.key %>)"></div>
-
-                      <% else %>
-                         <div class="avatar-always-round" id="no-pic-avatar" style="background-color: lightslategrey"><%= application.user.first_name.first.capitalize + application.user.last_name.first.capitalize%></div>
-                      <% end %>
-                      <p class = "applicant"><%= link_to application.user.first_name + " " + application.user.last_name, application.user %></p>
-                   </div>
-
-                   <p class = "applicant-message"> <strong>Message: </strong><%= application.motivation %></p>
+                   <p class = "applicant-message"> <strong>Message: </strong> <br> <%= application.motivation %></p>
                    <div class="decider">
                      <%= link_to event_user_path(application, query:"accepted"), method: :patch, remote: true do%>
-                       <i class="fas fa-check-circle" id="check" style ="color: green; font-size: 40px;"></i>
+                       <i class="fas fa-check-circle" id="check" style ="color: #F80447; font-size: 40px;"></i>
                      <% end %>
                      <%= link_to event_user_path(application, query:"rejected"), method: :patch, remote: true do%>
-                        <i class="fas fa-times-circle" id="decline" style ="color: red; font-size: 40px"></i>
+                        <i class="far fa-times-circle" id="decline" style ="color: #364F6B; font-size: 40px"></i>
                      <% end %>
                     </div>
                 </div>
@@ -81,14 +81,16 @@
             <div class="row">
             <% event.event_users.accepted.each do |application|  %>
               <div class="col-6">
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                  <% if application.user.photo.attached? %>
-                    <div class="avatar-always-round" style = " background-image: url(<%= cl_image_path application.user.photo.key %>)"></div>
-                  <% else %>
-                    <div class="avatar-always-round" id="no-pic-avatar" style="background-color: lightslategrey"><%= application.user.first_name.first.capitalize + application.user.last_name.first.capitalize%></div>
-                  <% end %>
-                  <p class = "applicant"><%= link_to application.user.first_name + " " + application.user.last_name, application.user %></p>
-                </div>
+                <%= link_to user_path(application.user) do  %>
+                  <div class="d-flex flex-column justify-content-center align-items-center">
+                    <% if application.user.photo.attached? %>
+                      <div class="avatar-always-round" style = " background-image: url(<%= cl_image_path application.user.photo.key %>)"></div>
+                    <% else %>
+                      <div class="avatar-always-round" id="no-pic-avatar" style="background-color: lightslategrey"><%= application.user.first_name.first.capitalize + application.user.last_name.first.capitalize%></div>
+                    <% end %>
+                    <p class = "applicant"><%=application.user.first_name%></p>
+                  </div>
+                <% end %>
               </div>
 
             <% end %>

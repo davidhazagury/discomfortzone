@@ -19,8 +19,8 @@ class EventUsersController < ApplicationController
     if @event_user.save
       redirect_to event_users_path
     else
-      flash[:alert] = "You've already joined this event"
-      redirect_to events_path(anchor: "anchor")
+      flash[:alert] = @event_user.errors.full_messages.first
+      redirect_to event_path(@event)
     end
   end
 
