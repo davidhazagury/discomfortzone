@@ -1,3 +1,7 @@
+.centered-text {
+  text-align: center;
+}
+
 .text-blue {
   color: $main-blue;
 }
@@ -21,7 +25,8 @@ h3 {
   color: $main-blue;
 }
 h4 {
-  font-size: 37px;
+  font-size: 40px;
+  letter-spacing: 2px;
   color: $main-blue;
 }
 
