@@ -7,6 +7,15 @@
     position:fixed;
     z-index:-1;
 }
+.heart-wrapper {
+  width: 100%;
+  position: relative;
+  span {
+        position: absolute;
+    right: 50px;
+    top: 20px;
+  }
+}
 .description-area-events {
   background-color:white;
   border-radius:25px 25px 0 0;
