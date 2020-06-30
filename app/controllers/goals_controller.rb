@@ -28,7 +28,7 @@ class GoalsController < ApplicationController
       @goal.completed = true
     end
     @goal.save
-    redirect_to user_path(@user), anchor: "bucket-list-top"
+    redirect_to user_path(@user, anchor: "bucket-list-top")
     # write code here in order to be able to switch "completed" from true to false, or false to true
     # The logic should look something like this:
     # if completed == false, turn it true, else turn it false, end, save.

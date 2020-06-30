@@ -1,4 +1,4 @@
-<div class="navbar mobile-navbar-top <%= 'fixed' if (controller_name == 'events') && (action_name == 'show') %>">
+<div class="navbar mobile-navbar-top <%= 'fixed' if (controller_name == 'events' && action_name == 'show') %> <%= 'transparent-navbar position-fixed' if (controller_name == 'pages' && action_name == 'home') %>">
   <div class="container" style="padding-bottom: 0px;">
     <%= link_to root_path do %>
       <div class="prettybrand d-flex align-items-center">
