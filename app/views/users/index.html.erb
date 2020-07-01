@@ -1,4 +1,4 @@
-<h3>Meet some Discomfort Zoners </h3>
+<h3>Meet Discomfort Zoners </h3>
 
 <div class="banner-index" style="background-image: url(https://images.unsplash.com/photo-1526723476341-307183286978?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);">
   <div class="container-shrink">
@@ -7,7 +7,7 @@
           <%= text_field_tag :query,
           params[:query],
           class: "form-control string required",
-          placeholder: "Find an adventure..."
+          placeholder: "Find people..."
           %>
           <%= submit_tag "Search", class: "btn btn-cool-red" %>
         </div>
@@ -37,20 +37,20 @@
   <% @users.each do |user| %>
         <div class="col-6">
           <div class="user-card">
-          <%= link_to user_path(user) do %>
-            <div class="user-picture" style = "background-image: url(https://source.unsplash.com/random);"></div>
-            <% if user.photo.attached? %>
-                <div class="avatar-position avatar-large" style = " background-image: url(<%= cl_image_path user.photo.key %>)"></div>
-            <% else %>
-                 <div class="host-avatar-no-picture"  style="background-color: lightslategrey"><%= user.first_name.first.capitalize + user.last_name.first.capitalize%></div>
-            <% end %>
-            <div class="user-description">
-              <div class="user-text">
-                <h6 ><%= user.first_name.capitalize + " " + user.last_name.capitalize %></h6>
-                <p> Barcelona </p>
+            <%= link_to user_path(user) do %>
+              <div class="user-picture" style = "background-image: url(https://source.unsplash.com/random);"></div>
+              <% if user.photo.attached? %>
+                  <div class="avatar-position avatar-large" style = " background-image: url(<%= cl_image_path user.photo.key %>)"></div>
+              <% else %>
+                   <div class="host-avatar-no-picture"  style="background-color: lightslategrey"><%= user.first_name.first.capitalize + user.last_name.first.capitalize%></div>
+              <% end %>
+              <div class="user-description">
+                <div class="user-text">
+                  <h6 ><%= user.first_name.capitalize + " " + user.last_name.capitalize %></h6>
+                  <p> Barcelona </p>
+                </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
           </div>
         </div>
   <% end %>
