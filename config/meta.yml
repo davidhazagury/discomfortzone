@@ -1,4 +1,4 @@
 meta_product_name: "Discomfort Zone"
 meta_title: "Discomfort Zone - Venture out your comfort zone"
 meta_description: "Discomfort Zone is a platform that helps ambitious/active/passionate users connect with like-minded people to live new experiences"
-meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_image: "ogimage.jpg" # should exist in `app/assets/images/`
