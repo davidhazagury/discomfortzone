@@ -22,8 +22,14 @@ class Event < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  # START + END DATE
+  validates :start_time, presence: true
+  validates :end_time, presence: true
+  validate :end_date_after_start_date
+
   # Cloudinary image
   has_one_attached :photo
+  validates :photo, presence: true
 
   def spots_left
     capacity - event_users.accepted.count
@@ -38,5 +44,15 @@ class Event < ApplicationRecord
     puts user
     return false unless user
     event_users.accepted.pluck(:user_id).include?(user.id)
+  end
+
+  private
+
+  def end_date_after_start_date
+    return if end_time.blank? || start_time.blank?
+
+    if end_time <= start_time
+      errors.add(:end_date, "must be after the start date")
+    end
   end
 end

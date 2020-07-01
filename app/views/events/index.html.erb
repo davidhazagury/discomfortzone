@@ -33,5 +33,9 @@
     <a class="my-3 btn-ghost-square-red" href="/events/new"> List an Adventure </a>
   <% end %>
 </div>
-  <%= render "shared/card" %>
+  <div class="cards-container">
+    <% @events.each do |event| %>
+      <%= render "shared/card", event: event unless event.spots_left.zero? %>
+    <% end %>
+  </div>
 <br>

@@ -1,8 +1,18 @@
-<div class="user-banner" style = " background-image: url(<%= cl_image_path @user.photo.key %>)">
-  <span class="joined-in">
-    Joined in <%= @user.created_at.year %>
-  </span>
-</div>
+<% if @user.photo.attached? %>
+    <div class="user-banner" style = " background-image: url(<%= cl_image_path @user.photo.key %>)">
+      <span class="joined-in">
+        Joined in <%= @user.created_at.year %>
+      </span>
+    </div>
+<% else %>
+  <div class="user-banner-no-pic-user-show" style="background-color: lightslategrey">
+    <%= @user.first_name.first.capitalize + @user.last_name.first.capitalize%>
+    <span class="joined-in">
+        Joined in <%= @user.created_at.year %>
+      </span>
+  </div>
+
+<% end %>
 <!-- BUTTONS FOR OWNER ONLY -->
 <% if @user == current_user %>
   <div class="option-buttons">
@@ -34,7 +44,7 @@
   <h4 class="user-name">Hi, I'm <%= @user.first_name.capitalize %></h4>
   <div class="user-bio">
     <i class="fa fa-quote-left" style="color: lightgrey"></i>
-    <p><%= " " + @user.biography + " " %></p>
+    <p><%= " " + @user.biography + " " if @user.biography.present? %></p>
   </div>
 </div>
 <div class="user-listings">
