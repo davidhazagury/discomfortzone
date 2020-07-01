@@ -7,14 +7,12 @@
     position:fixed;
     z-index: -1;
 }
-.heart-wrapper {
-  width: 100%;
-  width: 100%;
-  float: right;
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 27px;
-}
+  .positioning {
+    position: fixed;
+    right: 42px;
+    z-index: 0;
+    position:fixed;
+  }
 .description-area-events {
   background-color:white;
   border-radius:25px 25px 0 0;
@@ -22,6 +20,7 @@
   margin-top: 71%;
   padding:36px;
   text-align: left;
+      position: relative;
   .event-title {
     margin:0;
     width:319px;

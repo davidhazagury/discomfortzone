@@ -1,18 +1,18 @@
 
 <div class="img-event" style= "background-image: url(<%= cl_image_path @event.photo.key %>)"></div>
-<div class="heart-wrapper">
+
   <% if user_signed_in? %>
     <% favourite = @event.favourites.where(user_id: current_user.id).first %>
     <% heart = @event.favourites.any? {|favourite| favourite.user == current_user} ? " fas " : " far "%>
-    <%= link_to event_favourites_path(@event, favourite), class: "heart-link", method: :post, remote: true  do %>
+    <%= link_to event_favourites_path(@event, favourite), class: "heart-link positioning", method: :post, remote: true  do %>
       <i class="<%= heart %> fa-heart"></i>
     <% end %>
   <% else %>
-    <%= link_to user_session_path, class: "heart-link" do %>
+    <%= link_to user_session_path, class: "heart-link positioning" do %>
       <i class=" far fa-heart"></i>
     <% end %>
   <% end %>
-</div>
+
 
 <div class="description-area-events">
 
