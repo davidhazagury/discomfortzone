@@ -63,11 +63,11 @@ padding: 2px;
           width: 85%;
 
         }
-        h5 {
-          font-size: 21px;
-          font-weight: 100;
-          color: $grayish-blue;
-        }
+        // h5 {
+        //   font-size: 21px;
+        //   font-weight: 100;
+        //   color: $grayish-blue;
+        // }
       }
     }
   }
@@ -75,7 +75,6 @@ padding: 2px;
 
 
 i.fa-heart { // Favicon on the rightr
-  z-index: 3;
   font-size: 31px;
   color: $red-pink;
   opacity: 0.7;
@@ -83,6 +82,7 @@ i.fa-heart { // Favicon on the rightr
     opacity: 1;
   }
 }
+
 
 .scrolling-wrapper {
   margin: 20px 0;
@@ -112,17 +112,7 @@ i.fa-heart { // Favicon on the rightr
     position: relative;
   }
 }
-.heart-link{
-  z-index: 2;
-}
-.link-0-0 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-}
+
 .user-index-card {
 
 }

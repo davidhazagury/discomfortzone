@@ -1,6 +1,8 @@
 .applicant {
   color: #261862;
-  font-size: 26px;
+  font-size: 21px;
+  font-family: "Signika";
+  font-weight: 100;
 }
 
 .tab-menu {
@@ -22,15 +24,15 @@
 
 
 .applicant-message {
-  font-size: 20px;
-  font-style: italic;
+  font-size: 16px;
+  // font-style: italic;
   color: #3A4047;
 }
 
-h4 {
-  color: black;
-  font-size: 28px;
-}
+// h4 {
+//   color: black;
+//   font-size: 28px;
+// }
 
 // .participants-avatar {
 //       height: 50px;
@@ -63,18 +65,20 @@ h4 {
 
 .decider {
   text-align: center;
-  margin-top: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-direction: row-reverse;
+  width: 70%;
+  margin: 20px auto 0;
 }
 
-#check {
-  margin-right: 5px;
-}
+// #check {
+//   margin-right: 5px;
+// }
 
-#decline {
-  margin-left: 5px;
-}
+// #decline {
+//   margin-left: 5px;
+// }
 
 
 
@@ -82,8 +86,12 @@ h4 {
   border-radius: 25px;
   padding: 4px 8px;
   width: fit-content;
-  font-size: 18px;
+  font-size: 16px;
   color: white;
+  margin: 0 auto;
+  position: absolute;
+  top: -13px;
+  right: 25px;
   &.accepted{
     background: $red-pink;
   }
@@ -95,10 +103,32 @@ h4 {
   }
 }
 
+.card-body {
+  display: flex;
+}
 
+.no-gutters {
+  margin-right:0;
+  margin-right:0;
+}
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.motivation-btn{
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-
+  p {
+    margin-bottom: 0;
+    color: white;
+    font-size: 20px;
+  }
+}
 
 
