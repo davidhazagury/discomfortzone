@@ -3,10 +3,32 @@
     Joined in <%= @user.created_at.year %>
   </span>
 </div>
-<!-- Displays the EDIT BTN -->
+<!-- BUTTONS FOR OWNER ONLY -->
 <% if @user == current_user %>
-    <%= link_to "Edit your profile", edit_user_registration_path, class: "btn-cool-red "  %>
-  <% end %>
+  <div class="option-buttons">
+    <!-- first button -->
+    <div class="option-button">
+      <%= link_to edit_user_registration_path do %>
+        <i class="fas fa-user-cog"></i>
+      <p>Settings</p>
+      <% end %>
+    </div>
+    <!-- second button -->
+    <div class="option-button">
+      <%= link_to event_users_path do %>
+        <i class="fas fa-calendar-alt"></i>
+      <p>Adventures</p>
+      <% end %>
+    </div>
+    <!-- third button -->
+    <div class="option-button">
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fas fa-sign-out-alt"></i>
+      <p>Log Out</p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 <div class="description-area">
 <div class="name-bio">
   <h4 class="user-name">Hi, I'm <%= @user.first_name.capitalize %></h4>
@@ -18,7 +40,7 @@
 <div class="user-listings">
   <h5><%= @user.first_name.capitalize%>'s listings</h5>
   <% if @user.events.empty? %>
-    <%= @user.first_name.capitalize + " has no listed events yet" %>
+    <%= @user.first_name.capitalize + " hasn't listed an adventure yet" %>
   <% else  %>
     <div class="listed-events">
       <% @user.events.each do |event| %>
@@ -33,7 +55,7 @@
 </div>
 <div class="user-reviews">
   <h5><%= @user.first_name.capitalize %>'s reviews</h5>
-  <% if @user.reviews.empty?%>
+  <% unless @user.reviews.empty?%>
     <% @user.events.each do |event| %>
       <div class="reviews-box">
         <% event.reviews.each do |review| %>
@@ -65,14 +87,14 @@
 <!-- DO NOT REMOVE THIS EMPTY DIV, USING IT FOR ANCHORS:) -->
 <div id="bucket-list-top"></div>
 <!-- BEGINNING OF BUCKET LIST -->
-<% if @goals.any? && current_user == @user %>
-  <div class="goal-menu">
-  <h5>Bucket List</h5>
-    <%= link_to new_user_goal_path(@user) do %>
-      <i class="fas fa-plus"></i>
-    <% end %>
-  </div>
+<div class="goal-menu">
+<h5><%= @user.first_name + "'s Bucket List" %></h5>
+  <%= link_to new_user_goal_path(@user) do %>
+    <i class="fas fa-plus"></i>
+  <% end %>
+</div>
 <!--   WHAT THE OWNER SEES -->
+<% if @goals.any? && current_user == @user %>
   <% @goals.each do |goal| %>
     <div class="goal-card">
       <div class="completed-checkbox">

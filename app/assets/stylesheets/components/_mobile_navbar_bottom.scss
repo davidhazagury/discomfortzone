@@ -8,6 +8,7 @@
   bottom: 0;
   background: white;
   border-top: 1px solid rgb(211,211,211);
+  z-index: 1000;
   .navbar-link {
     color: $cool-red;
     i {

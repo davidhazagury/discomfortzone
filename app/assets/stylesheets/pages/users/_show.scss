@@ -1,12 +1,12 @@
 .user-banner {
   height:277px;
-  width: 90%;
+  width: 100%;
   border-radius: 25px;
   background-size:cover;
   background-position: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 0 auto;
-  margin-top: 20px;
+  margin: 30px auto;
+  // margin-top: 20px;
   position:relative;
   .joined-in {
     color:white;
@@ -25,7 +25,7 @@
 
 .name-bio {
   text-align: left;
-  margin-top: 30px;
+  margin-top: 20px;
   align-items: flex-start;
   .user-name{
       margin-left: 21px;
@@ -96,6 +96,22 @@
   }
   p {
     margin: 10px 0 4px 0;
+  }
+}
+
+.option-buttons {
+  display: flex;
+  justify-content: space-around;
+  .option-button{
+    text-align: center;
+    i {
+      font-size: 20px;
+      color: $main-blue;
+    }
+    p {
+      color: rgb(100,100,100);
+      font-size: 12px;
+    }
   }
 }
 
