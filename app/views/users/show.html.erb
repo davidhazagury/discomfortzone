@@ -44,7 +44,7 @@
   <h4 class="user-name">Hi, I'm <%= @user.first_name.capitalize %></h4>
   <div class="user-bio">
     <i class="fa fa-quote-left" style="color: lightgrey"></i>
-    <p><%= " " + @user.biography + " " %></p>
+    <p><%= " " + @user.biography + " " if @user.biography.present? %></p>
   </div>
 </div>
 <div class="user-listings">
