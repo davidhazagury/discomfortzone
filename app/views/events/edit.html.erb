@@ -1,0 +1,100 @@
+
+<div class="img-event" style= "background-image: url(<%= cl_image_path @event.photo.key %>)"></div>
+<div class="heart-wrapper">
+  <% if user_signed_in? %>
+    <% favourite = @event.favourites.where(user_id: current_user.id).first %>
+    <% heart = @event.favourites.any? {|favourite| favourite.user == current_user} ? " fas " : " far "%>
+    <%= link_to event_favourites_path(@event, favourite), class: "heart-link", method: :post, remote: true  do %>
+      <i class="<%= heart %> fa-heart"></i>
+    <% end %>
+  <% else %>
+    <%= link_to user_session_path, class: "heart-link" do %>
+      <i class=" far fa-heart"></i>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="description-area-events">
+
+  <h4 class="event-title"><%= @event.title%></h4>
+
+  <div class="event-details-icons">
+    <table>
+      <thead>
+        <th><i class="fas fa-location-arrow"></i></th>
+        <th><i class="fas fa-calendar-alt"></i></th>
+        <th><i class="fas fa-users"></i></th>
+      </thead>
+      <tbody>
+        <td><%= @event.address.capitalize %></td>
+        <td><%= @event.start_time.strftime("%d %b %y") %></td>
+        <td><%= (@event.capacity - @event.spots_left).to_s + "/" + @event.capacity.to_s %></td>
+      </tbody>
+    </table>
+  </div>
+  <div class="avatar-wrapper">
+    <div class="event-users-avatars">
+      <%= link_to user_path(@event.user) do  %>
+        <% if @event.user.photo.attached? %>
+          <div class="host-avatar m-auto" style=" background-image: url(<%= cl_image_path @event.user.photo.key %>)"></div>
+        <% else %>
+          <div class="m-auto" id="no-pic-avatar-event-show" style="background-color: lightslategrey">
+            <%= @event.user.first_name.first.capitalize + @event.user.last_name.first.capitalize%>
+            </div>
+        <% end %>
+      <% end %>
+
+      <div class="event-participants-avatars">
+        <% if @participants.empty? && current_user != @event.user%>
+          <p id= "no-participants-text">No participants yet... Be the first one to join!</p>
+        <% elsif @participants.empty? && current_user = @event.user %>
+          <p id= "no-participants-text">No participants yet... Check your <%= link_to "dashboard", event_users_path %> for possible candidates!</p>
+        <% else %>
+          <% @participants.each do |participant| %>
+            <% if @event.user.photo.attached? %>
+              <%= link_to user_path do%>
+                <div class="participant-avatar position-overlap" style= " background-image: url(<%= cl_image_path participant.user.photo.key %>)"></div>
+              <% end %>
+            <% else  %>
+              <div class="position-overlap" id="participant-no-pic-event-show" style="background-color: lightslategrey">
+                <%= participant.user.first_name.first.capitalize + participant.user.last_name.first.capitalize%>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="event-description">
+    <p><%= @event.description %></p>
+  </div>
+
+  <div class="event-motivation">
+    <% unless current_user == @event.user || @event.participant?(current_user) %>
+      <h4>Convince the host</h4>
+      <%= render "event_users/new" %>
+    <% end %>
+  <!-- Content if current_user is either the host, or accepted to the event -->
+    <% if current_user == @event.user %>
+      <div class="chat-container">
+        <h4>Ready to organize this event?</h4>
+        <h6>Chat with the other participants</h6>
+        <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
+      </div>
+    <% end %>
+    <% if @event.participant?(current_user) %>
+      <div class="chat-container">
+        <h4><%= @event.user.first_name %> has accepted you for this adventure!</h4>
+        <h6>Chat with the other participants!</h6>
+        <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!--<div id="map"-->
+       <!-- style="width: 100%; height: 600px;"-->
+       <!-- data-markers="<%#= @markers.to_json %>"-->
+       <!-- data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">-->
+     <!--</div>-->
+

@@ -27,8 +27,19 @@ class EventsController < ApplicationController
       lng: @event.longitude,
       infoWindow: render_to_string(partial: "info_window", locals: { event: @event })
     }]
+  end
 
-    # For FAVOURITES
+  def edit
+    @event = Event.find(params[:id])
+    @event_user = EventUser.new
+    @message = Message.new
+    authorize @event # FOR PUNDIT
+    @participants = @event.event_users.accepted
+    @markers = [{ # Creates an array with one marker, easiest way to do it
+      lat: @event.latitude,
+      lng: @event.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { event: @event })
+    }]
   end
 
   def new
@@ -41,7 +52,7 @@ class EventsController < ApplicationController
     authorize @event
     @event.user_id = current_user.id
     if @event.save
-      redirect_to events_path
+      redirect_to event_users_path
     else
       render :new
     end
