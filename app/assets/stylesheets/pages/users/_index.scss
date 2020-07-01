@@ -39,15 +39,16 @@ a:hover{
 .avatar-position {
   position: absolute;
   top: 15px;
-  left: 63px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 75px;
   height: 75px;
 }
 
 .host-avatar-no-picture {
   position: absolute;
-  top: 21px;
-  left: 66px;
+  top: 15px;
+  left: 48px;
   width: 70px;
   height: 70px;
 }
