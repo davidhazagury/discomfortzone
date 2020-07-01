@@ -13,11 +13,11 @@
                   <div class="cards-text">
                     <div class="card-headder">
                       <h3 class="event-title"> <%= event.title.capitalize %> </h3>
-                      <div class="chat-link">
+                      <!-- <div class="chat-link">
                         <%= link_to event_chat_path(event) do  %>
                           <i class="fas fa-comment-dots" style="font-size: 46px; color: #EA084B"></i>
                         <% end %>
-                      </div>
+                      </div> -->
                       <% if event.user.photo.attached? %>
                       <%#= event.user.photo.key %>
                       <% else %>
@@ -90,22 +90,33 @@
               <br>
             <% end %>
 
-            <div class="row">
-            <% event.event_users.accepted.each do |application|  %>
-              <div class="col-6">
-                <%= link_to user_path(application.user) do  %>
-                  <div class="d-flex flex-column justify-content-center align-items-center">
-                    <% if application.user.photo.attached? %>
-                      <div class="avatar-always-round" style = " background-image: url(<%= cl_image_path application.user.photo.key %>)"></div>
-                    <% else %>
-                      <div class="avatar-always-round" id="no-pic-avatar" style="background-color: lightslategrey"><%= application.user.first_name.first.capitalize + application.user.last_name.first.capitalize%></div>
-                    <% end %>
-                    <p class = "applicant"><%=application.user.first_name%></p>
-                  </div>
-                <% end %>
-              </div>
+            <div class="row no-gutters">
+              <% event.event_users.accepted.each do |application|  %>
+                <div class="col-6">
+                  <%= link_to user_path(application.user) do  %>
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                      <% if application.user.photo.attached? %>
+                        <div class="avatar-always-round" style = " background-image: url(<%= cl_image_path application.user.photo.key %>)"></div>
+                      <% else %>
+                        <div class="avatar-always-round" id="no-pic-avatar" style="background-color: lightslategrey"><%= application.user.first_name.first.capitalize + application.user.last_name.first.capitalize%></div>
+                      <% end %>
+                      <p class = "applicant"><%=application.user.first_name%></p>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+              <% if event.event_users.accepted.any? %>
+                <div class="col-12">
+                  <%= link_to event_chat_path(event) do  %>
+                    <div class="motivation-btn">
+                      <p><i class="fas fa-comment-dots mr-1"></i>Let's chat</p>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
 
-            <% end %>
-            </div>
-            </div>
+
+
 
