@@ -1,9 +1,10 @@
-<div class="message-container <%= "current-user" if current_user == message.user %>" id="message-<%= message.id %>">
-  <div>
-    <p class="message-user"><%= message.user.first_name.upcase %></p>
-    <p class="message-content"><%= message.content %></p>
-    <p class="message-timestamp"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></p>
+<% unless message.content.gsub(" ", "").empty? %>
+  <div class="message-container <%= "current-user" if current_user == message.user %>" id="message-<%= message.id %>">
+    <div>
+      <p class="message-user"><%= message.user.first_name.upcase %></p>
+      <p class="message-content"><%= message.content %></p>
+      <p class="message-timestamp"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></p>
+    </div>
   </div>
-</div>
-
+<% end %>
 
