@@ -1,0 +1,101 @@
+.img-event {
+    background-size: cover;
+    background-position: center;
+    height: 305px;
+    width: 100%;
+    margin-top:-17px;
+    position:fixed;
+    z-index: -1;
+}
+.heart-wrapper {
+  width: 100%;
+  width: 100%;
+  float: right;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 27px;
+}
+.description-area-events {
+  background-color:white;
+  border-radius:25px 25px 0 0;
+  width: 100%;
+  margin-top: 71%;
+  padding:36px;
+  text-align: left;
+  .event-title {
+    margin:0;
+    width:319px;
+    text-align:center;
+    font-family: $headers-font;
+    color: $purple-blue;
+    font-weight:bold;
+    font-size:40px;
+  }
+  .event-details-icons {
+    font-family: $body-font;
+    color: $grayish-blue;
+    width: 319px;
+    margin-top: 20px;
+    text-align:center;
+    table {
+      table-layout: fixed;
+      width: 100%;
+      text-align: center;
+      vertical-align: middle;
+      th {
+        font-size: 18px;
+      }
+      td {
+        font-size:16px;
+        font-weight: 300;
+      }
+    }
+  }
+  .avatar-wrapper {
+    text-align:center;
+  }
+  .position-overlap {
+    margin-left: -12px;
+  }
+  .event-users-avatars {
+    display:inline-block;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    .event-participants-avatars {
+      display:flex;
+      margin-top: 16px;
+    }
+  }
+  .event-description {
+    margin-top: 35px;
+    width:100%;
+    p {
+      font-family: $body-font;
+      color: $grayish-blue;
+      font-size: 20px;
+    }
+  }
+  .event-motivation {
+    h4 {
+      font-family: $headers-font;
+      color: $purple-blue;
+      font-size: 28px;
+      font-weight: 600;
+    }
+  }
+}
+
+.chat-container {
+  padding: 10px;
+  padding-bottom: 20px;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
+  h4 {
+    padding: 10px
+  }
+  h6 {
+
+  }
+}

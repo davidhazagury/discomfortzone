@@ -3,7 +3,7 @@
   <%= simple_form_for @event do |f| %>
     <%= f.input :title, label: 'Title', required: "true", error: 'Please specify one' %>
     <%= f.input :description, label: 'Description',required: "true", error: 'Please specify one' %>
-    <%= f.input :address, label:'Address', required: "true", error: 'Please specify one' %>
+    <%= f.input :address, id: "auto-address", label:'Address', required: "true", error: 'Please specify one' %>
     <%= f.input :capacity, label:'For how many people?', required: "true", error: 'Please specify one'%>
     <%= f.input :photo, as: :file, label: 'Upload a photo', required: "true", error: 'Please specify one'%>
     <div class="flatpickr-inputs">
