@@ -83,9 +83,39 @@ user10.save!
 # User11 Without Picture: Boris Paillard
 user11 = User.create!(email: "boris@gmail.com", password: "1234567", first_name: "Boris",last_name: 'Paillard', biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 
-# User11 Without Picture: Seb Saunier
+# User12 Without Picture: Seb Saunier
 user12 = User.create!(email: "sebjesus@gmail.com", password: "1234567", first_name: "Sebastien",last_name: 'Saunier', biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 
+
+# User 13 (Picture needs to be updated) - Ana Moreno
+ana_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+user13 = User.new(email: "ana@gmail.com", password: "1234567", first_name: "Ana",last_name: 'Moreno', biography:"My name is Ana, I'm from Colombia, studied in Texas, and I'm an ex-soccer player. I absolutely love travelling, meeting new people, and trying things I've never done before.")
+user13.photo.attach(io: ana_pic, filename: 'ana.png', content_type: 'image/png')
+user13.save!
+
+# User 14 (Picture needs to be updated) - Mans Berglund
+mans_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+user14 = User.new(email: "mans@gmail.com", password: "1234567", first_name: "Mans",last_name: 'Berglund', biography:"Huge fan of sports, particularly football, golf, and ice hockey. I'm an ex-professional golfer and hockey player myself. I'm always down for an adventure, especially if it involves nature!")
+user14.photo.attach(io: mans_pic, filename: 'mans.png', content_type: 'image/png')
+user14.save!
+
+# User 15 (Picture needs to be updated) - Sasha Wortelboer
+sasha_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+user15 = User.new(email: "sasha@gmail.com", password: "1234567", first_name: "Sasha",last_name: 'Wortelboer', biography:"Professional golfer in love with sports and nature. When I'm not playing golf I'm usually hiking in the swiss mountains. Would love to explore the most beautiful landscapes of the world.")
+user15.photo.attach(io: sasha_pic, filename: 'sasha.png', content_type: 'image/png')
+user15.save!
+
+# User 16 (Picture needs to be updated) - Mans Berglund
+sasha_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+user15 = User.new(email: "sasha@gmail.com", password: "1234567", first_name: "Sasha",last_name: 'Wortelboer', biography:"Professional golfer in love with sports and nature. When I'm not playing golf I'm usually hiking in the swiss mountains. Would love to explore the most beautiful landscapes of the world.")
+user15.photo.attach(io: sasha_pic, filename: 'sasha.png', content_type: 'image/png')
+user15.save!
+
+# User 17 (Picture needs to be updated) - Mans Berglund
+sasha_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+user15 = User.new(email: "sasha@gmail.com", password: "1234567", first_name: "Sasha",last_name: 'Wortelboer', biography:"Professional golfer in love with sports and nature. When I'm not playing golf I'm usually hiking in the swiss mountains. Would love to explore the most beautiful landscapes of the world.")
+user15.photo.attach(io: sasha_pic, filename: 'sasha.png', content_type: 'image/png')
+user15.save!
 
 
 
