@@ -38,7 +38,7 @@
         <% if @event.user.photo.attached? %>
           <div class="host-avatar m-auto" style=" background-image: url(<%= cl_image_path @event.user.photo.key %>)"></div>
         <% else %>
-          <div class="host-avatar-no-picture m-auto" id="no-pic-avatar" style="background-color: lightslategrey">
+          <div class="m-auto" id="no-pic-avatar-event-show" style="background-color: lightslategrey">
             <%= @event.user.first_name.first.capitalize + @event.user.last_name.first.capitalize%>
             </div>
         <% end %>
@@ -56,7 +56,7 @@
                 <div class="participant-avatar position-overlap" style= " background-image: url(<%= cl_image_path participant.user.photo.key %>)"></div>
               <% end %>
             <% else  %>
-              <div class="participant-avatar position-overlap" id="participant-no-pic" style="background-color: lightslategrey">
+              <div class="position-overlap" id="participant-no-pic-event-show" style="background-color: lightslategrey">
                 <%= participant.user.first_name.first.capitalize + participant.user.last_name.first.capitalize%>
               </div>
             <% end %>
