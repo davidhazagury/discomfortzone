@@ -13,16 +13,28 @@
                   <div class="cards-text">
                     <div class="card-headder">
                       <h3 class="event-title"> <%= event.title.capitalize %> </h3>
+                      <div class="chat-link">
+                        <%= link_to event_chat_path(event) do  %>
+                          <i class="fas fa-comment-dots" style="font-size: 46px; color: #EA084B"></i>
+                        <% end %>
+                      </div>
                       <% if event.user.photo.attached? %>
                       <%#= event.user.photo.key %>
                       <% else %>
                       <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", alt: "user-icon", class: "avatar-large"%>
                       <% end %>
                     </div>
-                    <h5> <i class="fas fa-calendar-alt"> </i>  <%= event.start_time.strftime("%d %b %y")  %></h5>
-                    <h5> <i class="fas fa-location-arrow"> </i>  <%= event.address.capitalize %></h5>
-
-                    <h5> <%#= event.user.first_name.capitalize %><i class="fas fa-user-friends"></i> <%= pluralize event.spots_left, 'spot' %> left</h5>
+                    <div class="card-body">
+                      <div class="icons">
+                        <h5> <i class="fas fa-calendar-alt"> </i>  <%= event.start_time.strftime("%d %b %y")  %></h5>
+                        <h5> <i class="fas fa-location-arrow"> </i>  <%= event.address.capitalize %></h5>
+                        <% if event.spots_left > 0 %>
+                          <h5> <%#= event.user.first_name.capitalize %><i class="fas fa-user-friends"></i> <%= pluralize event.spots_left, 'spot' %> left</h5>
+                        <% else %>
+                          <h5> <%#= event.user.first_name.capitalize %><i class="fas fa-user-friends"></i> No spots left</h5>
+                        <% end %>
+                      </div>
+                    </div>
                   </div>
                 <% end %>
 
@@ -31,8 +43,7 @@
                 <% if event.event_users.applied.any? %>
                   <h4>Those people want to join:</h4>
                   <br>
-
-                  <% end %>
+                <% end %>
 
               <% event.event_users.applied.each do |application| %>
                 <div class="applicants-container">
@@ -76,6 +87,7 @@
 
             <% if event.event_users.accepted.any? %>
               <h4>Those are coming with you:</h4>
+              <br>
             <% end %>
 
             <div class="row">
