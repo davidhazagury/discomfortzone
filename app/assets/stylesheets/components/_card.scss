@@ -3,7 +3,6 @@ display: grid;
 grid-template-columns: 1fr;
 grid-gap: 16px;
 padding: 2px;
-
   .event-card {  // The whole card, picture + description
     margin: 20px;
     .entire-card {
@@ -23,12 +22,10 @@ padding: 2px;
       top: -8px;
       right: -14px;
     }
-
     // TO GET RID OF THE UNDERLINE WHEN HOVERING
     a:hover {
       text-decoration: none;
     }
-
     .card-category { // Upper part of the card -> Background picture + Event name
       background-size: cover;
       background-position: center;
@@ -42,7 +39,6 @@ padding: 2px;
         top: 16px;
       }
     }
-
     .cards-description { // Lower part of the card -> description on the left
       //display: flex;
       position: relative;
@@ -51,7 +47,6 @@ padding: 2px;
       margin-top: -30px;
       background-color: white;
       box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
-
       .cards-text { // Description on the left
         width: 100%;
         i {
@@ -61,20 +56,18 @@ padding: 2px;
           color: $purple-blue;
           font-size: 40px;
           width: 85%;
-
         }
-        // h5 {
-        //   font-size: 21px;
-        //   font-weight: 100;
-        //   color: $grayish-blue;
-        // }
+        h5 {
+          font-size: 21px;
+          font-weight: 100;
+          color: $grayish-blue;
+        }
       }
     }
   }
 }
-
-
 i.fa-heart { // Favicon on the rightr
+  z-index: 3;
   font-size: 31px;
   color: $red-pink;
   opacity: 0.7;
@@ -82,14 +75,11 @@ i.fa-heart { // Favicon on the rightr
     opacity: 1;
   }
 }
-
-
 .scrolling-wrapper {
   margin: 20px 0;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-
   .scrolling-card {
     margin-right: 15px;
     position: relative;
@@ -112,7 +102,22 @@ i.fa-heart { // Favicon on the rightr
     position: relative;
   }
 }
-
-.user-index-card {
-
+.heart-link{
+  z-index: 2;
+}
+.link-0-0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+#no-pic-avatar-index {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 56px;
+  color: white;
+  font-size:30px;
+  letter-spacing: 1px;
 }

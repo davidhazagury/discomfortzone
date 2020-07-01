@@ -35,7 +35,7 @@
 </div>
   <div class="cards-container">
     <% @events.each do |event| %>
-      <%= render "shared/card", event: event unless event.spots_left.zero? %>
+      <%= render "shared/cards", event: event unless event.spots_left.zero? %>
     <% end %>
   </div>
 <br>
