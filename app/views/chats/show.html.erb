@@ -12,15 +12,7 @@
 
       <div id="messages" class="messages-container" data-chatroom-id="<%= @event.id %>">
         <% @event.messages.each do |message| %>
-          <% if message.user == current_user %>
-            <div class="user-message">
               <%= render 'messages/message', message: message %>
-            </div>
-          <% else %>
-            <div class="others-message">
-              <%= render 'messages/message', message: message %>
-            </div>
-          <% end %>
         <% end %>
       </div>
     <% end %>
