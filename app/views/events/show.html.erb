@@ -38,7 +38,7 @@
         <% if @event.user.photo.attached? %>
           <div class="host-avatar m-auto" style=" background-image: url(<%= cl_image_path @event.user.photo.key %>)"></div>
         <% else %>
-          <div class="host-avatar-no-picture m-auto" id="no-pic-avatar" style="background-color: lightslategrey">
+          <div class="m-auto" id="no-pic-avatar-event-show" style="background-color: lightslategrey">
             <%= @event.user.first_name.first.capitalize + @event.user.last_name.first.capitalize%>
             </div>
         <% end %>
