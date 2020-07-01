@@ -5,11 +5,15 @@
       <%= link_to "", event_path(event), id: "event-#{event.id}", class: "link-0-0" %>
         <% if event.photo.attached? %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
-            <% favourite = event.favourites.where(user_id: current_user.id) %>
-            <% heart = event.favourites.any? {|favourite| favourite.user == current_user} ? " fas " : " far "%>
             <% if user_signed_in? %>
-               <%= link_to event_favourites_path(event, favourite), class: "heart-link", method: :post, remote: true  do %>
+              <% favourite = event.favourites.where(user_id: current_user.id) %>
+              <% heart = event.favourites.any? {|favourite| favourite.user == current_user} ? " fas " : " far "%>
+              <%= link_to event_favourites_path(event, favourite), class: "heart-link", method: :post, remote: true  do %>
                  <i class=" <%= heart %> fa-heart"></i>
+               <% end %>
+            <% else %>
+              <%= link_to user_session_path, class: "heart-link" do %>
+                 <i class=" far fa-heart"></i>
                <% end %>
             <% end %>
           </div>
