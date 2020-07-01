@@ -27,6 +27,10 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+      <%= f.input :biography,
+                   required:true,
+                   input_html: { autocomplete: "biography" }
+                    %>
       <%= f.input :photo, as: :file %>
       <%= f.button :submit, "Sign up", class: "btn-cool-red my-2"%>
   <% end %>
