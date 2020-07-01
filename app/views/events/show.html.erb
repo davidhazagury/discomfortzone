@@ -43,12 +43,12 @@
       <div class="event-participants-avatars">
         <% if @participants.empty? && current_user != @event.user%>
           <p id= "no-participants-text">No participants yet... Be the first one to join!</p>
-        <% elsif @participants.empty? && current_user = @event.user %>
+        <% elsif @participants.empty? && current_user == @event.user %>
           <p id= "no-participants-text">No participants yet... Check your <%= link_to "dashboard", event_users_path %> for possible candidates!</p>
         <% else %>
           <% @participants.each do |participant| %>
             <% if @event.user.photo.attached? %>
-              <%= link_to user_path do%>
+              <%= link_to user_path(participant.user) do%>
                 <div class="participant-avatar position-overlap" style= " background-image: url(<%= cl_image_path participant.user.photo.key %>)"></div>
               <% end %>
             <% else  %>
@@ -66,10 +66,6 @@
   </div>
 
   <div class="event-motivation">
-    <% unless current_user == @event.user || @event.participant?(current_user) %>
-      <h4>Convince the host</h4>
-      <%= render "event_users/new" %>
-    <% end %>
   <!-- Content if current_user is either the host, or accepted to the event -->
     <% if current_user == @event.user %>
       <div class="chat-container">
@@ -77,13 +73,15 @@
         <h6>Chat with the other participants</h6>
         <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
       </div>
-    <% end %>
-    <% if @event.participant?(current_user) %>
+    <% elsif @event.participant?(current_user) %>
       <div class="chat-container">
         <h4><%= @event.user.first_name %> has accepted you for this adventure!</h4>
         <h6>Chat with the other participants!</h6>
         <%= link_to "Chat now", event_chat_path(@event), class: "btn btn-cool-red" %>
       </div>
+    <% else %>
+      <h4>Convince the host</h4>
+      <%= render "event_users/new" %>
     <% end %>
   </div>
 </div>
