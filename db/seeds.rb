@@ -198,10 +198,10 @@ event_user9 = EventUser.create!(motivation: "I'm badass at coding, let's build t
 
 # People applying to Lou's events
 event_user10 = EventUser.create!(motivation: "I'm terrified of sharks, but this sounds like so much fun. This has been on my bucket list for a while, would love to join!", status: 1, user_id: user4.id, event_id: shark.id)
-event_user11 = EventUser.create!(motivation: "Let's do this:)", status: 1, user_id: user3.id, event_id: shark.id)
-event_user12 = EventUser.create!(motivation: "I'd love to jump off a bridge with you mate.", status: 1, user_id: user2.id, event_id: shark.id)
-event_user13 = EventUser.create!(motivation: "That sound absolutely incredible. Seek discomfort!", status: 1, user_id: user4.id, event_id: shark.id)
-event_user14 = EventUser.create!(motivation: "I'm badass at coding, let's build this!", status: 2, user_id: user12.id, event_id: shark.id)
+event_user11 = EventUser.create!(motivation: "Let's do this:)", status: 1, user_id: user5.id, event_id: shark.id)
+event_user12 = EventUser.create!(motivation: "I'd love to jump off a bridge with you mate.", status: 1, user_id: user6.id, event_id: shark.id)
+event_user13 = EventUser.create!(motivation: "That sound absolutely incredible. Seek discomfort!", status: 1, user_id: user7.id, event_id: shark.id)
+event_user14 = EventUser.create!(motivation: "I'm badass at coding, let's build this!", status: 2, user_id: user9.id, event_id: shark.id)
 
 puts "5 - Let´s create some reviews"
 review1 = Review.create!(content:"Amazing experience. We have to repeat!", rating: 5,user_id: user2.id, event_id: bungeejumping.id)
@@ -218,6 +218,5 @@ goal3 = Goal.create!(name: "Learn to do a backflip", description: "I've always b
 goal4 = Goal.create!(name: "Go to Egypt", description: "I'm very curious about mythology, so visiting the ancient sites of Egypt must be amazing.", user_id: user3.id, completed: false)
 goal5 = Goal.create!(name: "Learn to Surf in Bali", description: "I really want to learn how to surf, and what better place to do it than Bali?", user_id: user3.id, completed: true)
 goal6 = Goal.create!(name: "Quit my Job and Learn how to Code", description: "I'm sick and tired of the same old repeating thing. I'm in dire need of a change of life. I'm thinking of quitting my job and enrolling into a bootcamp!", user_id: user3.id, completed: true)
-goal7 = Goal.create!()
 puts "6 - FINITOOO"
 
