@@ -1,47 +1,42 @@
-
-<div class="cards-container">
-  <% @events.each do |event| %>
-    <div class="event-card position-relative" >
-      <%= link_to "", event_path(event), id: "event-#{event.id}", class: "link-0-0" %>
-        <% if event.photo.attached? %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
-            <% if user_signed_in? %>
-              <% favourite = event.favourites.where(user_id: current_user.id) %>
-              <% heart = event.favourites.any? {|favourite| favourite.user == current_user} ? " fas " : " far "%>
-              <%= link_to event_favourites_path(event, favourite), class: "heart-link", method: :post, remote: true  do %>
-                 <i class=" <%= heart %> fa-heart"></i>
-               <% end %>
-            <% else %>
-              <%= link_to user_session_path, class: "heart-link" do %>
-                 <i class=" far fa-heart"></i>
-               <% end %>
-            <% end %>
-          </div>
+<div class="event-card position-relative" >
+  <%= link_to "", event_path(event), id: "event-#{event.id}", class: "link-0-0" %>
+    <% if event.photo.attached? %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path event.photo.key %>');">
+        <% if user_signed_in? %>
+          <% favourite = event.favourites.where(user_id: current_user.id) %>
+          <% heart = event.favourites.any? {|favourite| favourite.user == current_user} ? " fas " : " far "%>
+          <%= link_to event_favourites_path(event, favourite), class: "heart-link", method: :post, remote: true  do %>
+             <i class=" <%= heart %> fa-heart"></i>
+           <% end %>
         <% else %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?adventure)">
-            <% if user_signed_in? && event.favourited?(current_user) %>
-              <% favourite = event.favourites.where(user_id: current_user.id).first %>
-               <%= link_to event_favourites_path(event, favourite), class: "heart-link", method: :post, remote: true  do %>
-                 <i class="<%= heart %> fa-heart"></i>
-               <% end %>
-            <% end %>
-          </div>
+          <%= link_to user_session_path, class: "heart-link" do %>
+             <i class=" far fa-heart"></i>
+           <% end %>
         <% end %>
-        <div class="cards-description">
-          <div class="cards-text">
-            <div class="card-headder">
-              <h4 class="event-title"> <%= event.title.capitalize %></h4>
-              <% if event.user.photo.attached? %>
-                <div class="avatar-large" style="background-image: url('<%= cl_image_path event.user.photo.key %>')"></div>
-              <% else %>
-                <div class="avatar-large" id="no-pic-avatar-index" style="background-color: lightslategrey;"></div>
-              <% end %>
-            </div>
-            <h5><i class="fas fa-calendar-alt"></i><%= event.start_time.strftime("%d %b %y") %></h5>
-            <h5><i class="fas fa-location-arrow"></i><%= event.address.capitalize %></h5>
-            <h5><i class="fas fa-user-friends"></i><strong><%= pluralize event.spots_left, 'spot' %></strong> out of <%= event.capacity %> left</h5>
-          </div>
+      </div>
+    <% else %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?adventure)">
+        <% if user_signed_in? && event.favourited?(current_user) %>
+          <% favourite = event.favourites.where(user_id: current_user.id).first %>
+           <%= link_to event_favourites_path(event, favourite), class: "heart-link", method: :post, remote: true  do %>
+             <i class="<%= heart %> fa-heart"></i>
+           <% end %>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="cards-description">
+      <div class="cards-text">
+        <div class="card-headder">
+          <h4 class="event-title"> <%= event.title.capitalize %></h4>
+          <% if event.user.photo.attached? %>
+            <div class="avatar-large" style="background-image: url('<%= cl_image_path event.user.photo.key %>')"></div>
+          <% else %>
+            <div class="avatar-large" id="no-pic-avatar-index" style="background-color: lightslategrey;"></div>
+          <% end %>
         </div>
+        <h5><i class="fas fa-calendar-alt"></i><%= event.start_time.strftime("%d %b %y") %></h5>
+        <h5><i class="fas fa-location-arrow"></i><%= event.address.capitalize %></h5>
+        <h5><i class="fas fa-user-friends"></i><strong><%= pluralize event.spots_left, 'spot' %></strong> out of <%= event.capacity %> left</h5>
+      </div>
     </div>
-  <% end %>
 </div>
