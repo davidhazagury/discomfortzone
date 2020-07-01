@@ -40,6 +40,8 @@ class Event < ApplicationRecord
   end
 
   def participant?(user)
+    puts "====================="
+    puts user
     return false unless user
     event_users.accepted.pluck(:user_id).include?(user.id)
   end

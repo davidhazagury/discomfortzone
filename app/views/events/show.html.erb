@@ -47,7 +47,7 @@
       <div class="event-participants-avatars">
         <% if @participants.empty? && current_user != @event.user%>
           <p id= "no-participants-text">No participants yet... Be the first one to join!</p>
-        <% elsif @participants.empty? && current_user = @event.user %>
+        <% elsif @participants.empty? && current_user == @event.user %>
           <p id= "no-participants-text">No participants yet... Check your <%= link_to "dashboard", event_users_path %> for possible candidates!</p>
         <% else %>
           <% @participants.each do |participant| %>
@@ -68,7 +68,6 @@
   <div class="event-description">
     <p><%= @event.description %></p>
   </div>
-
   <div class="event-motivation">
     <% unless current_user == @event.user || @event.participant?(current_user) %>
       <h4>Convince the host</h4>
