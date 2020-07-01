@@ -117,14 +117,6 @@ user17 = User.new(email: "zander@gmail.com", password: "1234567", first_name: "Z
 user17.photo.attach(io: zander_pic, filename: 'zander.png', content_type: 'image/png')
 user17.save!
 
-# User 17 (Picture needs to be updated) - Zander Gous
-zander_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
-user17 = User.new(email: "zander@gmail.com", password: "1234567", first_name: "Zander",last_name: 'Gous', biography:"Addicted to exercise. I love sports, especially golf and rugby, as well as cooking a nice BBQ for my friends. I would love to travel more and discover more countries.")
-user17.photo.attach(io: zander_pic, filename: 'zander.png', content_type: 'image/png')
-user17.save!
-
-
-
 
 
 puts "3 - Let's create some events..."
@@ -222,6 +214,10 @@ puts "5 - Let´s create some goals"
 # Goals for David
 goal1 = Goal.create!(name: "Jump off a plane", description: "I'm terrified of heights and this feels like the perfect thing to get out of my comfort zone", user_id: user4.id)
 goal2 = Goal.create!(name: "Go to Paris", description: "This city feels so magical to me, and I've always dreamed to go there.", user_id: user4.id, completed: true)
-
+goal3 = Goal.create!(name: "Learn to do a backflip", description: "I've always been terrified of doing a backflip. I know I have the physical abilities, I just need to overcome the mental barrier!", user_id: user3.id, completed: false)
+goal4 = Goal.create!(name: "Go to Egypt", description: "I'm very curious about mythology, so visiting the ancient sites of Egypt must be amazing.", user_id: user3.id, completed: false)
+goal5 = Goal.create!(name: "Learn to Surf in Bali", description: "I really want to learn how to surf, and what better place to do it than Bali?", user_id: user3.id, completed: true)
+goal6 = Goal.create!(name: "Quit my Job and Learn how to Code", description: "I'm sick and tired of the same old repeating thing. I'm in dire need of a change of life. I'm thinking of quitting my job and enrolling into a bootcamp!", user_id: user3.id, completed: true)
+goal7 = Goal.create!()
 puts "6 - FINITOOO"
 
