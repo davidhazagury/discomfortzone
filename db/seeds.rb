@@ -40,7 +40,7 @@ user3.save!
 
 # User4: David
 david_pic = URI.open ("https://avatars1.githubusercontent.com/u/57439844?s=400&u=974c959854561ec99af5e770a8455ac2134e9455&v=4")
-user4 = User.new(email: "david@gmail.com", password: "1234567", first_name: "David", last_name:"Hernandez", biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
+user4 = User.new(email: "david@gmail.com", password: "1234567", first_name: "David", last_name:"Hernandez", biography:"Based in Madrid, currently learning how to hack (good hacking ofc) at Le Wagon Spain Batch#413. Love to travel. Always down for a new adventure. Working at DZ as Full Stack Developer, sometimes I work on master so imagine how crazy I can go. 😃")
 user4.photo.attach(io: david_pic, filename: 'david.png', content_type: 'image/png')
 user4.save!
 
@@ -117,7 +117,10 @@ user17 = User.new(email: "zander@gmail.com", password: "1234567", first_name: "Z
 user17.photo.attach(io: zander_pic, filename: 'zander.png', content_type: 'image/png')
 user17.save!
 
-
+sandra_pic = URI.open ("https://res.cloudinary.com/dgsqurpio/image/upload/v1593709010/4154a320-3272-478f-8dc1-35376ad75823_nkonyg.jpg")
+sandra = User.new(email: "sandra@gmail.com", password: "1234567", first_name: "Sandra", last_name:"Macarro", biography:"Based in Madrid, currently about to finish my Design Degree. Love art and everything related to it, also love to travel. I'm always up to something and down for adventures!")
+sandra.photo.attach(io: sandra_pic, filename: 'sandra.png', content_type: 'image/png')
+sandra.save!
 
 puts "3 - Let's create some events..."
 
@@ -145,6 +148,12 @@ randomcity_picture = URI.open('https://images.unsplash.com/photo-1499591934245-4
 randomcity = Event.new(title: "Travel to a Random City", start_time: "2020-08-28 10:00", end_time: "2020-08-30 20:00", description:"Here's the plan: we throw a dart on a map, and we all fly there as a group. Fate will decide where our next adventure will take us!", address: "Lausanne, Switzerland", capacity: 5, user_id: user4.id)
 randomcity.photo.attach(io: randomcity_picture, filename: 'randomcity.png', content_type: 'image/png')
 randomcity.save!
+
+# Okuda art trip
+okuda_picture = URI.open("https://res.cloudinary.com/dgsqurpio/image/upload/v1593706982/29960089538_ec8c80740d_b_h6wqrp.jpg")
+okuda = Event.new(title: "Okuda Art Trip", start_time: "2020-08-10 12:00", end_time: "2020-09-12 18:00", description: "I've been following this artist for the last two years, and this idea came up to my mind the other day! I'm organizing a trip around the world to check his art out, we will be visiting Spain, Canada, Cuba, USA etc...", address: "Madrid, Spain", capacity: 5, user_id: sandra.id)
+okuda.photo.attach(io: okuda_picture, filename: 'okuda.png', content_type: 'image/png')
+okuda.save!
 
 # OLD Event - Hosted by Lou
 oldevent_picture = URI.open('https://images.unsplash.com/photo-1552072804-d78dd1cb516f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80')
@@ -188,6 +197,12 @@ montblanc = Event.new(title: "Hike to the Mont Blanc", start_time: "2020-07-25 0
 montblanc.photo.attach(io: montblanc_picture, filename: 'montblanc.png', content_type: 'image/png')
 montblanc.save!
 
+# Tuk tuk race - Hosted by David
+lankachallenge_picture = URI.open('https://res.cloudinary.com/dgsqurpio/image/upload/v1593705027/DSC_0014_amccrt.jpg')
+lankachallenge = Event.new(title: "Lanka challenge", start_time: "2020-10-25 08:00", end_time: "2020-11-25 20:30", description:"Imagine being able to tell your mates that you travelled 1,000km around Sri Lanka. In a rickshaw. the ultimate road trip for those who like their travel fully-charged and no-holds-barred. Each day you’ll wake up, be told where you need
+to be by sundown, and get handed a list of challenges to complete along the way – the completion of which will see your team accrue points. The rest is up to you, you big legend.", address: "Minuwangoda, Sri Lanka", capacity: 4, user_id: user4.id)
+lankachallenge.photo.attach(io: lankachallenge_picture, filename: 'lankachallenge.png', content_type: 'image/png')
+lankachallenge.save!
 
 puts "4 - Let's match some users with some events (event_user)"
 # People applying to Jonas's bungee Jumps
@@ -221,6 +236,15 @@ event_user19 = EventUser.create!(motivation: "Let's do this!", status: 2, user_i
 event_user20 = EventUser.create!(motivation: "Hey that sounds awesome!", status: 2, user_id: user5.id, event_id: oldevent.id)
 event_user21 = EventUser.create!(motivation: "Please let me join!!", status: 2, user_id: user6.id, event_id: oldevent.id)
 
+# People applied (and accepted) to David's lanka challenge
+event_user100 = EventUser.create!(motivation: "Please let me join!!", status: 1, user_id: user3.id, event_id: lankachallenge.id)
+event_user101 = EventUser.create!(motivation: "Please let me join!!", status: 1, user_id: user5.id, event_id: lankachallenge.id)
+event_user102 = EventUser.create!(motivation: "Please let me join!!", status: 1, user_id: user6.id, event_id: lankachallenge.id)
+
+# People applied (and accepted to Sandras's Okuda Trip )
+event_user103 = EventUser.create!(motivation: "Please let me join!!", status: 1, user_id: user6.id, event_id: okuda.id)
+event_user104 = EventUser.create!(motivation: "Please let me join!!", status: 1, user_id: user4.id, event_id: okuda.id)
+event_user105 = EventUser.create!(motivation: "Please let me join!!", status: 1, user_id: user17.id, event_id: okuda.id)
 
 puts "5 - Let's create some reviews"
 review1 = Review.create!(content:"Amazing experience. That was so much fun!", rating: 5,user_id: user4.id, event_id: oldevent.id)
