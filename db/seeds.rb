@@ -45,7 +45,7 @@ user4.photo.attach(io: david_pic, filename: 'david.png', content_type: 'image/pn
 user4.save!
 
 # User5: Wolfgang
-wolfgang_pic = URI.open('https://avatars2.githubusercontent.com/u/55288885?s=400&u=a5ead364f1ee4761ac36793fce0ee4d5e03d238c&v=4')
+wolfgang_pic = URI.open('https://res.cloudinary.com/dr9jueds0/image/upload/v1593699840/26167890_10214660379000690_5028012495675837573_n.jpg_xvvs8t.jpg')
 user5 = User.new(email: "wolfgang@gmail.com", password: "1234567", first_name: "Wolfgang", last_name:"Alkier", biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
 user5.photo.attach(io: wolfgang_pic, filename: 'wolfgang.png', content_type: 'image/png')
 user5.save!
