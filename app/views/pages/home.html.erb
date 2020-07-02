@@ -17,19 +17,21 @@
 
 <!-- ALL THE STUFF BELOW THE MAIN BANNER -->
 <div class="container">
-  <div class="scrolling-wrapper">
-    <div class="scrolling-card" style="background-image: url('https://images.unsplash.com/photo-1512036666432-2181c1f26420?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')">
+    <!-- <div class="scrolling-card" style="background-image: url('https://images.unsplash.com/photo-1512036666432-2181c1f26420?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')">
       <h6>Sunset Hike</h6>
-    </div>
-    <div class="scrolling-card" style="background-image: url('https://images.unsplash.com/photo-1504851149312-7a075b496cc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=949&q=80')">
-      <h6>Starry Camping</h6>
-    </div>
-    <div class="scrolling-card" style="background-image: url('https://images.unsplash.com/photo-1580485040966-42ab49b19771?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=582&q=80')">
-      <h6>Paragliding</h6>
-    </div>
-    <div class="scrolling-card" style="background-image: url('https://images.unsplash.com/photo-1498354178607-a79df2916198?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')">
-      <h6>Random Travelling</h6>
-    </div>
+    </div> -->
+    <div class="scrolling-wrapper">
+      <h3>Latest Additions</h3>
+        <div class="listed-events">
+          <% @last_events.each do |event| %>
+            <%= link_to event_path(event), style:"text-decoration: none;" do  %>
+             <div class="event-card" style = " background-image: url(<%= cl_image_path event.photo.key %>);">
+              <h6><%= event.title.capitalize %></h6>
+            </div>
+          <% end %>
+        <% end %>
+        </div>
+
   </div>
 
   <!-- SECONDARY CALL TO ACTION -->

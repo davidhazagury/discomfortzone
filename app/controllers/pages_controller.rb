@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @events = policy_scope(Event)
+    @last_events = @events.last(4)
   end
 
   def index
