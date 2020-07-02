@@ -71,17 +71,16 @@
       <div class="reviews-box">
         <% event.reviews.each do |review| %>
           <div class="review-card">
-              <h5 class="event-title-review"><%= review.event.title.capitalize %></h5>
-              <%= content_tag(:i, "", class: "fas fa-star", id: "icon-reviews", style:"color:#F80447") * review.rating%>
-              <p><i class="fas fa-calendar-alt"> </i><%= review.created_at.strftime("%B,  %Y")%></p>
             <div class="reviewer-area">
               <%if review.user.photo.attached? %>
-                <div class="reviewer-avatar" style = " background-image: url(<%= cl_image_path review.user.photo.key %>)"></div>
-              <% else %>
-                <div class="reviewer-avatar" id="reviewer-avatar-no-pic" style="background-color: lightslategrey"><%= review.user.first_name.first.capitalize + review.user.last_name.first.capitalize%></div>
-              <% end %>
-              <%= review.user.first_name.capitalize + " " + review.user.last_name.capitalize %>
-            </div>
+                  <div class="reviewer-avatar" style = " background-image: url(<%= cl_image_path review.user.photo.key %>)"></div>
+                <% else %>
+                  <div class="reviewer-avatar" id="reviewer-avatar-no-pic" style="background-color: lightslategrey"><%= review.user.first_name.first.capitalize + review.user.last_name.first.capitalize%></div>
+                <% end %>
+                <%= review.user.first_name.capitalize + " " + review.user.last_name.capitalize %>
+              </div>
+              <%= content_tag(:i, "", class: "fas fa-star", id: "icon-reviews", style:"color:#F80447") * review.rating%>
+              <p><i class="fas fa-calendar-alt"></i><%= review.event.title.capitalize %> - <%= review.created_at.strftime("%B  %Y")%></p>
             <p class= "event-content-review" style="margin-top: 5px;"><%= review.content.capitalize %></p>
           </div>
         <% end %>
