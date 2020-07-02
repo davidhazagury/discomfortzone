@@ -63,6 +63,7 @@
       </div>
   <% end %>
 </div>
+<br>
 <div class="user-reviews">
   <h5><%= @user.first_name.capitalize %>'s reviews</h5>
   <% if @reviews.any? %>
@@ -70,17 +71,16 @@
       <div class="reviews-box">
         <% event.reviews.each do |review| %>
           <div class="review-card">
-              <h5 class="event-title-review"><%= review.event.title.capitalize %></h5>
-              <%= content_tag(:i, "", class: "fas fa-star", id: "icon-reviews", style:"color:#F80447") * review.rating%>
-              <p><i class="fas fa-calendar-alt"> </i><%= review.created_at.strftime("%B,  %Y")%></p>
             <div class="reviewer-area">
               <%if review.user.photo.attached? %>
-                <div class="reviewer-avatar" style = " background-image: url(<%= cl_image_path review.user.photo.key %>)"></div>
-              <% else %>
-                <div class="reviewer-avatar" id="reviewer-avatar-no-pic" style="background-color: lightslategrey"><%= review.user.first_name.first.capitalize + review.user.last_name.first.capitalize%></div>
-              <% end %>
-              <%= review.user.first_name.capitalize + " " + review.user.last_name.capitalize %>
-            </div>
+                  <div class="reviewer-avatar" style = " background-image: url(<%= cl_image_path review.user.photo.key %>)"></div>
+                <% else %>
+                  <div class="reviewer-avatar" id="reviewer-avatar-no-pic" style="background-color: lightslategrey"><%= review.user.first_name.first.capitalize + review.user.last_name.first.capitalize%></div>
+                <% end %>
+                <%= review.user.first_name.capitalize + " " + review.user.last_name.capitalize %>
+              </div>
+              <%= content_tag(:i, "", class: "fas fa-star", id: "icon-reviews", style:"color:#F80447") * review.rating%>
+              <p><i class="fas fa-calendar-alt"></i><%= review.event.title.capitalize %> - <%= review.created_at.strftime("%B  %Y")%></p>
             <p class= "event-content-review" style="margin-top: 5px;"><%= review.content.capitalize %></p>
           </div>
         <% end %>
@@ -92,15 +92,15 @@
 </div>
 </div>
 <br>
-<br>
-
 <!-- DO NOT REMOVE THIS EMPTY DIV, USING IT FOR ANCHORS:) -->
 <div id="bucket-list-top"></div>
 <!-- BEGINNING OF BUCKET LIST -->
 <div class="goal-menu">
 <h5><%= @user.first_name + "'s Bucket List" %></h5>
-  <%= link_to new_user_goal_path(@user) do %>
-    <i class="fas fa-plus"></i>
+  <% if current_user == @user %>
+    <%= link_to new_user_goal_path(@user) do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
   <% end %>
 </div>
 <!--   WHAT THE OWNER SEES -->
@@ -125,9 +125,6 @@
   <% end %>
 <!--   WHAT SOMEONE WHO IS NOT THE OWNER SEES -->
 <% elsif @goals.any? %>
-   <div class="goal-menu">
-      <h5>Bucket List</h5>
-  </div>
   <% @goals.each do |goal| %>
     <div class="goal-card">
       <div class="completed-checkbox-visitor">
@@ -142,6 +139,8 @@
       </div>
     </div>
   <% end %>
+<% else %>
+  <p>  <%= @user.first_name + " hasn't started a bucket list yet" %></p>
 <% end %>
 <!-- END OF BUCKET LIST LOGIC -->
 
