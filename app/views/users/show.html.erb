@@ -41,14 +41,14 @@
 <% end %>
 <div class="description-area">
 <div class="name-bio">
-  <h4 class="user-name">Hi, I'm <%= @user.first_name.capitalize %></h4>
+  <h1 class="user-name">Hi, I'm <%= @user.first_name.capitalize %></h1>
   <div class="user-bio">
     <i class="fa fa-quote-left" style="color: lightgrey"></i>
     <p><%= " " + @user.biography + " " if @user.biography.present? %></p>
   </div>
 </div>
 <div class="user-listings">
-  <h5><%= @user.first_name.capitalize%>'s listings</h5>
+  <h4><%= @user.first_name.capitalize%>'s listings</h4>
   <% if @user.events.empty? %>
     <%= @user.first_name.capitalize + " hasn't listed an adventure yet" %>
   <% else  %>
