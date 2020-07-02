@@ -88,39 +88,59 @@ user12 = User.create!(email: "sebjesus@gmail.com", password: "1234567", first_na
 
 
 # User 13 (Picture needs to be updated) - Ana Moreno
-ana_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+ana_pic = URI.open ("https://images.unsplash.com/photo-1532306201592-901907906c23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
 user13 = User.new(email: "ana@gmail.com", password: "1234567", first_name: "Ana",last_name: 'Moreno', biography:"My name is Ana, I'm from Colombia, studied in Texas, and I'm an ex-soccer player. I absolutely love travelling, meeting new people, and trying things I've never done before.")
 user13.photo.attach(io: ana_pic, filename: 'ana.png', content_type: 'image/png')
 user13.save!
 
 # User 14 (Picture needs to be updated) - Mans Berglund
-mans_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+mans_pic = URI.open ("https://lamarcardinals.com/images/2016/10/24/Berglund_Mans.jpg?width=300")
 user14 = User.new(email: "mans@gmail.com", password: "1234567", first_name: "Mans",last_name: 'Berglund', biography:"Huge fan of sports, particularly football, golf, and ice hockey. I'm an ex-professional golfer and hockey player myself. I'm always down for an adventure, especially if it involves nature!")
 user14.photo.attach(io: mans_pic, filename: 'mans.png', content_type: 'image/png')
 user14.save!
 
 # User 15 (Picture needs to be updated) - Sasha Wortelboer
-sasha_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+sasha_pic = URI.open ("https://images.squarespace-cdn.com/content/v1/560083d2e4b0ef8db7867140/1553911785413-6UKGGH1K52L1SQP4C26Z/ke17ZwdGBToddI8pDm48kHJjM-Evnp5g-1kf5Yv15cUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcpWKe3KzaCrFDKPR1a1Ob8xobjReaxMuaKtrvUDoDmPO9EsdBHei1w8jR6w0UZiby/IMG_1155.jpg?format=1500w")
 user15 = User.new(email: "sasha@gmail.com", password: "1234567", first_name: "Sasha",last_name: 'Wortelboer', biography:"Professional golfer in love with sports and nature. When I'm not playing golf I'm usually hiking in the swiss mountains. Would love to explore the most beautiful landscapes of the world.")
 user15.photo.attach(io: sasha_pic, filename: 'sasha.png', content_type: 'image/png')
 user15.save!
 
 # User 16 (Picture needs to be updated) - Paula Leiva
-paula_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+paula_pic = URI.open ("https://images.unsplash.com/photo-1546052646-a88eafec0399?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=935&q=80")
 user16 = User.new(email: "paula@gmail.com", password: "1234567", first_name: "Paula",last_name: 'Leiva', biography:"Specialized in production and graphic design, but what I'm really passionate about is filmography and animals. I love nature, both experiencing it and capturing it through a lense. Anything travel, animal, or nature related, count me in! :)")
 user16.photo.attach(io: paula_pic, filename: 'paula.png', content_type: 'image/png')
 user16.save!
 
 # User 17 (Picture needs to be updated) - Zander Gous
-zander_pic = URI.open ("https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+zander_pic = URI.open ("https://lamarcardinals.com/images/2016/10/24/Gous_Zander.jpg?width=300")
 user17 = User.new(email: "zander@gmail.com", password: "1234567", first_name: "Zander",last_name: 'Gous', biography:"Addicted to exercise. I love sports, especially golf and rugby, as well as cooking a nice BBQ for my friends. I would love to travel more and discover more countries.")
 user17.photo.attach(io: zander_pic, filename: 'zander.png', content_type: 'image/png')
 user17.save!
+
 
 sandra_pic = URI.open ("https://res.cloudinary.com/dgsqurpio/image/upload/v1593709010/4154a320-3272-478f-8dc1-35376ad75823_nkonyg.jpg")
 sandra = User.new(email: "sandra@gmail.com", password: "1234567", first_name: "Sandra", last_name:"Macarro", biography:"Based in Madrid, currently about to finish my Design Degree. Love art and everything related to it, also love to travel. I'm always up to something and down for adventures!")
 sandra.photo.attach(io: sandra_pic, filename: 'sandra.png', content_type: 'image/png')
 sandra.save!
+
+# User 101 - Gus de Vita
+gus_pic = URI.open ("https://res.cloudinary.com/wagon/image/upload/v1548256312/dzm39hglsvbqoowrgptf.jpg")
+user101 = User.new(email: "gus@gmail.com", password: "1234567", first_name: "Gus",last_name: 'De Vita', biography:"Bom dia!")
+user101.photo.attach(io: gus_pic, filename: 'gus.png', content_type: 'image/png')
+user101.save!
+
+# User 102 - Ellyn Bouscasse
+ellyn_pic = URI.open ("https://s3.amazonaws.com/f6s-public/profiles/1560584_original.jpg")
+user102 = User.new(email: "ellyn@gmail.com", password: "1234567", first_name: "Ellyn",last_name: 'Bouscasse', biography:"(H)elloooo Discomfort Zoners! Let's experience some adventures! Pow pow pow")
+user102.photo.attach(io: ellyn_pic, filename: 'ellyn.png', content_type: 'image/png')
+user102.save!
+
+# User 103 - Santi Sanchez
+santi_pic = URI.open ("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1554730769/p4iist1ushdoafevllr7.jpg")
+user103 = User.new(email: "santi@gmail.com", password: "1234567", first_name: "Santi",last_name: 'Sanchez', biography:"Wie gehts? Down for everything if it includes techno.")
+user103.photo.attach(io: santi_pic, filename: 'santi.png', content_type: 'image/png')
+user103.save!
+
 
 puts "3 - Let's create some events..."
 
@@ -130,12 +150,6 @@ hiking = Event.new(title: "Special Hike", start_time: "2020-08-10 12:00", end_ti
 Weather-appropriate clothing (think moisture-wicking and layers), Hiking boots or shoes, Plenty of food, Plenty of water, sleeping bag, some toold like a knife.. As the host I will bring a First-aid kit as I'm a trained medic. THIS IS A REAL OUTDOOR ADVENTURE, whoooo !!", address: "Vienna", capacity: 5, user_id: user6.id)
 hiking.photo.attach(io: rainbow_mountain, filename: 'rainbow_mountain.png', content_type: 'image/png')
 hiking.save!
-
-# skydiving
-skydiving_picture = URI.open('https://images.unsplash.com/photo-1483301563007-8d0161daa1d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80')
-skydiving = Event.new(title: "Skydiving", start_time: "2020-07-18 17:00", end_time: "2020-07-18 20:00", description: "I'm looking for some people to join me in this crazy adventure. I've never jumped out of a plane and none of my friends want to join me... Will you?", address: "Hong Kong", capacity: 8, user_id: user4.id)
-skydiving.photo.attach(io: skydiving_picture, filename: 'spain.png', content_type: 'image/png')
-skydiving.save!
 
 # Bungee Jumping
 bungeejumping_picture = URI.open('https://checkyeti.imgix.net/images/optimized/bungy-stockhorn_002_web-min1.jpg')
@@ -157,9 +171,15 @@ okuda.save!
 
 # OLD Event - Hosted by Lou
 oldevent_picture = URI.open('https://images.unsplash.com/photo-1552072804-d78dd1cb516f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80')
-oldevent = Event.new(title: "Hike in Zermatt", start_time: "2016-03-25 08:00", end_time: "2016-03-25 20:30", description:"Let's go walk in the beautfiul Swiss Mountains and take pictures in front of the Mattherhorn!", address: "Zermatt, Switzerland", capacity: 4, user_id: user3.id)
+oldevent = Event.new(title: "Hike in Zermatt", start_time: "2016-03-25 08:00", end_time: "2016-03-25 20:30", description:"Let's go walk in the beautfiul Swiss Mountains and take pictures in front of the Mattherhorn!", address: "Vancouver, Canada", capacity: 4, user_id: user3.id)
 oldevent.photo.attach(io: oldevent_picture, filename: 'oldevent.png', content_type: 'image/png')
 oldevent.save!
+
+# OLD Event - Hosted by David
+oldeventdavid_picture = URI.open('https://images.unsplash.com/photo-1439761414027-4f4ebeeda3a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
+oldeventdavid = Event.new(title: "Canadian Waterfall Visits", start_time: "2017-04-19 08:00", end_time: "2017-04-19 20:30", description:"Canada is such a beautiful place, and I'm looking for a bunch of people to join me discover some of its wonderful nature - especially its incredible waterfalls!", address: "Zermatt, Switzerland", capacity: 4, user_id: user3.id)
+oldeventdavid.photo.attach(io: oldeventdavid_picture, filename: 'oldeventdavid.png', content_type: 'image/png')
+oldeventdavid.save!
 
 # PARAGLIDING
 paragliding_pic = URI.open("https://res.cloudinary.com/dgsqurpio/image/upload/v1592991090/v4fg14hfhizujxdvucjw.jpg")
@@ -179,15 +199,21 @@ shark = Event.new(title: "Dive with the sharks", start_time: "2020-11-28 10:00",
 shark.photo.attach(io: shark_picture, filename: 'shark.png', content_type: 'image/png')
 shark.save!
 
-# First time Wake Surfing - Hosted by Lou
+# First time Wake Surfing - Hosted by Sasha
 firstwakeboard_picture = URI.open('https://images.unsplash.com/photo-1468850726958-63df2c33e0ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80')
-firstwakeboard = Event.new(title: "Let's learn how to Wakesurf!", start_time: "2020-08-12 10:00", end_time: "2020-08-12 12:30", description: "Wakesurfing looks incredibly fun and I'd love to learn it. Unfortunately, we need to be at least 4 on a boat to do it. Who wants to join me and try wakesurfing for the first time?!", address: "Lutry, Switzerland", capacity: 6, user_id: user3.id)
+firstwakeboard = Event.new(title: "Let's learn how to Wakesurf!", start_time: "2020-08-12 10:00", end_time: "2020-08-12 12:30", description: "Wakesurfing looks incredibly fun and I'd love to learn it. Unfortunately, we need to be at least 4 on a boat to do it. Who wants to join me and try wakesurfing for the first time?!", address: "Lutry, Switzerland", capacity: 6, user_id: user16.id)
 firstwakeboard.photo.attach(io: firstwakeboard_picture, filename: 'firstwakeboard.png', content_type: 'image/png')
 firstwakeboard.save!
 
-# Dinner with strangers - Hosted by Lou
+# skydiving
+skydiving_picture = URI.open('https://images.unsplash.com/photo-1483301563007-8d0161daa1d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80')
+skydiving = Event.new(title: "Skydiving", start_time: "2020-07-18 17:00", end_time: "2020-07-18 20:00", description: "I'm looking for some people to join me in this crazy adventure. I've never jumped out of a plane and none of my friends want to join me... Will you?", address: "Hong Kong", capacity: 8, user_id: user4.id)
+skydiving.photo.attach(io: skydiving_picture, filename: 'spain.png', content_type: 'image/png')
+skydiving.save!
+
+# Dinner with strangers - Hosted by Wolfgang
 dinnerstranger_picture = URI.open('https://images.unsplash.com/photo-1547573854-74d2a71d0826?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80')
-dinnerstranger = Event.new(title: "Dinner with Strangers", start_time: "2020-09-15 19:00", end_time: "2020-09-15 20:30", description:"What better way to get to know people than to go in a massive blind date?! Let's meet up with complete strangers for dinner and meet fellow discomfort-zoners", address: "Pully, Switzerland", capacity: 10, user_id: user3.id)
+dinnerstranger = Event.new(title: "Dinner with Strangers", start_time: "2020-09-15 19:00", end_time: "2020-09-15 20:30", description:"What better way to get to know people than to go in a massive blind date?! Let's meet up with complete strangers for dinner and meet fellow discomfort-zoners", address: "Pully, Switzerland", capacity: 10, user_id: user5.id)
 dinnerstranger.photo.attach(io: dinnerstranger_picture, filename: 'dinnerstranger.png', content_type: 'image/png')
 dinnerstranger.save!
 
@@ -216,25 +242,33 @@ event_user5 = EventUser.create!(motivation: "I would love to do this, this is my
 event_user6 = EventUser.create!(motivation: "Let's do this:)", status: 1, user_id: user3.id, event_id: hiking.id)
 event_user7 = EventUser.create!(motivation: "I'd love to jump off a bridge with you mate.", status: 1, user_id: user2.id, event_id: hiking.id)
 event_user8 = EventUser.create!(motivation: "That sound absolutely incredible. Seek discomfort!", status: 1, user_id: user4.id, event_id: hiking.id)
-event_user9 = EventUser.create!(motivation: "I'm badass at coding, let's build this!", status: 2, user_id: user12.id, event_id: coding.id)
+
+# Sebjesus applying to coding school
+event_user9 = EventUser.create!(motivation: "I'm badass at coding, let's build this!", status: 1, user_id: user12.id, event_id: coding.id)
 
 # People applying to Lou's Shark event
 event_user10 = EventUser.create!(motivation: "I'm terrified of sharks, but this sounds like so much fun. This has been on my bucket list for a while, would love to join!", status: 1, user_id: user4.id, event_id: shark.id)
 event_user11 = EventUser.create!(motivation: "Let's do this:)", status: 1, user_id: user5.id, event_id: shark.id)
 event_user12 = EventUser.create!(motivation: "I'd love to jump off a bridge with you mate.", status: 1, user_id: user6.id, event_id: shark.id)
 event_user13 = EventUser.create!(motivation: "That sound absolutely incredible. Seek discomfort!", status: 1, user_id: user7.id, event_id: shark.id)
-event_user14 = EventUser.create!(motivation: "I'm badass at coding, let's build this!", status: 2, user_id: user9.id, event_id: shark.id)
 
 # People applying to Lou's montblanc hike
-event_user15 = EventUser.create!(motivation: "Let's get to the top of the world!! I love hiking, this would be so much fun.", status: 2, user_id: user4.id, event_id: montblanc.id)
-event_user16 = EventUser.create!(motivation: "Hey there! I'm a huge fan of hiking and going up to the Mont Blanc is a great dream of mine", status: 1, user_id: user5.id, event_id: montblanc.id)
-event_user17 = EventUser.create!(motivation: "I would love to join there, this seems like so much fun.", status: 1, user_id: user6.id, event_id: montblanc.id)
-event_user18 = EventUser.create!(motivation: "I am the best hiker in the world, I want to be the captain there and make sure we get there fast.", status: 1, user_id: user15.id, event_id: montblanc.id)
+event_user15 = EventUser.create!(motivation: "Let's get to the top of the world!! I love hiking, this would be so much fun.", status: 0, user_id: user4.id, event_id: montblanc.id)
+event_user16 = EventUser.create!(motivation: "Hey there! I'm a huge fan of hiking and going up to the Mont Blanc is a great dream of mine", status: 0, user_id: user5.id, event_id: montblanc.id)
+event_user17 = EventUser.create!(motivation: "I would love to join there, this seems like so much fun.", status: 0, user_id: user6.id, event_id: montblanc.id)
+event_user18 = EventUser.create!(motivation: "I am literally the best hiker you'll ever meet. I'm better, faster, stronger than any other person on this app!", status: 0, user_id: user15.id, event_id: montblanc.id)
 
 # People applied(and accepted) to Lou's old event
-event_user19 = EventUser.create!(motivation: "Let's do this!", status: 2, user_id: user4.id, event_id: oldevent.id)
-event_user20 = EventUser.create!(motivation: "Hey that sounds awesome!", status: 2, user_id: user5.id, event_id: oldevent.id)
-event_user21 = EventUser.create!(motivation: "Please let me join!!", status: 2, user_id: user6.id, event_id: oldevent.id)
+event_user19 = EventUser.create!(motivation: "Let's do this!", status: 1, user_id: user4.id, event_id: oldevent.id)
+event_user20 = EventUser.create!(motivation: "Hey that sounds awesome!", status: 1, user_id: user5.id, event_id: oldevent.id)
+event_user21 = EventUser.create!(motivation: "Please let me join!!", status: 1, user_id: user6.id, event_id: oldevent.id)
+
+puts "David's old event"
+# People applied(and accepted) to David's old event
+event_user22 = EventUser.create!(motivation: "Woohoo!", status: 1, user_id: user10.id, event_id: oldeventdavid.id)
+event_user23 = EventUser.create!(motivation: "Let's do this, i love Canada!", status: 1, user_id: user13.id, event_id: oldeventdavid.id)
+event_user24 = EventUser.create!(motivation: "I would love that so much!!", status: 1, user_id: user14.id, event_id: oldeventdavid.id)
+event_user25 = EventUser.create!(motivation: "I love waterfalls, please let me join this!", status: 1, user_id: user16.id, event_id: oldeventdavid.id)
 
 # People applied (and accepted) to David's lanka challenge
 event_user100 = EventUser.create!(motivation: "Please let me join!!", status: 1, user_id: user3.id, event_id: lankachallenge.id)
@@ -247,9 +281,17 @@ event_user104 = EventUser.create!(motivation: "Please let me join!!", status: 1,
 event_user105 = EventUser.create!(motivation: "Please let me join!!", status: 1, user_id: user17.id, event_id: okuda.id)
 
 puts "5 - Let's create some reviews"
-review1 = Review.create!(content:"Amazing experience. That was so much fun!", rating: 5,user_id: user4.id, event_id: oldevent.id)
-review2 = Review.create!(content:"It was fun, but I wish the host warned us it would be so cold.", rating: 4, user_id:user5.id , event_id:oldevent.id)
-review3 = Review.create!(content:"Absolutely stunning!", rating: 5, user_id: user6.id, event_id: oldevent.id)
+
+# Reviews for David
+davidreview1 = Review.create!(content:"Going to Waterfalls with david was absolutely amazing. We are still in touch all the time and have become great friends!", rating: 5,user_id: user10.id, event_id: oldeventdavid.id)
+davidreview2 = Review.create!(content:"My first event on discomfort zone was with David, and it made me fall in love with Canada and with the app!", rating: 5, user_id:user13.id , event_id:oldeventdavid.id)
+davidreview3 = Review.create!(content:"Honestly one of the coolest experience of my life. Definitely going to say YES more often!", rating: 5, user_id: user14.id, event_id: oldeventdavid.id)
+davidreview4 = Review.create!(content:"David was a fantastic organizer but I thought the watefalls were a little bit underwhelming.", rating: 4, user_id: user16.id, event_id: oldeventdavid.id)
+
+# Reviews for Lou
+louisreview1 = Review.create!(content:"Amazing experience. That was so much fun!", rating: 5,user_id: user4.id, event_id: oldevent.id)
+louisreview2 = Review.create!(content:"It was fun, but I wish the host warned us it would be so cold.", rating: 4, user_id:user5.id , event_id:oldevent.id)
+louisreview3 = Review.create!(content:"Absolutely stunning!", rating: 5, user_id: user6.id, event_id: oldevent.id)
 
 
 puts "6 - Let's create some goals"
@@ -267,6 +309,9 @@ goallouis5 = Goal.create!(name: "Build Discomfort Zone and Present it", descript
 
 # Goals for Wolfgang (user5)
 goalwolfgang1 = Goal.create!(name: "Build and Present Discomfort Zone", description: "Together with my Le Wagon team, I want to build an app and present it on demo day!", user_id: user5.id, completed: false)
+goalwolfgang2 = Goal.create!(name: "Raise money for the Discomfort Zone app", description: "With my team, I want to further develop the app and launch it on the market", user_id: user5.id, completed: false)
+goalwolfgang3 = Goal.create!(name: "Go to Australia an take a selfie with a Kangoroo", description: "I need to pimp up my tinder profile and pics with animals are always a burner", user_id: user5.id, completed: false)
+goalwolfgang4 = Goal.create!(name: "Start a band", description: "As a guitar player, I've always dreamt of jamming with like-minded and produce own records", user_id: user5.id, completed: false)
 
 # Goals for Jonas (user 6)
 goaljonas1 = Goal.create!(name: "Present Discomfort Zone and celebrate", description: "Together with my Le Wagon team, I want to build an app and present it on demo day!", user_id: user6.id, completed: false)
