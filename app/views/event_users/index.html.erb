@@ -66,6 +66,11 @@
 
 
                  <div class="decision <%= event.event_users.find_by(user: current_user).status %>"><%= event.event_users.find_by(user: current_user).status.capitalize %></div>
+                 <!-- BTN FOR ADDING A NEW REVIEW, IT WILL APPEAR IF THE CURRENT DATE IS GREATER THAN THE END DATE OF EVENT"-->
+                 <% if (event.end_time) > Date.current do  %>
+                   <%= link_to "Add a review", new_event_review_path(event), class: "btn btn-cool-red" %>
+                 <% end %>
+                 <% end %>
       <!--             Add an if statement that if it is already liked, we display this (solid) heart : <i class="fas fa-heart"></i>
        -->      </div>
             <% end %>

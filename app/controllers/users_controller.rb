@@ -25,5 +25,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @goals = @user.goals
     authorize @user
+    @reviews = @user.received_reviews
   end
 end
