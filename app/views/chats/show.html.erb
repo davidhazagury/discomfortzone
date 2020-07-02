@@ -3,7 +3,7 @@
     <%= link_to event_path(@event) do %>
       <div class="go-back-wrapper">
         <i class="fas fa-caret-left"></i>
-        <h4><%= @event.title %></h4>
+        <h1><%= @event.title %></h1>
       </div>
     <% end %>
     <%  if !@event.messages.any? %>
