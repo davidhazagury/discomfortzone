@@ -4,7 +4,11 @@
   font-family: "Signika";
   font-weight: 100;
 }
-
+.dashboard-title {
+  font-size: 40px;
+  color: $purple-blue;
+  font-weight: 600;
+}
 .tab-menu {
   justify-content: space-around;
 }
