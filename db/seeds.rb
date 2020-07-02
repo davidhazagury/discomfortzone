@@ -184,7 +184,7 @@ montblanc.save!
 
 # OLD Event - Hosted by Lou
 oldevent_picture = URI.open('https://images.unsplash.com/photo-1552072804-d78dd1cb516f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80')
-oldevent = Event.new(title: "Hike in Zermatt", start_time: "2016-03-25 08:00", end_time: "2016-03-25 20:30", description:"Let's go walk in the beautfiul Swiss Mountains and take pictures in front of the Mattherhorn!", address: "Chamonix, France", capacity: 12, user_id: user3.id)
+oldevent = Event.new(title: "Hike in Zermatt", start_time: "2016-03-25 08:00", end_time: "2016-03-25 20:30", description:"Let's go walk in the beautfiul Swiss Mountains and take pictures in front of the Mattherhorn!", address: "Zermatt, Switzerland", capacity: 4, user_id: user3.id)
 oldevent.photo.attach(io: oldevent_picture, filename: 'oldevent.png', content_type: 'image/png')
 oldevent.save!
 
