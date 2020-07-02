@@ -146,6 +146,12 @@ randomcity = Event.new(title: "Travel to a Random City", start_time: "2020-08-28
 randomcity.photo.attach(io: randomcity_picture, filename: 'randomcity.png', content_type: 'image/png')
 randomcity.save!
 
+# OLD Event - Hosted by Lou
+oldevent_picture = URI.open('https://images.unsplash.com/photo-1552072804-d78dd1cb516f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80')
+oldevent = Event.new(title: "Hike in Zermatt", start_time: "2016-03-25 08:00", end_time: "2016-03-25 20:30", description:"Let's go walk in the beautfiul Swiss Mountains and take pictures in front of the Mattherhorn!", address: "Zermatt, Switzerland", capacity: 4, user_id: user3.id)
+oldevent.photo.attach(io: oldevent_picture, filename: 'oldevent.png', content_type: 'image/png')
+oldevent.save!
+
 # PARAGLIDING
 paragliding_pic = URI.open("https://res.cloudinary.com/dgsqurpio/image/upload/v1592991090/v4fg14hfhizujxdvucjw.jpg")
 paragliding = Event.new(title: "Paragliding",start_time: "2020-08-10 14:00", end_time: "2020-08-10 17:00", description: "Exhileration experience just floating through the air and through the clouds", address: "switzerland", capacity: 4, user_id: user6.id)
@@ -182,11 +188,6 @@ montblanc = Event.new(title: "Hike to the Mont Blanc", start_time: "2020-07-25 0
 montblanc.photo.attach(io: montblanc_picture, filename: 'montblanc.png', content_type: 'image/png')
 montblanc.save!
 
-# OLD Event - Hosted by Lou
-oldevent_picture = URI.open('https://images.unsplash.com/photo-1552072804-d78dd1cb516f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80')
-oldevent = Event.new(title: "Hike in Zermatt", start_time: "2016-03-25 08:00", end_time: "2016-03-25 20:30", description:"Let's go walk in the beautfiul Swiss Mountains and take pictures in front of the Mattherhorn!", address: "Zermatt, Switzerland", capacity: 4, user_id: user3.id)
-oldevent.photo.attach(io: oldevent_picture, filename: 'oldevent.png', content_type: 'image/png')
-oldevent.save!
 
 puts "4 - Let's match some users with some events (event_user)"
 # People applying to Jonas's bungee Jumps
