@@ -117,6 +117,24 @@ user17 = User.new(email: "zander@gmail.com", password: "1234567", first_name: "Z
 user17.photo.attach(io: zander_pic, filename: 'zander.png', content_type: 'image/png')
 user17.save!
 
+# User 101 - Gus de Vita
+gus_pic = URI.open ("https://res.cloudinary.com/wagon/image/upload/v1548256312/dzm39hglsvbqoowrgptf.jpg")
+user101 = User.new(email: "gus@gmail.com", password: "1234567", first_name: "Gus",last_name: 'De Vita', biography:"Bom dia!")
+user101.photo.attach(io: gus_pic, filename: 'gus.png', content_type: 'image/png')
+user101.save!
+
+# User 102 - Ellyn Bouscasse
+ellyn_pic = URI.open ("https://s3.amazonaws.com/f6s-public/profiles/1560584_original.jpg")
+user102 = User.new(email: "ellyn@gmail.com", password: "1234567", first_name: "Ellyn",last_name: 'Bouscasse', biography:"(H)elloooo Discomfort Zoners! Let's experience some adventures! Pow pow pow")
+user102.photo.attach(io: ellyn_pic, filename: 'ellyn.png', content_type: 'image/png')
+user102.save!
+
+# User 103 - Santi Sanchez
+santi_pic = URI.open ("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1554730769/p4iist1ushdoafevllr7.jpg")
+user103 = User.new(email: "santi@gmail.com", password: "1234567", first_name: "Santi",last_name: 'Sanchez', biography:"Wie gehts? Down for everything if it includes techno.")
+user103.photo.attach(io: santi_pic, filename: 'santi.png', content_type: 'image/png')
+user103.save!
+
 
 
 puts "3 - Let's create some events..."
@@ -265,6 +283,9 @@ goallouis5 = Goal.create!(name: "Build Discomfort Zone and Present it", descript
 
 # Goals for Wolfgang (user5)
 goalwolfgang1 = Goal.create!(name: "Build and Present Discomfort Zone", description: "Together with my Le Wagon team, I want to build an app and present it on demo day!", user_id: user5.id, completed: false)
+goalwolfgang2 = Goal.create!(name: "Raise money for the Discomfort Zone app", description: "With my team, I want to further develop the app and launch it on the market", user_id: user5.id, completed: false)
+goalwolfgang3 = Goal.create!(name: "Go to Australia an take a selfie with a Kangoroo", description: "I need to pimp up my tinder profile and pics with animals are always a burner", user_id: user5.id, completed: false)
+goalwolfgang4 = Goal.create!(name: "Start a band", description: "As a guitar player, I've always dreamt of jamming with like-minded and produce own records", user_id: user5.id, completed: false)
 
 # Goals for Jonas (user 6)
 goaljonas1 = Goal.create!(name: "Present Discomfort Zone and celebrate", description: "Together with my Le Wagon team, I want to build an app and present it on demo day!", user_id: user6.id, completed: false)

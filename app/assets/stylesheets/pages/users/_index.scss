@@ -48,9 +48,10 @@ a:hover{
 .host-avatar-no-picture {
   position: absolute;
   top: 15px;
-  left: 48px;
-  width: 70px;
-  height: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75px;
+  height: 75px;
 }
 
 p {
