@@ -59,7 +59,7 @@ user6.save!
 # User7: Barbara (random unsplash user)
 barbara_pic = URI.open ("https://images.unsplash.com/photo-1546422401-ae86d9d58b0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80")
 user7 = User.new(email: "barbara@gmail.com", password: "1234567", first_name: "Barbara",last_name: 'Polednova', biography:"Foodie, animal lover, fan of live concerts and beautufil weather.")
-user7.photo.attach(io: steve_pic, filename: 'steve.png', content_type: 'image/png')
+user7.photo.attach(io: barbara_pic, filename: 'barbara.png', content_type: 'image/png')
 user7.save!
 
 # User8: Paulo (random unsplash user)
@@ -135,7 +135,7 @@ skydiving.photo.attach(io: skydiving_picture, filename: 'spain.png', content_typ
 skydiving.save!
 
 # Bungee Jumping
-bungeejumping_picture = URI.open('https://images.unsplash.com/photo-1576599372775-95a24ce93abc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1001&q=80')
+bungeejumping_picture = URI.open('https://checkyeti.imgix.net/images/optimized/bungy-stockhorn_002_web-min1.jpg')
 bungeejumping = Event.new(title: "Bungee Jumping", start_time: "2020-08-06 16:00", end_time: "2020-08-06 18:00", description:"A state a complete free fall until an elastic cable saves your life. One of the greatest adrenaline rushes you'll ever experience. People with a fear of heights are recommended to join this one!", address: "Lausanne, Switzerland", capacity: 5, user_id: user6.id)
 bungeejumping.photo.attach(io: bungeejumping_picture, filename: 'bungee.png', content_type: 'image/png')
 bungeejumping.save!
@@ -182,6 +182,11 @@ montblanc = Event.new(title: "Hike to the Mont Blanc", start_time: "2020-07-25 0
 montblanc.photo.attach(io: montblanc_picture, filename: 'montblanc.png', content_type: 'image/png')
 montblanc.save!
 
+# OLD Event - Hosted by Lou
+oldevent_picture = URI.open('https://images.unsplash.com/photo-1552072804-d78dd1cb516f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80')
+oldevent = Event.new(title: "Hike in Zermatt", start_time: "2016-03-25 08:00", end_time: "2016-03-25 20:30", description:"Let's go walk in the beautfiul Swiss Mountains and take pictures in front of the Mattherhorn!", address: "Chamonix, France", capacity: 12, user_id: user3.id)
+oldevent.photo.attach(io: oldevent_picture, filename: 'oldevent.png', content_type: 'image/png')
+oldevent.save!
 
 puts "4 - Let's match some users with some events (event_user)"
 # People applying to Jonas's bungee Jumps
@@ -210,14 +215,19 @@ event_user16 = EventUser.create!(motivation: "Hey there! I'm a huge fan of hikin
 event_user17 = EventUser.create!(motivation: "I would love to join there, this seems like so much fun.", status: 1, user_id: user6.id, event_id: montblanc.id)
 event_user18 = EventUser.create!(motivation: "I am the best hiker in the world, I want to be the captain there and make sure we get there fast.", status: 1, user_id: user15.id, event_id: montblanc.id)
 
-puts "5 - Let´s create some reviews"
-review1 = Review.create!(content:"Amazing experience. We have to repeat!", rating: 5,user_id: user2.id, event_id: bungeejumping.id)
-review2 = Review.create!(content:"It was fun, but the host was a bit rude", rating: 2, user_id:user4.id , event_id:bungeejumping.id)
-review3 = Review.create!(content:"Super nice!", rating: 3, user_id: user4.id, event_id: paragliding.id)
-review4 = Review.create!(content:"Pow pow pow, Discomfort zone is amaaazing", rating: 4,user_id: user5.id, event_id: hiking.id)
-review5 = Review.create!(content:"Could´ve been better", rating: 2,user_id: user1.id, event_id: hiking.id)
+# People applied(and accepted) to Lou's old event
+event_user19 = EventUser.create!(motivation: "Let's do this!", status: 2, user_id: user4.id, event_id: oldevent.id)
+event_user20 = EventUser.create!(motivation: "Hey that sounds awesome!", status: 2, user_id: user5.id, event_id: oldevent.id)
+event_user21 = EventUser.create!(motivation: "Please let me join!!", status: 2, user_id: user6.id, event_id: oldevent.id)
 
-puts "5 - Let´s create some goals"
+
+puts "5 - Let's create some reviews"
+review1 = Review.create!(content:"Amazing experience. That was so much fun!", rating: 5,user_id: user4.id, event_id: oldevent.id)
+review2 = Review.create!(content:"It was fun, but I wish the host warned us it would be so cold.", rating: 4, user_id:user5.id , event_id:oldevent.id)
+review3 = Review.create!(content:"Absolutely stunning!", rating: 5, user_id: user6.id, event_id: oldevent.id)
+
+
+puts "6 - Let's create some goals"
 # Goals for David (user4)
 goaldavid1 = Goal.create!(name: "Jump off a plane", description: "I'm terrified of heights and this feels like the perfect thing to get out of my comfort zone", user_id: user4.id)
 goaldavid2 = Goal.create!(name: "Go to Paris", description: "This city feels so magical to me, and I've always dreamed to go there.", user_id: user4.id, completed: true)
@@ -236,5 +246,5 @@ goalwolfgang1 = Goal.create!(name: "Build and Present Discomfort Zone", descript
 # Goals for Jonas (user 6)
 goaljonas1 = Goal.create!(name: "Present Discomfort Zone and celebrate", description: "Together with my Le Wagon team, I want to build an app and present it on demo day!", user_id: user6.id, completed: false)
 
-puts "6 - FINITOOO"
+puts "7 - FINITOOO"
 
