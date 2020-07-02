@@ -1,10 +1,14 @@
 <div class="navbar mobile-navbar-top <%= 'fixed' if (controller_name == 'events' && action_name == 'show') %> <%= 'transparent-navbar position-fixed' if (controller_name == 'pages' && action_name == 'home') %>">
   <div class="container" style="padding-bottom: 0px;">
     <%= link_to root_path do %>
-      <div class="prettybrand d-flex align-items-center">
-          <h4 id="navbar-letter-d"style=";">D</h4>
-          <h4 id="navbar-letter-z"style="">Z</h4>
-      </div>
+      <% if (controller_name == 'pages' && action_name == 'home') %>
+        <div class="prettybrand d-flex align-items-center">
+            <h4 id="navbar-letter-d"style=";">D</h4>
+            <h4 id="navbar-letter-z"style="">Z</h4>
+        </div>
+      <% else %>
+          <%= image_tag "navbar_logo", alt: "logo", height: 35 %>
+      <% end %>
     <% end %>
     <!-- DROPDOWN BUTTON -->
 
