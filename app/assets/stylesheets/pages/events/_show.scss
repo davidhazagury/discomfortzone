@@ -17,10 +17,10 @@
   background-color:white;
   border-radius:25px 25px 0 0;
   width: 100%;
-  margin-top: 71%;
+  margin-top: 61%;
   padding:36px;
   text-align: left;
-      position: relative;
+  position: relative;
   .event-title {
     margin:0;
     width:319px;
@@ -91,6 +91,9 @@
   text-align: center;
   border-radius: 25px;
   box-shadow: 2px 2px 12px rgba(10,10,10,0.25);
+  .btn-cool-red {
+    margin-top: 10px;
+  }
   h4 {
     padding: 10px
   }

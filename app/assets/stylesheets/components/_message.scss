@@ -61,9 +61,6 @@
   }
 }
 
-
-
-
 .go-back-wrapper {
   display: flex;
   align-items: center;
@@ -77,6 +74,19 @@
     margin: 0;
     margin-left: 5px;
   }
+}
+
+#messages {
+  padding-bottom: 80px;
+}
+
+#new_message {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: white;
 }
 
 
