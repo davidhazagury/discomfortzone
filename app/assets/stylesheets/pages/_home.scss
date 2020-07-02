@@ -8,20 +8,34 @@ body {
   position: absolute;
   }
 }
-
-.position {
-  position: relative;
-  h1 {
-
-  }
-  h3 {
-
+.scrolling-wrapper {
+  .listed-events {
+    margin: 20px 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+   .event-card {
+     margin-right: 15px;
+     position: relative;
+     display: inline-block;
+     border-radius: 20px;
+     width: 316px;
+     height: 220px;
+     background-size: cover;
+     background-position: center;
+     text-shadow: 1px 0px 16px rgba(10,10,10,0.7);
+     box-shadow: 3px 4px 10px 3px rgba (40,40,40,0.3);
+     h6 {
+      color: white;
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      font-size: 21px;
+     }
+   }
   }
 }
 
-.box-flex {
-  display: flex;
-}
 
 .flex-footer {
   display: flex;
