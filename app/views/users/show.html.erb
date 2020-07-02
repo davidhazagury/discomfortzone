@@ -48,7 +48,7 @@
   </div>
 </div>
 <div class="user-listings">
-  <h4><%= @user.first_name.capitalize%>'s listings</h4>
+  <h5><%= @user.first_name.capitalize%>'s listings</h5>
   <% if @user.events.empty? %>
     <%= @user.first_name.capitalize + " hasn't listed an adventure yet" %>
   <% else  %>

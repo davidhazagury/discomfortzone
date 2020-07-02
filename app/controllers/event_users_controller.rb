@@ -6,7 +6,6 @@ class EventUsersController < ApplicationController
     @event_users = policy_scope(current_user.event_users)
     @owned_events = current_user.events
     @applied_events = current_user.applied_events
-
   end
 
   def create
