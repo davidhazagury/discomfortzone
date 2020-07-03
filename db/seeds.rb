@@ -52,7 +52,7 @@ user5.save!
 
 # User6: TheCodingJonas
 jonas_pic = URI.open ("https://res.cloudinary.com/dzevgses3/image/upload/v1593172342/jonas-profile.jpg")
-user6 = User.new(email: "jonas@gmail.com", password: "1234567", first_name: "Jonas", last_name:"Fuerstenberg", biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
+user6 = User.new(email: "jonas@gmail.com", password: "1234567", first_name: "Jonas", last_name:"Fuerstenberg", biography:"'A Stranger is just a friend you haven't met yet'- A lot of inspiration is based off this.. Otherwise always seeking new adventures and awesome experiences to grow from. Travelling through Australia for 3 months was the best time of my life. Although in gerneral I can't really complain. I tend to have a positive outlook on things:) INTO : SCUBA DIVING!! BIG TIME, Also an underwater photographer, but love other kinds of photography as well:) Into Rock-climbing, Tennis, nowadays also Yoga, Muay-Thai ...")
 user6.photo.attach(io: jonas_pic, filename: 'jonas.png', content_type: 'image/png')
 user6.save!
 
@@ -306,6 +306,13 @@ goallouis2 = Goal.create!(name: "Go to Egypt", description: "I'm very curious ab
 goallouis3 = Goal.create!(name: "Learn to Surf in Bali", description: "I really want to learn how to surf, and what better place to do it than Bali?", user_id: user3.id, completed: true)
 goallouis4 = Goal.create!(name: "Quit my Job and Learn how to Code", description: "I'm sick and tired of the same old repeating thing. I'm in dire need of a change of life. I'm thinking of quitting my job and enrolling into a bootcamp!", user_id: user3.id, completed: true)
 goallouis5 = Goal.create!(name: "Build Discomfort Zone and Present it", description: "Together with my Le Wagon team, I want to build an app and present it on demo day!", user_id: user3.id, completed: false)
+
+#Goals for Jonas (user 6)
+goaljonas2 = Goal.create!(name: "Travel through Australia", description: "Simply feel the freedom, vastness and awesomeness of Australia, one of the most beautiful places on this earth !!", user_id: user6.id, completed: true)
+goaljonas3 = Goal.create!(name: "Jump out of a frikin airplane", description: "Barely one minute of free-fall bliss, completed in Australia with one of my best friends", user_id: user6.id, completed: true)
+goaljonas4 = Goal.create!(name: "Dive at the Great barrier reef", description: "A whole 3 day trip, that includes sleeping aboard and diving 4 times a day. Some Amazing night-dives with gigantic seaturtles and sharks", user_id: user6.id, completed: true)
+goaljonas4 = Goal.create!(name: "Join a SurfCamp", description: "What can I say, Australia is simply the greatest place for it all", user_id: user6.id, completed: true)
+goaljonas6 = Goal.create!(name: "Travel to Paris", description: "L'amour est dans l'air.. At least that's what I heard. Have to go to Paris or even just France within mylifetime !! Maybe I can even freshen up mon vraiment terrible francais", user_id: user6.id, completed: false)
 
 # Goals for Wolfgang (user5)
 goalwolfgang1 = Goal.create!(name: "Build and Present Discomfort Zone", description: "Together with my Le Wagon team, I want to build an app and present it on demo day!", user_id: user5.id, completed: false)
