@@ -177,7 +177,7 @@ oldevent.save!
 
 # OLD Event - Hosted by David
 oldeventdavid_picture = URI.open('https://images.unsplash.com/photo-1439761414027-4f4ebeeda3a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
-oldeventdavid = Event.new(title: "Canadian Waterfall Visits", start_time: "2017-04-19 08:00", end_time: "2017-04-19 20:30", description:"Canada is such a beautiful place, and I'm looking for a bunch of people to join me discover some of its wonderful nature - especially its incredible waterfalls!", address: "Zermatt, Switzerland", capacity: 4, user_id: user3.id)
+oldeventdavid = Event.new(title: "Canadian Waterfall Visits", start_time: "2017-04-19 08:00", end_time: "2017-04-19 20:30", description:"Canada is such a beautiful place, and I'm looking for a bunch of people to join me discover some of its wonderful nature - especially its incredible waterfalls!", address: "Zermatt, Switzerland", capacity: 4, user_id: user4.id)
 oldeventdavid.photo.attach(io: oldeventdavid_picture, filename: 'oldeventdavid.png', content_type: 'image/png')
 oldeventdavid.save!
 
