@@ -46,7 +46,7 @@ user4.save!
 
 # User5: Wolfgang
 wolfgang_pic = URI.open('https://res.cloudinary.com/dr9jueds0/image/upload/v1593699840/26167890_10214660379000690_5028012495675837573_n.jpg_xvvs8t.jpg')
-user5 = User.new(email: "wolfgang@gmail.com", password: "1234567", first_name: "Wolfgang", last_name:"Alkier", biography:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis lobortis neque at varius. Aenean dictum ligula eu sodales pulvinar. Aliquam interdum lacus nec velit eleifend, in finibus nulla tempus.")
+user5 = User.new(email: "wolfgang@gmail.com", password: "1234567", first_name: "Wolfgang", last_name:"Alkier", biography:"Trying to get out of the comfort zone on a regular basis and in great varieties. Currently working as a software developer for one of the most promising MVP's of the decade. In love with tennis, electronic music and the ocean.")
 user5.photo.attach(io: wolfgang_pic, filename: 'wolfgang.png', content_type: 'image/png')
 user5.save!
 
