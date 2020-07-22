@@ -16,7 +16,7 @@ class EventUsersController < ApplicationController
     authorize @event_user
 
     if @event_user.save
-      redirect_to event_users_path
+      redirect_to event_users_path, notice: "You've succesfully applied"
     else
       flash[:alert] = @event_user.errors.full_messages.first
       redirect_to event_path(@event)
