@@ -146,26 +146,26 @@ puts "3 - Let's create some events..."
 
 # HIKING TRIP THAT LASTS 2 DAYS WITH A LONG DESCRIPTION
 rainbow_mountain = URI.open("https://images.unsplash.com/photo-1492133969098-09ba49699f47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80")
-hiking = Event.new(title: "Special Hike", start_time: "2020-08-10 12:00", end_time: "2020-08-12 18:00", description: "Early birds catches the worm and the best light in the world !! We are gonna enjoy the most beautiful landscape that vienna has to offer. Please be advised to bring proper equipment since the trip will be the whole weekend - that includes a Hiking backpack
+hiking = Event.new(title: "Special Hike", start_time: "2022-08-10 12:00", end_time: "2022-08-12 18:00", description: "Early birds catches the worm and the best light in the world !! We are gonna enjoy the most beautiful landscape that vienna has to offer. Please be advised to bring proper equipment since the trip will be the whole weekend - that includes a Hiking backpack
 Weather-appropriate clothing (think moisture-wicking and layers), Hiking boots or shoes, Plenty of food, Plenty of water, sleeping bag, some toold like a knife.. As the host I will bring a First-aid kit as I'm a trained medic. THIS IS A REAL OUTDOOR ADVENTURE, whoooo !!", address: "Vienna", capacity: 5, user_id: user6.id)
 hiking.photo.attach(io: rainbow_mountain, filename: 'rainbow_mountain.png', content_type: 'image/png')
 hiking.save!
 
 # Bungee Jumping
 bungeejumping_picture = URI.open('https://checkyeti.imgix.net/images/optimized/bungy-stockhorn_002_web-min1.jpg')
-bungeejumping = Event.new(title: "Bungee Jumping", start_time: "2020-08-06 16:00", end_time: "2020-08-06 18:00", description:"A state a complete free fall until an elastic cable saves your life. One of the greatest adrenaline rushes you'll ever experience. People with a fear of heights are recommended to join this one!", address: "Lausanne, Switzerland", capacity: 5, user_id: user6.id)
+bungeejumping = Event.new(title: "Bungee Jumping", start_time: "2022-08-06 16:00", end_time: "2022-08-06 18:00", description:"A state a complete free fall until an elastic cable saves your life. One of the greatest adrenaline rushes you'll ever experience. People with a fear of heights are recommended to join this one!", address: "Lausanne, Switzerland", capacity: 5, user_id: user6.id)
 bungeejumping.photo.attach(io: bungeejumping_picture, filename: 'bungee.png', content_type: 'image/png')
 bungeejumping.save!
 
 # Travelling to a Random City
 randomcity_picture = URI.open('https://images.unsplash.com/photo-1499591934245-40b55745b905?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2104&q=80')
-randomcity = Event.new(title: "Travel to a Random City", start_time: "2020-08-28 10:00", end_time: "2020-08-30 20:00", description:"Here's the plan: we throw a dart on a map, and we all fly there as a group. Fate will decide where our next adventure will take us!", address: "Lausanne, Switzerland", capacity: 5, user_id: user4.id)
+randomcity = Event.new(title: "Travel to a Random City", start_time: "2022-08-28 10:00", end_time: "2022-08-30 20:00", description:"Here's the plan: we throw a dart on a map, and we all fly there as a group. Fate will decide where our next adventure will take us!", address: "Lausanne, Switzerland", capacity: 5, user_id: user4.id)
 randomcity.photo.attach(io: randomcity_picture, filename: 'randomcity.png', content_type: 'image/png')
 randomcity.save!
 
 # Okuda art trip
 okuda_picture = URI.open("https://res.cloudinary.com/dgsqurpio/image/upload/v1593706982/29960089538_ec8c80740d_b_h6wqrp.jpg")
-okuda = Event.new(title: "Okuda Art Trip", start_time: "2020-08-10 12:00", end_time: "2020-09-12 18:00", description: "I've been following this artist for the last two years, and this idea came up to my mind the other day! I'm organizing a trip around the world to check his art out, we will be visiting Spain, Canada, Cuba, USA etc...", address: "Madrid, Spain", capacity: 5, user_id: sandra.id)
+okuda = Event.new(title: "Okuda Art Trip", start_time: "2022-08-10 12:00", end_time: "2022-09-12 18:00", description: "I've been following this artist for the last two years, and this idea came up to my mind the other day! I'm organizing a trip around the world to check his art out, we will be visiting Spain, Canada, Cuba, USA etc...", address: "Madrid, Spain", capacity: 5, user_id: sandra.id)
 okuda.photo.attach(io: okuda_picture, filename: 'okuda.png', content_type: 'image/png')
 okuda.save!
 
@@ -183,7 +183,7 @@ oldeventdavid.save!
 
 # PARAGLIDING
 paragliding_pic = URI.open("https://res.cloudinary.com/dgsqurpio/image/upload/v1592991090/v4fg14hfhizujxdvucjw.jpg")
-paragliding = Event.new(title: "Paragliding",start_time: "2020-08-10 14:00", end_time: "2020-08-10 17:00", description: "Exhileration experience just floating through the air and through the clouds", address: "switzerland", capacity: 4, user_id: user6.id)
+paragliding = Event.new(title: "Paragliding",start_time: "2022-08-10 14:00", end_time: "2022-08-10 17:00", description: "Exhileration experience just floating through the air and through the clouds", address: "switzerland", capacity: 4, user_id: user6.id)
 paragliding.photo.attach(io: paragliding_pic, filename: 'paragliding.png', content_type: 'image/png')
 paragliding.save!
 
@@ -195,37 +195,37 @@ coding.save!
 
 # Dive with the sharks - Hosted by Lou
 shark_picture = URI.open('https://images.unsplash.com/photo-1475372674317-8003c861cb6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80')
-shark = Event.new(title: "Dive with the sharks", start_time: "2020-11-28 10:00", end_time: "2020-11-28 20:00", description:"Let's embrace our biggest fears and go swim with these indimidating creatures. Adrenaline guaranteed!", address: "Bali, Indonesia", capacity: 10, user_id: user3.id)
+shark = Event.new(title: "Dive with the sharks", start_time: "2022-11-28 10:00", end_time: "2022-11-28 20:00", description:"Let's embrace our biggest fears and go swim with these indimidating creatures. Adrenaline guaranteed!", address: "Bali, Indonesia", capacity: 10, user_id: user3.id)
 shark.photo.attach(io: shark_picture, filename: 'shark.png', content_type: 'image/png')
 shark.save!
 
 # First time Wake Surfing - Hosted by Sasha
 firstwakeboard_picture = URI.open('https://images.unsplash.com/photo-1468850726958-63df2c33e0ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80')
-firstwakeboard = Event.new(title: "Let's learn how to Wakesurf!", start_time: "2020-08-12 10:00", end_time: "2020-08-12 12:30", description: "Wakesurfing looks incredibly fun and I'd love to learn it. Unfortunately, we need to be at least 4 on a boat to do it. Who wants to join me and try wakesurfing for the first time?!", address: "Lutry, Switzerland", capacity: 6, user_id: user16.id)
+firstwakeboard = Event.new(title: "Let's learn how to Wakesurf!", start_time: "2022-08-12 10:00", end_time: "2022-08-12 12:30", description: "Wakesurfing looks incredibly fun and I'd love to learn it. Unfortunately, we need to be at least 4 on a boat to do it. Who wants to join me and try wakesurfing for the first time?!", address: "Lutry, Switzerland", capacity: 6, user_id: user16.id)
 firstwakeboard.photo.attach(io: firstwakeboard_picture, filename: 'firstwakeboard.png', content_type: 'image/png')
 firstwakeboard.save!
 
 # skydiving
 skydiving_picture = URI.open('https://images.unsplash.com/photo-1483301563007-8d0161daa1d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80')
-skydiving = Event.new(title: "Skydiving", start_time: "2020-07-18 17:00", end_time: "2020-07-18 20:00", description: "I'm looking for some people to join me in this crazy adventure. I've never jumped out of a plane and none of my friends want to join me... Will you?", address: "Hong Kong", capacity: 8, user_id: user4.id)
+skydiving = Event.new(title: "Skydiving", start_time: "2022-07-18 17:00", end_time: "2022-07-18 20:00", description: "I'm looking for some people to join me in this crazy adventure. I've never jumped out of a plane and none of my friends want to join me... Will you?", address: "Hong Kong", capacity: 8, user_id: user4.id)
 skydiving.photo.attach(io: skydiving_picture, filename: 'spain.png', content_type: 'image/png')
 skydiving.save!
 
 # Dinner with strangers - Hosted by Wolfgang
 dinnerstranger_picture = URI.open('https://images.unsplash.com/photo-1547573854-74d2a71d0826?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80')
-dinnerstranger = Event.new(title: "Dinner with Strangers", start_time: "2020-09-15 19:00", end_time: "2020-09-15 20:30", description:"What better way to get to know people than to go in a massive blind date?! Let's meet up with complete strangers for dinner and meet fellow discomfort-zoners", address: "Pully, Switzerland", capacity: 10, user_id: user5.id)
+dinnerstranger = Event.new(title: "Dinner with Strangers", start_time: "2022-09-15 19:00", end_time: "2022-09-15 20:30", description:"What better way to get to know people than to go in a massive blind date?! Let's meet up with complete strangers for dinner and meet fellow discomfort-zoners", address: "Pully, Switzerland", capacity: 10, user_id: user5.id)
 dinnerstranger.photo.attach(io: dinnerstranger_picture, filename: 'dinnerstranger.png', content_type: 'image/png')
 dinnerstranger.save!
 
 # Hike on the Mont Blanc - Hosted by Lou
 montblanc_picture = URI.open('https://images.unsplash.com/photo-1521490188859-2bf9a6660b63?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80')
-montblanc = Event.new(title: "Hike to the Mont Blanc", start_time: "2020-07-25 08:00", end_time: "2020-07-25 20:30", description:"Don't get intimidated by the name, it's a very simple, yet beautiful hike that anyone can do. Just make sure to bring the appropriate equipment and you'll be just fine!", address: "Chamonix, France", capacity: 12, user_id: user3.id)
+montblanc = Event.new(title: "Hike to the Mont Blanc", start_time: "2022-07-25 08:00", end_time: "2022-07-25 20:30", description:"Don't get intimidated by the name, it's a very simple, yet beautiful hike that anyone can do. Just make sure to bring the appropriate equipment and you'll be just fine!", address: "Chamonix, France", capacity: 12, user_id: user3.id)
 montblanc.photo.attach(io: montblanc_picture, filename: 'montblanc.png', content_type: 'image/png')
 montblanc.save!
 
 # Tuk tuk race - Hosted by David
 lankachallenge_picture = URI.open('https://res.cloudinary.com/dgsqurpio/image/upload/v1593705027/DSC_0014_amccrt.jpg')
-lankachallenge = Event.new(title: "Lanka challenge", start_time: "2020-10-25 08:00", end_time: "2020-11-25 20:30", description:"Imagine being able to tell your mates that you travelled 1,000km around Sri Lanka. In a rickshaw. the ultimate road trip for those who like their travel fully-charged and no-holds-barred. Each day you’ll wake up, be told where you need
+lankachallenge = Event.new(title: "Lanka challenge", start_time: "2022-10-25 08:00", end_time: "2022-11-25 20:30", description:"Imagine being able to tell your mates that you travelled 1,000km around Sri Lanka. In a rickshaw. the ultimate road trip for those who like their travel fully-charged and no-holds-barred. Each day you’ll wake up, be told where you need
 to be by sundown, and get handed a list of challenges to complete along the way – the completion of which will see your team accrue points. The rest is up to you, you big legend.", address: "Minuwangoda, Sri Lanka", capacity: 4, user_id: user4.id)
 lankachallenge.photo.attach(io: lankachallenge_picture, filename: 'lankachallenge.png', content_type: 'image/png')
 lankachallenge.save!
